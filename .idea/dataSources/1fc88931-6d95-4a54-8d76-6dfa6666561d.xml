@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="userdatabase@localhost">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <ServerVersion>8.0.41</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="mysql">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="3" parent="1" name="information_schema">
+      <CollationName>utf8mb3_general_ci</CollationName>
+    </schema>
+    <schema id="4" parent="1" name="performance_schema">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="5" parent="1" name="sys">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="6" parent="1" name="userdatabase">
+      <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
+      <Current>1</Current>
+      <Grants>userdatabase|||Admin|hostname|ALTER|G
+userdatabase|||Admin|hostname|CREATE|G
+userdatabase|||Admin|hostname|CREATE VIEW|G
+userdatabase|||Admin|hostname|DELETE|G
+userdatabase|||Admin|hostname|DROP|G
+userdatabase|||Admin|hostname|INDEX|G
+userdatabase|||Admin|hostname|INSERT|G
+userdatabase|||Admin|hostname|REFERENCES|G
+userdatabase|||Admin|hostname|SELECT|G
+userdatabase|||Admin|hostname|SHOW VIEW|G
+userdatabase|||Admin|hostname|TRIGGER|G
+userdatabase|||Admin|hostname|UPDATE|G
+userdatabase|||Admin|hostname|grant option|G</Grants>
+      <LastIntrospectionLevel>3</LastIntrospectionLevel>
+      <LastIntrospectionLocalTimestamp>2025-04-16.20:19:17</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="7" parent="1" name="budget">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="8" parent="1" name="checklist">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="9" parent="1" name="project1">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="10" parent="1" name="basketball">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="11" parent="1" name="carshop">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="12" parent="1" name="project3spring2025">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="13" parent="1" name="finalguiproject">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <routine id="14" parent="6" name="ChangeUsername">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>394</SourceTextLength>
+    </routine>
+    <routine id="15" parent="6" name="DeleteUser">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>797</SourceTextLength>
+    </routine>
+    <routine id="16" parent="6" name="UpdateUser">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>655</SourceTextLength>
+    </routine>
+    <routine id="17" parent="6" name="changePassword">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>433</SourceTextLength>
+    </routine>
+    <routine id="18" parent="6" name="createUser">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>577</SourceTextLength>
+    </routine>
+    <routine id="19" parent="6" name="getID">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>86</SourceTextLength>
+    </routine>
+    <routine id="20" parent="6" name="getPasswordExpiration">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>192</SourceTextLength>
+    </routine>
+    <routine id="21" parent="6" name="getUID">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>70</SourceTextLength>
+    </routine>
+    <routine id="22" parent="6" name="getUserStatus">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>1272</SourceTextLength>
+    </routine>
+    <routine id="23" parent="6" name="manageUserStatus">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>320</SourceTextLength>
+    </routine>
+    <routine id="24" parent="6" name="updateExpirationTime">
+      <Definer>root@localhost</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>161</SourceTextLength>
+    </routine>
+    <table id="25" parent="6" name="passwordexpiration">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="26" parent="6" name="users">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <argument id="27" parent="14" name="p_salt">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="28" parent="14" name="p_newUsername">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="29" parent="14" name="p_oldUsername">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="30" parent="15" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="31" parent="15" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="32" parent="15" name="p_current_user">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="33" parent="16" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="34" parent="16" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="35" parent="16" name="p_group">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="36" parent="16" name="p_status">
+      <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="37" parent="17" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="38" parent="17" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="39" parent="17" name="p_newPassword">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="40" parent="18" name="p_name">
+      <Position>1</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </argument>
+    <argument id="41" parent="18" name="p_username">
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </argument>
+    <argument id="42" parent="18" name="p_password">
+      <Position>3</Position>
+      <StoredType>varchar(125)|0s</StoredType>
+    </argument>
+    <argument id="43" parent="18" name="p_group">
+      <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="44" parent="18" name="p_status">
+      <Position>5</Position>
+      <StoredType>enum(&apos;Enabled&apos;, &apos;Disabled&apos;)|0e</StoredType>
+    </argument>
+    <argument id="45" parent="18" name="p_salt">
+      <Position>6</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </argument>
+    <argument id="46" parent="18" name="p_expiration_time">
+      <Position>7</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </argument>
+    <argument id="47" parent="18" name="p_expires_after_days">
+      <Position>8</Position>
+      <StoredType>int|0s</StoredType>
+    </argument>
+    <argument id="48" parent="19" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="49" parent="19" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="50" parent="19" name="user_id">
+      <ArgumentDirection>O</ArgumentDirection>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </argument>
+    <argument id="51" parent="20" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="52" parent="20" name="p_password">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="53" parent="21" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="54" parent="21" name="p_password">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="55" parent="21" name="user_id">
+      <ArgumentDirection>O</ArgumentDirection>
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </argument>
+    <argument id="56" parent="22" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="57" parent="22" name="p_identifier">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="58" parent="23" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="59" parent="23" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="60" parent="23" name="new_status">
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="61" parent="24" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="62" parent="24" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="63" parent="24" name="time">
+      <Position>3</Position>
+      <StoredType>int|0s</StoredType>
+    </argument>
+    <check id="64" parent="25" name="chk_passwordexpiration_and_nextchange_required">
+      <Predicate>((`userID` in (1,2,3)) and (`expires_after_days` is null) and (`nextChangeDate` is null)) or ((`userID` not in (1,2,3)) and (`expires_after_days` is not null) and (`nextChangeDate` is not null))</Predicate>
+    </check>
+    <check id="65" parent="25" name="chk_passwordexpiration_required">
+      <Predicate>((`userID` in (1,2,3)) and (`expires_after_days` is null)) or ((`userID` not in (1,2,3)) and (`expires_after_days` is not null))</Predicate>
+    </check>
+    <column id="66" parent="25" name="userID">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="67" parent="25" name="password">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="68" parent="25" name="lastChangedDate">
+      <Position>3</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="69" parent="25" name="expires_after_days">
+      <Position>4</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="70" parent="25" name="nextChangeDate">
+      <ColumnKind>generated-stored</ColumnKind>
+      <DefaultExpression>(`lastChangedDate` + interval `expires_after_days` day)</DefaultExpression>
+      <Position>5</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <foreign-key id="71" parent="25" name="passwordexpiration_ibfk_1">
+      <ColNames>userID</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <index id="72" parent="25" name="userID">
+      <ColNames>userID</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="73" parent="25" name="password">
+      <ColNames>password</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="74" parent="25" name="userID">
+      <UnderlyingIndexName>userID</UnderlyingIndexName>
+    </key>
+    <key id="75" parent="25" name="password">
+      <UnderlyingIndexName>password</UnderlyingIndexName>
+    </key>
+    <column id="76" parent="26" name="id">
+      <AutoIncrement>95869275</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="77" parent="26" name="name">
+      <Position>2</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="78" parent="26" name="username">
+      <Position>3</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="79" parent="26" name="password">
+      <Position>4</Position>
+      <StoredType>varchar(125)|0s</StoredType>
+    </column>
+    <column id="80" parent="26" name="group">
+      <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="81" parent="26" name="status">
+      <DefaultExpression>&apos;Enabled&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>enum(&apos;Enabled&apos;, &apos;Disabled&apos;)|0e</StoredType>
+    </column>
+    <column id="82" parent="26" name="last_login">
+      <Position>7</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="83" parent="26" name="salt">
+      <Position>8</Position>
+      <StoredType>varchar(32)|0s</StoredType>
+    </column>
+    <column id="84" parent="26" name="expiration_time">
+      <Position>9</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <index id="85" parent="26" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="86" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+tasks.processResources {
+    exclude '**/*.lck'
+}
+
+dependencies {
+    implementation 'org.openjfx:javafx-controls:21'
+    implementation 'org.openjfx:javafx-fxml:21'
+    implementation 'mysql:mysql-connector-java:8.0.29'  // MySQL JDBC Driver
+}
+
+javafx {
+    version = "21"  // JavaFX version
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+application {
+    mainClass.set('com.awesomeshot5051.Main')  // Main entry point class
+}
+
+// Register task for running MainScreen class
+tasks.register("runMainScreen", JavaExec) {
+    group = "application"
+    description = "Runs the MainScreen class as a JVM application."
+    mainClass.set("com.awesomeshot5051.separatedFiles.MainScreen")  // Set the main class to MainScreen
+    classpath = sourceSets.main.runtimeClasspath  // Set the classpath to the main runtime classpath
+}
+
