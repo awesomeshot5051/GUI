@@ -146,7 +146,6 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
-
     public static Stage getStage() {
         return primaryStage;
     }
