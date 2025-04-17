@@ -1,15 +1,15 @@
 package com.awesomeshot5051;
 
-import com.awesomeshot5051.separatedFiles.*;
-import javafx.application.*;
-import javafx.geometry.*;
-import javafx.scene.*;
+import com.awesomeshot5051.separatedFiles.PasswordHasher;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import java.io.*;
-import java.sql.*;
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class PasswordHasherGUI extends Application {
 
@@ -21,6 +21,8 @@ public class PasswordHasherGUI extends Application {
 
         Label usernameLabel = new Label("Enter Username (for existing salt):");
         TextField usernameField = new TextField();
+        Label nameLabel = new Label("Name(For existing salt): ");
+        TextField nameField = new TextField();
 
         // Create radio buttons and toggle group
         RadioButton existingSaltRadio = new RadioButton("Generate password hash using existing salt");
@@ -49,7 +51,7 @@ public class PasswordHasherGUI extends Application {
                 }
             } else if (newSaltRadio.isSelected()) {
                 String hashedPassword = hasher.generateSaltedHashedPassword();
-                String newSalt = hasher.getSalt();
+                String newSalt = hasher.generateRandomSalt();
                 System.out.println("Salt: " + newSalt);
                 System.out.println("Hashed Password: " + hashedPassword);
             }

@@ -41,5 +41,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/src/main/resources/logs/log.txt.lck
-/src/main/resources/logs/log.txt
+/src/main/resources/logs/

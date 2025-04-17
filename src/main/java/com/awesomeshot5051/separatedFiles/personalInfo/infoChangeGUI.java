@@ -89,7 +89,7 @@ public class infoChangeGUI {
             String username = SessionManager.getUsername();
             if (SessionManager.getConnection() == null) {
                 PasswordHasher newPasswordHasher = new PasswordHasher(newPassword);
-                new ChangeLoginInfo(Main.getConnection()).changePassword(new PasswordHasher(oldPassword).getHashedPassword(), newPasswordHasher.hashPassword() + newPasswordHasher.getSalt());
+                new ChangeLoginInfo(Main.getConnection()).changePassword(new PasswordHasher(oldPassword).getHashedPassword(), newPasswordHasher.hashPassword() + newPasswordHasher.getSalt(username));
                 stage.close();
             } else {
                 if (validateOldPassword(username, oldPassword)) {

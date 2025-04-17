@@ -1,9 +1,12 @@
 package com.awesomeshot5051.separatedFiles.userValidation;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.PasswordHasher;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CredentialChecker {
 
@@ -29,7 +32,7 @@ public class CredentialChecker {
 
     public boolean validateCredentials(String username, String hashedPassword) throws SQLException {
         PasswordHasher passwordHasher = new PasswordHasher(hashedPassword);
-        return checkCredentials(username, passwordHasher.getUnsaltedHashedPassword() + passwordHasher.getSalt(username));
+        return checkCredentials(username, passwordHasher.getFullyHashedPassword(username));
     }
 
 }

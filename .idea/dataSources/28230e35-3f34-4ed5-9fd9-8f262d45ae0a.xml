@@ -1255,7 +1255,7 @@ javaguidbhosting_userdatabase|schema||409644||grant option|G</Grants>
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
-      <SourceTextLength>577</SourceTextLength>
+      <SourceTextLength>811</SourceTextLength>
     </routine>
     <routine id="516" parent="509" name="getID">
       <Definer>409644@%</Definer>
@@ -1496,7 +1496,7 @@ javaguidbhosting_userdatabase|schema||409644||grant option|G</Grants>
       <UnderlyingIndexName>password</UnderlyingIndexName>
     </key>
     <column id="571" parent="523" name="id">
-      <AutoIncrement>95869280</AutoIncrement>
+      <AutoIncrement>95869281</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
@@ -1506,6 +1506,7 @@ javaguidbhosting_userdatabase|schema||409644||grant option|G</Grants>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
     <column id="573" parent="523" name="username">
+      <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
@@ -1540,24 +1541,32 @@ javaguidbhosting_userdatabase|schema||409644||grant option|G</Grants>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="581" parent="523" name="PRIMARY">
+    <index id="581" parent="523" name="username">
+      <ColNames>username</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="582" parent="523" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <trigger id="582" parent="523" name="before_user_insert">
+    <key id="583" parent="523" name="username">
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <trigger id="584" parent="523" name="before_user_insert">
       <Definer>409644@%</Definer>
       <Events>I</Events>
       <SourceTextLength>344</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <trigger id="583" parent="523" name="before_user_update">
+    <trigger id="585" parent="523" name="before_user_update">
       <Definer>409644@%</Definer>
       <Events>U</Events>
       <SourceTextLength>435</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <trigger id="584" parent="523" name="before_user_delete">
+    <trigger id="586" parent="523" name="before_user_delete">
       <Definer>409644@%</Definer>
       <Events>D</Events>
       <SourceTextLength>67</SourceTextLength>

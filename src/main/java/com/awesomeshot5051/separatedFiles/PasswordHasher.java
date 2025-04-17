@@ -1,13 +1,17 @@
 package com.awesomeshot5051.separatedFiles;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.session.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
 
-import javax.swing.*;
-import java.nio.charset.*;
-import java.security.*;
-import java.sql.*;
-import java.util.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 public class PasswordHasher {
     public String password;
@@ -17,8 +21,8 @@ public class PasswordHasher {
 
     public PasswordHasher(String password) {
         this.password = password;
-        hashedPassword = hashPassword(password);
         this.connection = Main.getConnection();
+        hashedPassword = hashPassword(password);
     }
 
     public PasswordHasher() {
@@ -27,6 +31,10 @@ public class PasswordHasher {
 
     public String getHashedPassword() {
         return hashedPassword;
+    }
+
+    public String getFullyHashedPassword(String username) {
+        return hashPassword(password) + getSalt(username);
     }
 
     public String hashPassword(String password) {
@@ -118,12 +126,13 @@ public class PasswordHasher {
                 existingSalt = resultSet.getString("salt");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "An error occured\nError code " + Arrays.toString(e.getStackTrace()),
-                    "Failed",
-                    JOptionPane.ERROR_MESSAGE
-            );
+//            JOptionPane.showMessageDialog(
+//                    null,
+//                    "An error occured\nError code " + Arrays.toString(e.getStackTrace()),
+//                    "Failed",
+//                    JOptionPane.ERROR_MESSAGE
+//            );
+            e.printStackTrace();
         }
         return existingSalt;
     }

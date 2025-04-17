@@ -1,13 +1,14 @@
 package com.awesomeshot5051.separatedFiles.dashboards;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import com.awesomeshot5051.separatedFiles.userManagement.*;
-import javafx.geometry.*;
-import javafx.scene.*;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.MainScreen;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import com.awesomeshot5051.separatedFiles.userManagement.CreateUser;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 public class DefaultDashboard implements MainScreen.DashboardScreen {
 
@@ -18,7 +19,9 @@ public class DefaultDashboard implements MainScreen.DashboardScreen {
 
         Label welcome = new Label("Welcome, Default User!");
         Button createUserButton = new Button("Create Users(1 Allowed)");
-        createUserButton.setOnAction(e -> new CreateUser(Main.getStage()));
+        createUserButton.setOnAction(e -> {
+            new CreateUser(Main.getStage());
+        });
 
         Button logoutButton = getLogoutButton();
 

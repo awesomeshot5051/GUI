@@ -2,6 +2,9 @@ package com.awesomeshot5051.separatedFiles.userManagement;
 
 import com.awesomeshot5051.Main;
 import com.awesomeshot5051.separatedFiles.PasswordHasher;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
+import com.awesomeshot5051.separatedFiles.group.DefaultIGroup;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -85,8 +88,17 @@ public class CreateUser {
                 return;
             }
 
-            createUserInDatabase(username, fullName, groupType, status, password);
-            dialog.close();
+            boolean success = createUserInDatabase(fullName, username, groupType, status, password);
+
+            if (success) {
+                dialog.close();
+                if (SessionManager.getGroupType() instanceof DefaultIGroup) {
+                    new ManageUserStatus().setUserStatus(SessionManager.getUser(), "Disabled");
+                    DefaultAccountChecker.markDefaultAccountUsed();
+                    Main.getStage().close();
+                    new Main().loginScreen();
+                }
+            }
         });
 
         Button cancelButton = new Button("Cancel");
@@ -112,26 +124,29 @@ public class CreateUser {
         dialog.showAndWait();
     }
 
-
-    private void createUserInDatabase(String name, String username, String groupType, String status, String password) {
+    private boolean createUserInDatabase(String name, String username, String groupType, String status, String password) {
         PasswordHasher hasher = new PasswordHasher(password);
-        String saltedHashedPassword = hasher.generateSaltedHashedPassword(); // Generates both salt & hash
-        String salt = hasher.getSalt(); // Retrieves the generated salt
+        String saltedHashedPassword = hasher.generateSaltedHashedPassword();
+        String salt = hasher.getSalt(username);
 
         try (PreparedStatement stmt = connection.prepareStatement("CALL createUser(?, ?, ?, ?, ?, ?, ?, ?)")) {
-            stmt.setString(1, name);                   // p_name
-            stmt.setString(2, username);               // p_username
-            stmt.setString(3, saltedHashedPassword);   // p_password
-            stmt.setString(4, groupType);              // p_group
-            stmt.setString(5, status);                 // p_status
-            stmt.setString(6, salt);                   // p_salt
-            stmt.setString(7, null);                   // p_expiration_time (assuming null is acceptable)
-            stmt.setInt(8, 90);                        // p_expires_after_days (set to 90 days, adjust as needed)
+            stmt.setString(1, name);
+            stmt.setString(2, username);
+            stmt.setString(3, saltedHashedPassword);
+            stmt.setString(4, groupType);
+            stmt.setString(5, status);
+            stmt.setString(6, salt);
+            stmt.setString(7, null);
+            stmt.setInt(8, 90);
 
             stmt.executeUpdate();
-            showAlert(Alert.AlertType.INFORMATION, "Success", "User created successfully.");
+            if (SessionManager.getGroupType() instanceof DefaultIGroup) {
+                showAlert(Alert.AlertType.INFORMATION, "Success", "User created successfully.\nYou will be logged out and this account will be disabled\nUse your new credentials to log in again.");
+            } else showAlert(Alert.AlertType.INFORMATION, "Success", "User created successfully.");
+            return true;
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to create user: " + e.getMessage());
+            return false;
         }
     }
 
@@ -140,26 +155,20 @@ public class CreateUser {
         alert.setTitle(title);
         alert.setHeaderText(null);
 
-        // Create a scrollable, non-editable TextArea for the message
         TextArea textArea = new TextArea(message);
         textArea.setEditable(false);
         textArea.setWrapText(true);
-
         textArea.setMaxWidth(Double.MAX_VALUE);
         textArea.setMaxHeight(Double.MAX_VALUE);
         GridPane.setVgrow(textArea, Priority.ALWAYS);
         GridPane.setHgrow(textArea, Priority.ALWAYS);
 
-        // Put the TextArea in a GridPane for scaling
         GridPane content = new GridPane();
         content.setMaxWidth(Double.MAX_VALUE);
         content.add(textArea, 0, 0);
 
         alert.getDialogPane().setContent(content);
-        alert.getDialogPane().setPrefSize(600, 400); // Optional: set default size
-
+        alert.getDialogPane().setPrefSize(600, 400);
         alert.showAndWait();
     }
-
-
 }

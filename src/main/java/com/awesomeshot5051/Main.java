@@ -4,6 +4,7 @@ import com.awesomeshot5051.separatedFiles.IconFinder;
 import com.awesomeshot5051.separatedFiles.MainScreen;
 import com.awesomeshot5051.separatedFiles.PasswordHasher;
 import com.awesomeshot5051.separatedFiles.UserValues;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
 import com.awesomeshot5051.separatedFiles.logs.logger;
 import com.awesomeshot5051.separatedFiles.personalInfo.infoChangeGUI;
 import com.awesomeshot5051.separatedFiles.session.SessionManager;
@@ -51,19 +52,19 @@ public class Main extends Application {
 
     // Main method
     public static void main(String[] args) throws IOException {
-        serverPassword = new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\password.txt")));
+        serverPassword = new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\guestPassword.txt")));
         launch(Main.class, args); // This starts the JavaFX application
     }
 
     // Connect to the MySQL database
     public void connectToDatabase() throws SQLException {
         String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase";
-        connection = DriverManager.getConnection(url, "409644", serverPassword);
+        connection = DriverManager.getConnection(url, "409644_guest", serverPassword);
     }
 
     public void connectToDatabase(String filePath) throws SQLException, IOException {
         String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase";
-        connection = DriverManager.getConnection(url, "409644", new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\password.txt"))));
+        connection = DriverManager.getConnection(url, "409644_guest", new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\guestPassword.txt"))));
     }
 
     // Setup the login screen
@@ -161,6 +162,7 @@ public class Main extends Application {
         } else {
             LOGGER.warning("Icon not found by IconFinder.");
         }
+        DefaultAccountChecker.checkAndNotifyIfDefaultNeeded();
         loginScreen(); // Show the login screen
     }
 }

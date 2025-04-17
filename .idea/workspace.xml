@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Initial Commit" />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Initial Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/PasswordHasherGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/PasswordHasherGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/PasswordHasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/PasswordHasher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/DefaultDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/DefaultDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/ManageUserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/ManageUserStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userValidation/CredentialChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userValidation/CredentialChecker.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +70,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/awesomeshot5051/GUI.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/awesomeshot5051/GUI/&quot;,
     &quot;accountId&quot;: &quot;60bd4188-d84b-48b0-a76e-67e17ceb7bf4&quot;
   }
 }</component>
@@ -82,21 +94,24 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build GUI.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
     "Gradle.GUI.executor": "Run",
     "Gradle.GUI::GUI [:Main.main()].executor": "Run",
     "Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor": "Run",
-    "Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor": "Debug",
     "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor": "Debug",
-    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor": "Debug",
     "Gradle.GUI::GUI [:separatedFiles:model].executor": "Run",
     "Gradle.GUI::GUI [:separatedFiles:tasks].executor": "Run",
     "Gradle.GUI::GUI [Prototype].executor": "Run",
     "Gradle.GUI::GUI [run2].executor": "Run",
     "Gradle.GUI::GUI [runMainScreen].executor": "Run",
-    "Gradle.GUI::GUI [run].executor": "Run",
+    "Gradle.GUI::GUI [run].executor": "Debug",
     "Gradle.GUI::GUI [startScripts].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -154,7 +169,7 @@
     <configuration name="PasswordHasher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.separatedFiles.PasswordHasher" />
       <module name="GUI.main" />
-      <option name="WORKING_DIRECTORY" value="D:GUI/src/main/java/com/awesomeshot5051/separatedFiles" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.awesomeshot5051.separatedFiles.systemConfiguration.database.*" />
@@ -169,7 +184,7 @@
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.PasswordHasherGUI" />
       <module name="GUI.main" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-21.0.6\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <option name="WORKING_DIRECTORY" value="D:GUI/src/main/java/com/awesomeshot5051/separatedFiles" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.awesomeshot5051.*" />
@@ -307,7 +322,9 @@
       <workItem from="1744834455640" duration="4593000" />
       <workItem from="1744844528692" duration="1163000" />
       <workItem from="1744900159601" duration="5118000" />
-      <workItem from="1744906866385" duration="41000" />
+      <workItem from="1744906866385" duration="408000" />
+      <workItem from="1744907290932" duration="21000" />
+      <workItem from="1744910806854" duration="5037000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -333,7 +350,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744906572662</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1744907017044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744907017044</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1744907057326</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744907057326</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,42 +395,6 @@
     </ignored-roots>
     <MESSAGE value="Initial Commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogClearer.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/session/SessionManager.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/GetPasswordExpiration.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/GetPasswordExpiration.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
