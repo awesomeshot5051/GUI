@@ -1,36 +1,41 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id("org.javamodularity.moduleplugin") version "1.8.12"
+    id("org.openjfx.javafxplugin") version "0.0.13"
+    id('com.github.johnrengelman.shadow') version '8.1.1' // For fat JAR
 }
 
 repositories {
     mavenCentral()
 }
+
 tasks.processResources {
     exclude '**/*.lck'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.awesomeshot5051.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 dependencies {
     implementation 'org.openjfx:javafx-controls:21'
     implementation 'org.openjfx:javafx-fxml:21'
     implementation 'mysql:mysql-connector-java:8.0.29'  // MySQL JDBC Driver
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
 }
 
 javafx {
     version = "21"  // JavaFX version
     modules = ['javafx.controls', 'javafx.fxml']
 }
-
+mainClassName = 'com.awesomeshot5051.Launcher'
 application {
-    mainClass.set('com.awesomeshot5051.Main')  // Main entry point class
+    mainClass.set('com.awesomeshot5051.Launcher')  // Main entry point class
 }
-
-// Register task for running MainScreen class
-tasks.register("runMainScreen", JavaExec) {
-    group = "application"
-    description = "Runs the MainScreen class as a JVM application."
-    mainClass.set("com.awesomeshot5051.separatedFiles.MainScreen")  // Set the main class to MainScreen
-    classpath = sourceSets.main.runtimeClasspath  // Set the classpath to the main runtime classpath
-}
-

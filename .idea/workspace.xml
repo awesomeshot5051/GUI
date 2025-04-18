@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Initial Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/PasswordHasherGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/PasswordHasherGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/PasswordHasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/PasswordHasher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/DefaultDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/DefaultDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/ManageUserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/ManageUserStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userValidation/CredentialChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userValidation/CredentialChecker.java" afterDir="false" />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added auto-enabling of the Default Admin Account">
+      <change beforePath="D:GUI/.idea/workspace.xml" beforeDir="false" afterPath="D:GUI/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="D:GUI/build.gradle" beforeDir="false" afterPath="D:GUI/build.gradle" afterDir="false" />
+      <change beforePath="D:GUI/src/main/java/com/awesomeshot5051/Launcher.java" beforeDir="false" afterPath="D:GUI/src/main/java/com/awesomeshot5051/Launcher.java" afterDir="false" />
+      <change beforePath="D:GUI/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="D:GUI/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +33,23 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="GUI" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="GUI" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="GUI" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="GUI" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -60,7 +70,7 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="D:/GUI" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -68,17 +78,17 @@
     &quot;assignee&quot;: &quot;awesomeshot5051&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/awesomeshot5051/GUI/&quot;,
-    &quot;accountId&quot;: &quot;60bd4188-d84b-48b0-a76e-67e17ceb7bf4&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/awesomeshot5051/GUI/",
+    "accountId": "d125ac74-9389-4b3b-91dc-3cb5307b4960"
   }
-}</component>
+}]]></component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -91,66 +101,100 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build GUI.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.GUI.executor": "Run",
-    "Gradle.GUI::GUI [:Main.main()].executor": "Run",
-    "Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor": "Run",
-    "Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor": "Debug",
-    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor": "Debug",
-    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor": "Debug",
-    "Gradle.GUI::GUI [:separatedFiles:model].executor": "Run",
-    "Gradle.GUI::GUI [:separatedFiles:tasks].executor": "Run",
-    "Gradle.GUI::GUI [Prototype].executor": "Run",
-    "Gradle.GUI::GUI [run2].executor": "Run",
-    "Gradle.GUI::GUI [runMainScreen].executor": "Run",
-    "Gradle.GUI::GUI [run].executor": "Debug",
-    "Gradle.GUI::GUI [startScripts].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/GUI",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build GUI.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI [clean jlink].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI [clean jpackage].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI [jpackage \&quot;-Djavafx.platform=win\&quot;].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI [jpackage].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI [package \&quot;-Djavafx.platform=win\&quot;].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Launcher.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.GUI::GUI [:separatedFiles:model].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [:separatedFiles:tasks].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [Prototype].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [jar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [run2].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [runMainScreen].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [run].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.GUI::GUI [shadowJar].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [startScripts].executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [javafx:jlink].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GUI/src/main/resources/icon&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GUI\src\main\resources\icon" />
+      <recent name="D:\GUI\target" />
       <recent name="D:\GUI\src\main\resources\log" />
       <recent name="D:\GUI\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GUI\target" />
       <recent name="D:\GUI\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GUI::GUI [run]">
-    <configuration name="IconFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.separatedFiles.IconFinder" />
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn javafx:jlink" />
+      <command value="gradle clean jlink" />
+      <command value="./gradlew jpackage " />
+      <command value="./gradlew clean jpackage " />
+      <command value="jpackage --input target/ \   --name LoginGUI \   --main-jar GUI.jar \   --main-class com.awesomeshot5051.Main \   --type dmg \   --java-options '--enable-preview'" />
+      <command value="jpackage --input target/  --name LoginGUI \   --main-jar GUI.jar \   --main-class com.awesomeshot5051.Main \   --type dmg \   --java-options '--enable-preview'" />
+      <command value="jpackage --input target/   --name LoginGUI \   --main-jar GUI.jar \   --main-class com.awesomeshot5051.Main \   --type dmg \   --java-options '--enable-preview'" />
+      <command value="jpackage --input target  --name LoginGUI \   --main-jar GUI.jar \   --main-class com.awesomeshot5051.Main \   --type dmg \   --java-options '--enable-preview'" />
+      <command value="jpackage --input target  --name LoginGUI --main-jar GUI.jar  --main-class com.awesomeshot5051.Main \   --type dmg \   --java-options '--enable-preview'" />
+      <command value="jpackage --input target  --name LoginGUI --main-jar GUI.jar  --main-class com.awesomeshot5051.Main --type exe --java-options '--enable-preview'" />
+      <command value="gradle package &quot;-Djavafx.platform=win&quot;" />
+      <command value="gradle jpackage &quot;-Djavafx.platform=win&quot;" />
+      <command value="gradlew shadowJar " />
+      <command value="jpackage ^   --type exe ^   --name &quot;LoginGUI&quot; ^   --vendor &quot;awesomeshot5051&quot; ^   --app-version 1.0 ^   --input &quot;target&quot; ^   --dest &quot;target&quot; ^   --main-jar &quot;GUI.jar&quot; ^   --icon &quot;target\LoginGUI.ico&quot; ^   --module-path &quot;C:\Program Files\Java\javafx-jmods-21.0.1&quot; ^   --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics ^   --win-shortcut ^   --win-menu ^   --main-class com.awesomeshot5051.Main " />
+      <command value="jpackage --type exe --name &quot;LoginGUI&quot; --vendor &quot;awesomeshot5051&quot; --app-version 1.0 --input &quot;target&quot; --dest &quot;target&quot; --main-jar &quot;GUI.jar&quot; --icon &quot;target/LoginGUI.ico&quot; --module-path &quot;C:\Program Files\Java\javafx-jmods-21.0.1&quot; --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics --win-shortcut --win-menu --main-class com.awesomeshot5051.Main " />
+      <command value="jpackage --type exe --name &quot;LoginGUI&quot; --vendor &quot;awesomeshot5051&quot; --app-version 1.0 --input &quot;target&quot; --dest &quot;target&quot; --main-jar &quot;GUI.jar&quot; --icon &quot;target/ETIcon.ico&quot; --module-path &quot;C:\Program Files\Java\javafx-jmods-21.0.1&quot; --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics --win-shortcut --win-menu --main-class com.awesomeshot5051.Main " />
+      <command value="jpackage --type exe --name LoginGUI --input build/libs --main-jar GUI.jar --main-class com.awesomeshot5051.Main --dest out --java-options &quot;--enable-preview&quot; --icon /target/ETIcon.ico" />
+      <command value="jpackage --type exe --name LoginGUI --input build/libs --main-jar GUI.jar --main-class com.awesomeshot5051.Main --dest out --java-options &quot;--enable-preview&quot; --icon D:\GUI\src\main\resources\icon\ETIcon.ico" />
+      <command value="jpackage --type exe --name LoginGUI --input build/libs --main-jar GUI.jar --main-class com.awesomeshot5051.Main --dest out --java-options &quot;--enable-preview&quot; " />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.GUI::GUI [shadowJar] (1)">
+    <configuration name="Launcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.Launcher" />
       <module name="GUI.main" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.awesomeshot5051.separatedFiles.userValidation.*" />
+          <option name="PATTERN" value="com.awesomeshot5051.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,7 +213,7 @@
     <configuration name="PasswordHasher" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.separatedFiles.PasswordHasher" />
       <module name="GUI.main" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles" />
+      <option name="WORKING_DIRECTORY" value="D:GUI/src/main/java/com/awesomeshot5051/separatedFiles" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.awesomeshot5051.separatedFiles.systemConfiguration.database.*" />
@@ -184,7 +228,7 @@
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.PasswordHasherGUI" />
       <module name="GUI.main" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-21.0.6\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles" />
+      <option name="WORKING_DIRECTORY" value="D:GUI/src/main/java/com/awesomeshot5051/separatedFiles" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.awesomeshot5051.*" />
@@ -195,29 +239,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI::GUI [:separatedFiles:tasks]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="D:GUI" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":separatedFiles:tasks" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="GUI::GUI [run2]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GUI [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="D:GUI" />
@@ -228,7 +250,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="run2" />
+            <option value="shadowJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -239,29 +261,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GUI::GUI [runMainScreen]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="D:GUI" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runMainScreen" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="GUI::GUI [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GUI::GUI [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="D:GUI" />
@@ -272,7 +272,51 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI::GUI [shadowJar] (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="D:/GUI" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI::GUI [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="D:GUI" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -287,19 +331,19 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.PasswordHasherGUI" />
       <item itemvalue="Application.PasswordHasher" />
-      <item itemvalue="Application.IconFinder" />
-      <item itemvalue="Gradle.GUI::GUI [:separatedFiles:tasks]" />
-      <item itemvalue="Gradle.GUI::GUI [run2]" />
-      <item itemvalue="Gradle.GUI::GUI [runMainScreen]" />
-      <item itemvalue="Gradle.GUI::GUI [run]" />
+      <item itemvalue="Application.Launcher" />
+      <item itemvalue="Gradle.GUI::GUI [shadowJar] (1)" />
+      <item itemvalue="Gradle.GUI [shadowJar]" />
+      <item itemvalue="Gradle.GUI::GUI [shadowJar]" />
+      <item itemvalue="Gradle.GUI::GUI [jar]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GUI::GUI [run]" />
-        <item itemvalue="Application.IconFinder" />
-        <item itemvalue="Gradle.GUI::GUI [runMainScreen]" />
-        <item itemvalue="Gradle.GUI::GUI [run2]" />
-        <item itemvalue="Gradle.GUI::GUI [:separatedFiles:tasks]" />
+        <item itemvalue="Gradle.GUI::GUI [shadowJar] (1)" />
+        <item itemvalue="Gradle.GUI::GUI [jar]" />
+        <item itemvalue="Gradle.GUI::GUI [shadowJar]" />
+        <item itemvalue="Application.Launcher" />
+        <item itemvalue="Gradle.GUI [shadowJar]" />
       </list>
     </recent_temporary>
   </component>
@@ -324,7 +368,11 @@
       <workItem from="1744900159601" duration="5118000" />
       <workItem from="1744906866385" duration="408000" />
       <workItem from="1744907290932" duration="21000" />
-      <workItem from="1744910806854" duration="5037000" />
+      <workItem from="1744910806854" duration="5522000" />
+      <workItem from="1744916525015" duration="2702000" />
+      <workItem from="1744919297567" duration="1177000" />
+      <workItem from="1744920887364" duration="4692000" />
+      <workItem from="1744985454963" duration="490000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -366,7 +414,23 @@
       <option name="project" value="LOCAL" />
       <updated>1744907057326</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added auto-enabling">
+      <option name="closed" value="true" />
+      <created>1744915997605</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744915997605</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added auto-enabling of the Default Admin Account">
+      <option name="closed" value="true" />
+      <created>1744916112664</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744916112664</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,10 +455,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
-      <path value="$PROJECT_DIR$" />
+      <path value="D:GUI" />
     </ignored-roots>
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Added auto-enabling" />
+    <MESSAGE value="Added auto-enabling of the Default Admin Account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added auto-enabling of the Default Admin Account" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://D:GUI/src/main/java/com/awesomeshot5051/separatedFiles/defaultLoginCheck/DefaultAccountChecker.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

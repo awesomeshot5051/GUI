@@ -27,10 +27,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
+import static com.awesomeshot5051.Launcher.serverPassword;
+
 public class Main extends Application {
     private static final Logger LOGGER = new logger().makeLogger();
     private static Connection connection;
-    private static String serverPassword;
+
     private static Main instance;
     private static Stage primaryStage;
 
@@ -50,11 +52,6 @@ public class Main extends Application {
         return connection;
     }
 
-    // Main method
-    public static void main(String[] args) throws IOException {
-        serverPassword = new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\guestPassword.txt")));
-        launch(Main.class, args); // This starts the JavaFX application
-    }
 
     // Connect to the MySQL database
     public void connectToDatabase() throws SQLException {
