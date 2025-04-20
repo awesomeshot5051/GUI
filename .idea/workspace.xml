@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added auto-enabling of the Default Admin Account">
-      <change beforePath="D:GUI/.idea/workspace.xml" beforeDir="false" afterPath="D:GUI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="D:GUI/build.gradle" beforeDir="false" afterPath="D:GUI/build.gradle" afterDir="false" />
-      <change beforePath="D:GUI/src/main/java/com/awesomeshot5051/Launcher.java" beforeDir="false" afterPath="D:GUI/src/main/java/com/awesomeshot5051/Launcher.java" afterDir="false" />
-      <change beforePath="D:GUI/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="D:GUI/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Created a .exe">
+      <change beforePath="D:/GUI/.idea/workspace.xml" beforeDir="false" afterPath="D:/GUI/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,9 @@
     <system id="GRADLE">
       <state>
         <task path="D:GUI">
+          <activation />
+        </task>
+        <task path="D:/GUI">
           <activation />
         </task>
         <projects_view>
@@ -78,12 +78,12 @@
     &quot;assignee&quot;: &quot;awesomeshot5051&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/awesomeshot5051/GUI/",
-    "accountId": "d125ac74-9389-4b3b-91dc-3cb5307b4960"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/awesomeshot5051/GUI/&quot;,
+    &quot;accountId&quot;: &quot;d125ac74-9389-4b3b-91dc-3cb5307b4960&quot;
   }
-}]]></component>
+}</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
@@ -125,6 +125,7 @@
     &quot;Gradle.GUI::GUI [run2].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [runMainScreen].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [run].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.GUI::GUI [shadowJar] (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [shadowJar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [startScripts].executor&quot;: &quot;Run&quot;,
     &quot;Maven. [javafx:jlink].executor&quot;: &quot;Run&quot;,
@@ -347,14 +348,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -372,7 +365,7 @@
       <workItem from="1744916525015" duration="2702000" />
       <workItem from="1744919297567" duration="1177000" />
       <workItem from="1744920887364" duration="4692000" />
-      <workItem from="1744985454963" duration="490000" />
+      <workItem from="1744985454963" duration="1885000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -430,7 +423,63 @@
       <option name="project" value="LOCAL" />
       <updated>1744916112664</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986101047</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986101047</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986126514</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986126514</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986145218</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986145218</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986162521</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986162521</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986187511</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986187511</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986206825</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986206825</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Created a .exe">
+      <option name="closed" value="true" />
+      <created>1744986274510</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1744986274510</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +509,8 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Added auto-enabling" />
     <MESSAGE value="Added auto-enabling of the Default Admin Account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added auto-enabling of the Default Admin Account" />
+    <MESSAGE value="Created a .exe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a .exe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
