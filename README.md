@@ -89,4 +89,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Databasse Backend
 
-At the moment, this is using [alwaysdata.net](https://admin.alwaysdata.com/) as the backend database. This hosts everyone's username and encrypted password, as well as what kind of group your are in.
+At the moment, this is using [alwaysdata.net](https://admin.alwaysdata.com/login/) as the backend database. This hosts everyone's username and encrypted password, as well as what kind of group your are in. Although I won't be trying to hack into any of your accounts, when you create a username and password, don't use a username and password you use for important things. Try to make it unique. The database will be purged at the end of each year, with a cleanout every few months based on your last login date.
