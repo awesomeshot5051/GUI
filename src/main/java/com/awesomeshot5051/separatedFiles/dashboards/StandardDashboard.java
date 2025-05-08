@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.dashboards;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.security.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.geometry.*;
 import javafx.scene.*;
@@ -24,6 +25,9 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
         Button manageFilesButton = new Button("Manage Files and Folders");
         manageFilesButton.setOnAction(e -> launchFolderScanner());
 
+        Button vault = new Button("Vault");
+        vault.setOnAction(e -> new VaultManagementScreen().VaultManagementMainGUI());
+
         Button logoutButton = new Button("Logout");
         logoutButton.setOnAction(e -> {
             if (SessionManager.isSwitchedUser()) {
@@ -34,7 +38,7 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
             }
         });
 
-        root.getChildren().addAll(welcome, viewContentButton, logoutButton);
+        root.getChildren().addAll(welcome, manageFilesButton, vault, viewContentButton, logoutButton);
         return root;
     }
 

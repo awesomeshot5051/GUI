@@ -25,6 +25,11 @@ public class GetPasswordExpiration {
         isExpired = getIsExpired(username, password);
     }
 
+    public GetPasswordExpiration() {
+        this.connection = Main.getConnection();
+        isExpired = false;
+    }
+
     public boolean isExpired() {
         return isExpired;
     }
@@ -46,6 +51,9 @@ public class GetPasswordExpiration {
 
             // Get the nextChangedDate from the result set
             if (rs.next()) {
+                if (rs.getDate("nextChangeDate") == null) {
+                    return false;
+                }
                 LocalDate nextChangedDate = rs.getDate("nextChangeDate").toLocalDate();
 
                 // Compare today's date with nextChangedDate
@@ -57,5 +65,34 @@ public class GetPasswordExpiration {
         }
 
         return expired;
+    }
+
+    public int getPasswordExpirationDays(String username, String password) throws SQLException {
+        String query = "CALL getPasswordExpiration(?,?)";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("days");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public String getPasswordExpirationDays(String username) {
+        try (CallableStatement cs = connection.prepareCall("{ call getPasswordExpirationDays(?)}")) {
+            cs.setString(1, username);
+            try (ResultSet rs = cs.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getString(1);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return "0";
     }
 }

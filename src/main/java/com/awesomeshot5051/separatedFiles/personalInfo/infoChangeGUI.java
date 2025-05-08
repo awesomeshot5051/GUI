@@ -1,19 +1,15 @@
 package com.awesomeshot5051.separatedFiles.personalInfo;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.PasswordHasher;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import javafx.geometry.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class infoChangeGUI {
 
@@ -87,13 +83,14 @@ public class infoChangeGUI {
             }
 
             String username = SessionManager.getUsername();
+            PasswordHasher newPasswordHasher = new PasswordHasher(newPassword);
             if (SessionManager.getConnection() == null) {
-                PasswordHasher newPasswordHasher = new PasswordHasher(newPassword);
-                new ChangeLoginInfo(Main.getConnection()).changePassword(new PasswordHasher(oldPassword).getHashedPassword(), newPasswordHasher.hashPassword() + newPasswordHasher.getSalt(username));
+                new ChangeLoginInfo(Main.getConnection()).changePassword(SessionManager.getName(), username, newPasswordHasher.hashPassword() + newPasswordHasher.getSalt(username));
                 stage.close();
             } else {
                 if (validateOldPassword(username, oldPassword)) {
-                    new ChangeLoginInfo().changePassword(oldPassword, newPassword);
+
+                    new ChangeLoginInfo().changePassword(SessionManager.getName(), SessionManager.getUsername(), newPasswordHasher.hashPassword() + newPasswordHasher.getSalt(username));
                     stage.close();
                 } else {
                     showAlert("Error", "Old password is incorrect!");

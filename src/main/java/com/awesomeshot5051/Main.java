@@ -1,33 +1,26 @@
 package com.awesomeshot5051;
 
-import com.awesomeshot5051.separatedFiles.IconFinder;
-import com.awesomeshot5051.separatedFiles.MainScreen;
-import com.awesomeshot5051.separatedFiles.PasswordHasher;
-import com.awesomeshot5051.separatedFiles.UserValues;
-import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
-import com.awesomeshot5051.separatedFiles.logs.logger;
-import com.awesomeshot5051.separatedFiles.personalInfo.infoChangeGUI;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.GetPasswordExpiration;
-import com.awesomeshot5051.separatedFiles.userValidation.CredentialChecker;
-import com.awesomeshot5051.separatedFiles.userValidation.StatusChecker;
-import javafx.application.Application;
-import javafx.scene.Scene;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
+import com.awesomeshot5051.separatedFiles.logs.*;
+import com.awesomeshot5051.separatedFiles.personalInfo.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.*;
+import com.awesomeshot5051.separatedFiles.userValidation.*;
+import javafx.application.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.image.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.logging.Logger;
+import java.io.*;
+import java.nio.file.*;
+import java.sql.*;
+import java.util.logging.*;
 
-import static com.awesomeshot5051.Launcher.serverPassword;
+import static com.awesomeshot5051.Launcher.*;
 
 public class Main extends Application {
     private static final Logger LOGGER = new logger().makeLogger();
@@ -55,12 +48,12 @@ public class Main extends Application {
 
     // Connect to the MySQL database
     public void connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase";
+        String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase?noAccessToProcedureBodies=true";
         connection = DriverManager.getConnection(url, "409644_guest", serverPassword);
     }
 
     public void connectToDatabase(String filePath) throws SQLException, IOException {
-        String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase";
+        String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase?noAccessToProcedureBodies=true";
         connection = DriverManager.getConnection(url, "409644_guest", new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\guestPassword.txt"))));
     }
 
@@ -119,6 +112,10 @@ public class Main extends Application {
                     }
                     // Open the main screen
                     new MainScreen(userValues.getGroupType(), userValues.getStatus(), userValues.getUsername(), userValues.getName(), connection, primaryStage);
+                    PreparedStatement stmt = connection.prepareStatement("call updateLastLoginDate(CURRENT_DATE,?,?)");
+                    stmt.setString(1, SessionManager.getName());
+                    stmt.setString(2, SessionManager.getUsername());
+                    stmt.execute();
                     LOGGER.info("Successful login by " + username.getText());
                 } else {
                     // ❗ User is disabled

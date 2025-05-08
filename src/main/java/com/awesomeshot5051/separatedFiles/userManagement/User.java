@@ -11,6 +11,8 @@ public class User {
     private IGroup group; // Made this non-final to allow updates
     private final StringProperty status;
     private boolean modified;
+    private final StringProperty passwordExpiration = new SimpleStringProperty();
+    private boolean expirationModified = false;
 
     public User(String name, String username, String group, String status) throws SQLException {
         this.name = new SimpleStringProperty(name);
@@ -63,6 +65,42 @@ public class User {
 
     public void setModified(boolean modified) {
         this.modified = modified;
+    }
+
+
+    public StringProperty passwordExpirationProperty() {
+        return passwordExpiration;
+    }
+
+    public String getPasswordExpiration() {
+        return passwordExpiration.get();
+    }
+
+    public void setPasswordExpiration(String expiration) {
+        this.passwordExpiration.set(expiration);
+        this.expirationModified = true;
+    }
+
+    public boolean isExpirationModified() {
+        return expirationModified;
+    }
+
+    public void setExpirationModified(boolean modified) {
+        this.expirationModified = modified;
+    }
+
+    private final StringProperty lastLogin = new SimpleStringProperty();
+
+    public StringProperty lastLoginProperty() {
+        return lastLogin;
+    }
+
+    public String getLastLogin() {
+        return lastLogin.get();
+    }
+
+    public void setLastLogin(String lastLogin) {
+        this.lastLogin.set(lastLogin);
     }
 
     public String getName() {

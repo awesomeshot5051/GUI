@@ -1,17 +1,13 @@
 package com.awesomeshot5051.separatedFiles;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.session.*;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Scanner;
+import javax.swing.*;
+import java.nio.charset.*;
+import java.security.*;
+import java.sql.*;
+import java.util.*;
 
 public class PasswordHasher {
     public String password;
@@ -38,6 +34,10 @@ public class PasswordHasher {
     }
 
     public String hashPassword(String password) {
+        return hash(password);
+    }
+
+    private String hash(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
@@ -52,17 +52,7 @@ public class PasswordHasher {
     }
 
     public String hashPassword() {
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
-            StringBuilder sb = new StringBuilder();
-            for (byte b : hashedPassword) {
-                sb.append(String.format("%02x", b));
-            }
-            return sb.toString();
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+        return hash(password);
     }
 
 
@@ -126,13 +116,13 @@ public class PasswordHasher {
                 existingSalt = resultSet.getString("salt");
             }
         } catch (SQLException e) {
-//            JOptionPane.showMessageDialog(
-//                    null,
-//                    "An error occured\nError code " + Arrays.toString(e.getStackTrace()),
-//                    "Failed",
-//                    JOptionPane.ERROR_MESSAGE
-//            );
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(
+                    null,
+                    "An error occured\nError code " + Arrays.toString(e.getStackTrace()),
+                    "Failed",
+                    JOptionPane.ERROR_MESSAGE
+            );
+//            e.printStackTrace();
         }
         return existingSalt;
     }

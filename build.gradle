@@ -28,6 +28,7 @@ dependencies {
     implementation 'org.openjfx:javafx-controls:21'
     implementation 'org.openjfx:javafx-fxml:21'
     implementation 'mysql:mysql-connector-java:8.0.29'  // MySQL JDBC Driver
+    implementation 'com.google.crypto.tink:tink:1.17.0'
     runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
 }
 

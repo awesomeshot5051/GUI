@@ -1,12 +1,11 @@
 package com.awesomeshot5051.separatedFiles.systemConfiguration.database;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import com.awesomeshot5051.separatedFiles.userManagement.User;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import com.awesomeshot5051.separatedFiles.userManagement.*;
+import javafx.scene.control.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DatabaseInteraction {
     private final Connection connection;
@@ -45,7 +44,12 @@ public class DatabaseInteraction {
             Main.getLogger().info("User " + user.getUsername() + " deleted successfully.");
         } catch (SQLException e) {
             Main.getLogger().severe("Failed to delete user: " + user.getUsername());
-            e.printStackTrace();
+            // Show a popup if there is an SQL exception
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Database Error");
+            alert.setHeaderText("Operation Failed");
+            alert.setContentText(e.getMessage()); // Shows "You cannot delete your own account"
+            alert.showAndWait();
         }
     }
 }

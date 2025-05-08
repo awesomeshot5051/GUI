@@ -16,12 +16,12 @@ public class ChangeLoginInfo {
         this.connection = connection;
     }
 
-    public void changePassword(String oldPassword, String newPassword) {
+    public void changePassword(String name, String username, String newPassword) {
         String sql = "CALL changePassword(?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, oldPassword);
-            stmt.setString(2, SessionManager.getName());
+            stmt.setString(1, username);
+            stmt.setString(2, name);
             stmt.setString(3, newPassword);
             stmt.execute();
             showAlert("Success", "Password changed successfully!");

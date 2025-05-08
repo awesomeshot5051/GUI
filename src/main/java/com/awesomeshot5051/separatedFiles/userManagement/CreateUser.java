@@ -1,21 +1,17 @@
 package com.awesomeshot5051.separatedFiles.userManagement;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.PasswordHasher;
-import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
-import com.awesomeshot5051.separatedFiles.group.DefaultIGroup;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
+import com.awesomeshot5051.separatedFiles.group.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import javafx.geometry.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class CreateUser {
     private final Connection connection;
@@ -127,7 +123,7 @@ public class CreateUser {
     private boolean createUserInDatabase(String name, String username, String groupType, String status, String password) {
         PasswordHasher hasher = new PasswordHasher(password);
         String saltedHashedPassword = hasher.generateSaltedHashedPassword();
-        String salt = hasher.getSalt(username);
+        String salt = hasher.generateRandomSalt();
 
         try (PreparedStatement stmt = connection.prepareStatement("CALL createUser(?, ?, ?, ?, ?, ?, ?, ?)")) {
             stmt.setString(1, name);

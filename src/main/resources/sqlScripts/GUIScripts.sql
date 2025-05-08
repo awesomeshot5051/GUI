@@ -19,7 +19,7 @@ in p_username varchar(255),
 in p_password varchar(255))
 begin
 	declare user_id int;
-    select userID into user_id from users where username=p_username and password=p_password;
+    select id into user_id from users where username=p_username and password=p_password;
     select nextChangedDate from passwordExpiration where userID=user_id;
 end //
 delimiter ;
@@ -35,3 +35,5 @@ begin
 select id from users where username=p_username into user_id;
 end //
 delimiter ;
+select * from users;
+select * from passwordExpiration;
