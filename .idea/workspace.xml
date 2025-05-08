@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Created a .exe">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added per user Vault Encryption.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/PasswordHasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/PasswordHasher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/AdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/AdminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/StandardDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/StandardDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseInteraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/ChangePasswordExpiration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/ChangePasswordExpiration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/ChangePasswordHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/ChangePasswordHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/GetPasswordExpiration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/GetPasswordExpiration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlScripts/GUIScripts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlScripts/GUIScripts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +65,7 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -115,60 +97,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build GUI.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [clean jlink].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [clean jpackage].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [jpackage \&quot;-Djavafx.platform=win\&quot;].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [jpackage].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [package \&quot;-Djavafx.platform=win\&quot;].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Launcher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:separatedFiles:model].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:separatedFiles:tasks].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [Prototype].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [run2].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [runMainScreen].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [run].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.GUI::GUI [shadowJar] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [startScripts].executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [javafx:jlink].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GUI/src/main/resources/icon&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build GUI.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.GUI [clean jlink].executor": "Run",
+    "Gradle.GUI [clean jpackage].executor": "Run",
+    "Gradle.GUI [jpackage \"-Djavafx.platform=win\"].executor": "Run",
+    "Gradle.GUI [jpackage].executor": "Run",
+    "Gradle.GUI [package \"-Djavafx.platform=win\"].executor": "Run",
+    "Gradle.GUI [shadowJar].executor": "Run",
+    "Gradle.GUI.executor": "Run",
+    "Gradle.GUI::GUI [:Main.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.Launcher.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor": "Debug",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor": "Debug",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor": "Run",
+    "Gradle.GUI::GUI [:separatedFiles:model].executor": "Run",
+    "Gradle.GUI::GUI [:separatedFiles:tasks].executor": "Run",
+    "Gradle.GUI::GUI [Prototype].executor": "Run",
+    "Gradle.GUI::GUI [jar].executor": "Run",
+    "Gradle.GUI::GUI [run2].executor": "Run",
+    "Gradle.GUI::GUI [runMainScreen].executor": "Run",
+    "Gradle.GUI::GUI [run].executor": "Debug",
+    "Gradle.GUI::GUI [shadowJar] (1).executor": "Run",
+    "Gradle.GUI::GUI [shadowJar].executor": "Run",
+    "Gradle.GUI::GUI [startScripts].executor": "Run",
+    "Maven. [javafx:jlink].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/GUI/src/main/resources/icon",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="QodanaCloudProjectLink">
     <option name="lastReportId" value="O8X2a" />
     <option name="linkedProjectId" value="y7ywe" />
@@ -442,7 +424,10 @@
       <workItem from="1746648377374" duration="710000" />
       <workItem from="1746651581314" duration="8382000" />
       <workItem from="1746668891696" duration="89000" />
-      <workItem from="1746669065958" duration="10148000" />
+      <workItem from="1746669065958" duration="11599000" />
+      <workItem from="1746722250793" duration="277000" />
+      <workItem from="1746722541109" duration="36000" />
+      <workItem from="1746722587069" duration="3504000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -564,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745172771378</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added per user Vault Encryption.">
+      <option name="closed" value="true" />
+      <created>1746720549852</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1746720549852</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +588,8 @@
     <MESSAGE value="Added auto-enabling" />
     <MESSAGE value="Added auto-enabling of the Default Admin Account" />
     <MESSAGE value="Created a .exe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a .exe" />
+    <MESSAGE value="Added per user Vault Encryption." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added per user Vault Encryption." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -607,7 +601,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
-          <line>384</line>
+          <line>728</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
