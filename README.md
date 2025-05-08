@@ -1,92 +1,175 @@
-# GUI
+# Secure User Authentication & Encryption System
 
-This repository contains a Java-based graphical user interface (GUI) application. The project focuses on user authentication, password management, logging, and system configuration. It includes features for secure credential validation and user session management, making it well-suited for applications requiring robust security measures.
+A comprehensive JavaFX application providing secure user authentication, role-based access control, and advanced file
+encryption. This system features robust security measures including password hashing, account status management,
+detailed logging functionality, and secure file vault capabilities.
 
 ## Features
 
-- **Password Management**:
-  - Password hashing using SHA-256 and salt for enhanced security.
-  - Password history verification to prevent reuse of old passwords.
-  - Generation of salted and unsalted hashed passwords.
+### User Authentication & Security
 
-- **User Authentication**:
-  - Credential validation against a database using hashed passwords.
-  - Default account usage check and notification system.
-  
-- **Logging and System Management**:
-  - Custom logging framework with formatted messages and timestamps.
-  - Log clearing with warnings for unauthorized actions.
+- **Advanced Password Management**:
+    - SHA-256 hashing with salt for enhanced security
+    - Password expiration enforcement
+    - Password history verification to prevent reuse
+- **Multi-level User Validation**:
+    - Credential verification against secure database
+    - Account status checking (enabled/disabled)
+    - Default account detection and notification
 
-- **System Configuration**:
-  - File and directory management with support for calculating directory sizes.
-  - User status management within the system.
+### Secure File Vault
 
-## Code Overview
+- **File Encryption Vault**:
+    - AES encryption with CBC mode and PKCS5Padding
+    - Secure storage of sensitive files in an encrypted vault
+    - Automatic file type detection and appropriate handling
+    - Both filename and content encryption for maximum security
 
-### Key Classes
+- **Smart File Handling**:
+    - Automatic detection of file types (text, image, PDF, office documents, binary)
+    - Specialized viewers for different file formats
+    - Internal text editor for quick modifications
+    - External application integration for complex file types
 
-1. **PasswordHasher**:
-   - Provides methods for hashing passwords with or without salt.
-   - Retrieves and manages salts for users.
-   - Implements secure random salt generation.
+- **Key Management**:
+    - Public/private key verification before encryption/decryption
+    - Secure key rotation for enhanced security
+    - Key verification to prevent unauthorized access
 
-2. **DefaultAccountChecker**:
-   - Manages the detection and notification of default account usage.
+### Role-Based Access Control
 
-3. **CredentialChecker**:
-   - Validates user credentials against a database.
+- **User Types and Permissions**:
+    - **SuperAdmin**: Full system access with database management, system configuration, and user administration
+      privileges
+    - **Admin**: Advanced management capabilities including user creation, vault access, and log viewing
+    - **Standard**: Basic functionality with limited management capabilities
+    - **Default**: Initial account type with minimal privileges
 
-4. **LogClearer**:
-   - Handles log clearing operations and enforces security checks for unauthorized actions.
+- **User Management Dashboard**:
+    - Complete system management interface
+    - Access to vault management functionality
+    - User switching capabilities for troubleshooting (SuperAdmin only)
 
-5. **User**:
-   - Represents a user in the system, including properties like username, group, and status.
-   - Allows updates to user status and group assignments.
+### File and Directory Management
 
-6. **ManageFiles**:
-   - Manages file and directory operations, including calculating directory sizes.
+- **Manage Files and Folders**:
+    - Comprehensive file system explorer
+    - Directory size calculation and analysis
+    - File organization and cleanup tools
+    - Storage space optimization
+    - Directory navigation and file management within the application
 
-7. **Logger**:
-   - Custom logger with formatted messages and custom symbols for information and warnings.
+### System Management
 
-## Getting Started
+- **Comprehensive Logging**:
+    - Detailed event tracking with timestamps
+    - Login attempts (successful and failed)
+    - Security-related warnings
+- **Session Management**:
+    - Secure user sessions with proper authentication
+    - Last login date tracking
+    - Session information persistence
 
-### Prerequisites
+### User Interface
 
-- Java Development Kit (JDK) 11 or later.
-- A relational database for storing user credentials and logs.
+- **JavaFX-based GUI**:
+    - Clean login interface
+    - Role-appropriate dashboards
+    - Alert system for notifications
+    - File vault browsing and management interface
+- **Dynamic UI Elements**:
+    - Context-sensitive screens based on user permissions
+    - Intuitive navigation
+    - Specialized file viewing and editing capabilities
 
-### Installation
+## User Type Capabilities
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/awesomeshot5051/GUI.git
-   cd GUI
-   ```
+### SuperAdmin
 
-2. Open the project in your preferred Java IDE (e.g., IntelliJ IDEA or Eclipse).
+- Full system configuration access
+- Database management and execution
+- User management (create, modify, disable)
+- Password expiration settings
+- Complete access to logs
+- File vault management
+- File and folder management
+- Can switch to other user accounts for troubleshooting
 
-3. Configure the database connection in the `Main` class or session manager.
+### Admin
 
-4. Compile and run the application:
-   ```bash
-   javac Main.java
-   java Main
-   ```
+- User management (create and modify)
+- Log viewing capabilities
+- File vault access
+- File and folder management
+- Personal settings modification
 
-## Usage
+### Standard
 
-- Launch the application and interact with the GUI to manage users, passwords, and logs.
-- Use the provided logging framework for debugging and monitoring application events.
+- Basic application functionality
+- Personal settings modification
+- Limited file management capabilities
 
-## Contributing
+### Default
 
-Contributions are welcome! Please fork the repository, create a new branch, and submit a pull request with your changes.
+- Initial account used for first-time setup
+- Automatically enabled when system detects first-use
 
-## License
+## Technical Details
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+### Technology Stack
 
-## Databasse Backend
+- **Java 21**: Core application language
+- **JavaFX**: UI framework
+- **MySQL**: Backend database for user data
+- **JDBC**: Database connectivity
+- **Gradle**: Build system
+- **Java Cryptography Extensions (JCE)**: Encryption implementation
 
-At the moment, this is using [alwaysdata.net](https://admin.alwaysdata.com/login/) as the backend database. This hosts everyone's username and encrypted password, as well as what kind of group your are in. Although I won't be trying to hack into any of your accounts, when you create a username and password, don't use a username and password you use for important things. Try to make it unique. The database will be purged at the end of each year, with a cleanout every few months based on your last login date.
+### Security Implementation
+
+- Passwords are never stored in plain text
+- Salted hashing prevents rainbow table attacks
+- Account locking for security breaches
+- Password expiration policies
+- AES-256 encryption for file contents
+- Secure temporary file handling with automatic cleanup
+
+### File Vault Architecture
+
+- **Secure File Management**:
+    - Files stored with encrypted names and contents
+    - Dedicated vault directory separate from application files
+    - Type-specific handling for different file formats
+    - Internal viewer/editor for supported formats
+
+- **Temporary File Safety**:
+    - Secure creation and deletion of temporary files
+    - Automatic cleanup on application exit
+    - Protected viewing and editing workflow
+
+## Database Configuration
+
+The application connects to a MySQL database hosted on alwaysdata.net:
+
+- Database URL: jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase
+- Username credentials are managed through the application
+- Database purges occur periodically based on last login date
+
+**Security Note**: When creating accounts, use unique credentials that aren't used for other important services.
+
+## Using the File Vault
+
+The file vault system provides a secure way to store sensitive files:
+
+1. Access the vault through the "Vault" button in the dashboard (Admin and SuperAdmin access)
+2. View encrypted files with appropriate viewers based on file type
+3. Edit text files directly within the application
+4. Open and edit other file types using your system's default applications
+5. All files are automatically re-encrypted after editing
+
+## Legal Notice
+
+This software is proprietary and all rights are reserved. Unauthorized copying, modification, distribution, or use of
+this software is strictly prohibited. This software is provided for authorized use only.
+
+© 2024 All Rights Reserved
