@@ -172,4 +172,4 @@ The file vault system provides a secure way to store sensitive files:
 This software is proprietary and all rights are reserved. Unauthorized copying, modification, distribution, or use of
 this software is strictly prohibited. This software is provided for authorized use only.
 
-© 2024 All Rights Reserved
+© 2025 All Rights Reserved
