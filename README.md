@@ -161,7 +161,7 @@ The application connects to a MySQL database hosted on alwaysdata.net:
 
 The file vault system provides a secure way to store sensitive files:
 
-1. Access the vault through the "Vault" button in the dashboard (Admin and SuperAdmin access)
+1. Access the vault through the "Vault" button in the dashboard
 2. View encrypted files with appropriate viewers based on file type
 3. Edit text files directly within the application
 4. Open and edit other file types using your system's default applications
