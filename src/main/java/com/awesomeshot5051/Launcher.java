@@ -1,16 +1,21 @@
 package com.awesomeshot5051;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import com.awesomeshot5051.separatedFiles.systemConfiguration.database.*;
 
-import static javafx.application.Application.launch;
+import java.io.*;
+import java.nio.charset.*;
+
+import static javafx.application.Application.*;
 
 public class Launcher {
     public static String serverPassword;
 
     public static void main(String[] args) throws IOException {
-        serverPassword = new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\guestPassword.txt")));
+        InputStream in = DatabaseGUI.class.getResourceAsStream("/guestPassword.txt");
+        if (in == null) {
+            throw new FileNotFoundException("password.txt not found in resources.");
+        }
+        serverPassword = new String(in.readAllBytes(), StandardCharsets.UTF_8);
         launch(Main.class, args); // This starts the JavaFX application
     }
 }

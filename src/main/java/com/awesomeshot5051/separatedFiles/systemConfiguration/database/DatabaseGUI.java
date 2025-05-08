@@ -13,7 +13,7 @@ import javafx.scene.layout.*;
 import javafx.stage.*;
 
 import java.io.*;
-import java.nio.file.*;
+import java.nio.charset.*;
 import java.sql.*;
 import java.util.*;
 
@@ -26,7 +26,12 @@ public class DatabaseGUI {
         DatabaseGUI.primaryStage = Main.getStage();
         try {
             // Read the password from the password file
-            String serverPassword = new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\password.txt")));
+            InputStream in = DatabaseGUI.class.getResourceAsStream("/guest_password.txt");
+            if (in == null) {
+                throw new FileNotFoundException("password.txt not found in resources.");
+            }
+            String serverPassword = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+
 
             // Use existing connection method
             new Main().connectToDatabase(serverPassword);

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rufus.com" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +128,7 @@
     "Gradle.GUI::GUI [jar].executor": "Run",
     "Gradle.GUI::GUI [run2].executor": "Run",
     "Gradle.GUI::GUI [runMainScreen].executor": "Run",
-    "Gradle.GUI::GUI [run].executor": "Debug",
+    "Gradle.GUI::GUI [run].executor": "Run",
     "Gradle.GUI::GUI [shadowJar] (1).executor": "Run",
     "Gradle.GUI::GUI [shadowJar] (2).executor": "Run",
     "Gradle.GUI::GUI [shadowJar].executor": "Run",
@@ -212,7 +213,7 @@
       <command value="jpackage --type exe --name LoginGUI --input build/libs --main-jar GUI.jar --main-class com.awesomeshot5051.Main --dest out --java-options &quot;--enable-preview&quot; " />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.GUI::GUI [shadowJar] (2)">
+  <component name="RunManager" selected="Gradle.GUI::GUI [run]">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.Main" />
       <module name="GUI.main" />
@@ -372,8 +373,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GUI::GUI [shadowJar] (2)" />
         <item itemvalue="Gradle.GUI::GUI [run]" />
+        <item itemvalue="Gradle.GUI::GUI [shadowJar] (2)" />
         <item itemvalue="Gradle.GUI::GUI [shadowJar]" />
         <item itemvalue="Gradle.GUI::GUI [shadowJar] (1)" />
         <item itemvalue="Gradle.GUI::GUI [jar]" />
@@ -435,7 +436,7 @@
       <workItem from="1746669065958" duration="11599000" />
       <workItem from="1746722250793" duration="277000" />
       <workItem from="1746722541109" duration="36000" />
-      <workItem from="1746722587069" duration="5680000" />
+      <workItem from="1746722587069" duration="8705000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -573,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746726180575</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.">
+      <option name="closed" value="true" />
+      <created>1746729689510</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746729689510</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
