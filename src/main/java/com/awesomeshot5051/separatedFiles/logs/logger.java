@@ -8,20 +8,23 @@ import java.util.logging.*;
 import java.util.logging.Formatter;
 
 public class logger {
-    private static final String LOG_FILE_PATH = "D:/GUI/src/main/resources/logs/log.txt";
+    // Updated to use user-local directory for portability
+    public static final Path LOG_FILE_PATH = Paths.get(
+            System.getProperty("user.home"), ".javaLoginGUI", "logs", "log.txt"
+    );
     private static final CustomLogger customLogger = new CustomLogger();
 
     private static void setupLogger() {
         try {
             // Ensure logs directory exists
-            Files.createDirectories(Paths.get("D:/GUI/src/main/resources/logs"));
+            Files.createDirectories(LOG_FILE_PATH.getParent());
 
             // Remove default console logging
             customLogger.setUseParentHandlers(false);
 
             // Prevent duplicate handlers
             if (customLogger.getHandlers().length == 0) {
-                FileHandler fileHandler = new FileHandler(LOG_FILE_PATH, true);
+                FileHandler fileHandler = new FileHandler(LOG_FILE_PATH.toString(), true);
                 fileHandler.setFormatter(new CustomFormatter());
                 customLogger.addHandler(fileHandler);
             }

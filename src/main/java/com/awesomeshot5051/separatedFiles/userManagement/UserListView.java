@@ -15,6 +15,7 @@ import javafx.scene.layout.*;
 import javafx.stage.*;
 
 import java.sql.*;
+import java.util.*;
 
 public class UserListView {
     private final Stage primaryStage;
@@ -118,15 +119,15 @@ public class UserListView {
         // ——— Delete Action Column ———
         TableColumn<User, Void> deleteColumn = getUserVoidTableColumn();
 
-        userTable.getColumns().addAll(
+        userTable.getColumns().addAll(List.of(
                 nameColumn,
                 usernameColumn,
                 groupColumn,
                 statusColumn,
                 expirationColumn,
-                lastLoginColumn, // Insert here
+                lastLoginColumn,
                 deleteColumn
-        );
+        ));
 
         userTable.setEditable(true);
 

@@ -121,9 +121,9 @@ public class CreateUser {
     }
 
     private boolean createUserInDatabase(String name, String username, String groupType, String status, String password) {
-        PasswordHasher hasher = new PasswordHasher(password);
-        String saltedHashedPassword = hasher.generateSaltedHashedPassword();
+        PasswordHasher hasher = new PasswordHasher();
         String salt = hasher.generateRandomSalt();
+        String saltedHashedPassword = hasher.hashPassword(password) + salt;
 
         try (PreparedStatement stmt = connection.prepareStatement("CALL createUser(?, ?, ?, ?, ?, ?, ?, ?)")) {
             stmt.setString(1, name);

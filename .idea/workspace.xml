@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.&#10;Fixed it so that it launches based on the Resource folder rather than the drive folder whoops">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/logger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/VaultManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/VaultManagementScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +132,7 @@
     "Gradle.GUI::GUI [jar].executor": "Run",
     "Gradle.GUI::GUI [run2].executor": "Run",
     "Gradle.GUI::GUI [runMainScreen].executor": "Run",
-    "Gradle.GUI::GUI [run].executor": "Run",
+    "Gradle.GUI::GUI [run].executor": "Debug",
     "Gradle.GUI::GUI [shadowJar] (1).executor": "Run",
     "Gradle.GUI::GUI [shadowJar] (2).executor": "Run",
     "Gradle.GUI::GUI [shadowJar].executor": "Run",
@@ -384,8 +388,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.109" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.109" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -436,7 +440,10 @@
       <workItem from="1746669065958" duration="11599000" />
       <workItem from="1746722250793" duration="277000" />
       <workItem from="1746722541109" duration="36000" />
-      <workItem from="1746722587069" duration="8705000" />
+      <workItem from="1746722587069" duration="14452000" />
+      <workItem from="1746802230386" duration="328000" />
+      <workItem from="1746824276331" duration="40000" />
+      <workItem from="1746824391003" duration="3220000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -582,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746729689510</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.&#10;Fixed it so that it launches based on the Resource folder rather than the drive folder whoops">
+      <option name="closed" value="true" />
+      <created>1746736770955</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746736770955</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +630,8 @@
     <MESSAGE value="Created a .exe" />
     <MESSAGE value="Added per user Vault Encryption." />
     <MESSAGE value="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is." />
+    <MESSAGE value="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.&#10;Fixed it so that it launches based on the Resource folder rather than the drive folder whoops" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.&#10;Fixed it so that it launches based on the Resource folder rather than the drive folder whoops" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -627,7 +643,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
-          <line>728</line>
+          <line>733</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -640,6 +656,11 @@
           <line>85</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -649,6 +670,11 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GradleRunConfiguration">
+        <watch expression="LOG_FILE_PATH" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

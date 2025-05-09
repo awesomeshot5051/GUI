@@ -23,6 +23,7 @@ import java.nio.charset.*;
 import java.nio.file.*;
 import java.security.*;
 import java.util.*;
+import java.util.List;
 import java.util.stream.*;
 
 public class FileEncryption {
@@ -51,6 +52,10 @@ public class FileEncryption {
     private final Path vaultDirectory;
     private final SecureRandom secureRandom;
     private final SecureFileNameEncryptor fileNameEncryptor;
+
+    public Path getVaultDirectory() {
+        return vaultDirectory;
+    }
 
     // Enum to represent different file types
     public enum FileType {
@@ -363,7 +368,7 @@ public class FileEncryption {
             openSysCol.setPrefWidth(100);
 
             // Assemble columns
-            table.getColumns().setAll(nameCol, viewCol, editIntCol, editExtCol, openSysCol);
+            table.getColumns().addAll(List.of(nameCol, viewCol, editIntCol, editExtCol, openSysCol));
             table.getItems().addAll(files.entrySet());
 
             Button close = new Button("Close");
