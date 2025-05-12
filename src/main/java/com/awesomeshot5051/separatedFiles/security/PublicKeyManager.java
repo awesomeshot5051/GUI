@@ -1,5 +1,6 @@
 package com.awesomeshot5051.separatedFiles.security;
 
+import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 
@@ -38,7 +39,7 @@ public class PublicKeyManager {
                 stmt.executeUpdate();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Failed to rotate public key for user: " + username, e);
             throw new RuntimeException("Failed to rotate public key for user: " + username, e);
         }
     }

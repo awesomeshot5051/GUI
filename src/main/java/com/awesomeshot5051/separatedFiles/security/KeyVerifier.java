@@ -1,5 +1,6 @@
 package com.awesomeshot5051.separatedFiles.security;
 
+import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 
@@ -47,7 +48,7 @@ public class KeyVerifier {
             return expectedPublicKey.equals(publicKeyFromDb);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error verifying keys", e);
             return false;
         }
     }

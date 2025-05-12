@@ -1,12 +1,17 @@
 package com.awesomeshot5051.separatedFiles.logs;
 
+import com.awesomeshot5051.*;
+
 import javax.swing.*;
 import java.io.*;
 import java.nio.file.*;
+import java.text.*;
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
 import java.util.concurrent.atomic.*;
+import java.util.logging.*;
+import java.util.logging.Formatter;
 
 /**
  * Enhanced error logging facility with humorous messages and system integration.
@@ -18,6 +23,7 @@ public class ErrorLogger {
     private static final String ERROR_LOG_FILENAME = "error.log";
     public static final Path ERROR_LOG_PATH = Paths.get(LOG_DIR, ERROR_LOG_FILENAME);
     private static final AtomicBoolean initialized = new AtomicBoolean(false);
+    private static final CustomErrorLogger customErrorLogger = new CustomErrorLogger();
 
     // Humorous error remarks
     private static final String[] REMARKS = {
@@ -33,17 +39,52 @@ public class ErrorLogger {
             "Computer says no. \nSpecifically, it says:"
     };
 
+    public ErrorLogger() {
+        makeLogger();
+    }
+
+    /**
+     * Sets up the error logger with appropriate handlers and formatters
+     */
+    private void setupLogger() {
+        try {
+            // Ensure logs directory exists
+            Files.createDirectories(ERROR_LOG_PATH.getParent());
+
+            // Remove default console logging
+            customErrorLogger.setUseParentHandlers(false);
+
+            // Prevent duplicate handlers
+            if (customErrorLogger.getHandlers().length == 0) {
+                FileHandler fileHandler = new FileHandler(ERROR_LOG_PATH.toString(), true);
+                fileHandler.setFormatter(new CustomErrorFormatter());
+                customErrorLogger.addHandler(fileHandler);
+            }
+        } catch (IOException e) {
+            handleException("Failed to initialize error logger", e);
+        }
+    }
+
+    /**
+     * Creates and returns a configured logger instance
+     *
+     * @return The configured logger instance
+     */
+    public Logger makeLogger() {
+        setupLogger();
+        return customErrorLogger;
+    }
+
     /**
      * Initializes the error logger by ensuring the log directory exists.
      */
-    public static void initialize() {
+    public void initialize() {
         if (initialized.compareAndSet(false, true)) {
             try {
                 Files.createDirectories(Paths.get(LOG_DIR));
                 System.out.println("Error logger initialized. Logs will be written to: " + ERROR_LOG_PATH);
             } catch (IOException e) {
-                System.err.println("Failed to create log directory: " + e.getMessage());
-                e.printStackTrace();
+                handleException("Failed to initialize error logger", e);
             }
         }
     }
@@ -52,9 +93,8 @@ public class ErrorLogger {
      * Logs an error with a timestamp and a randomly selected humorous remark.
      *
      * @param throwable The exception to log
-     * @return 0 if successful, -1 if there was an error
      */
-    public static int logError(Throwable throwable) {
+    public void logError(Throwable throwable) {
         initialize();
 
         Random random = new Random();
@@ -76,12 +116,9 @@ public class ErrorLogger {
                 // Add stack trace
                 throwable.printStackTrace(pw);
                 pw.println("\n--------------------------------------------\n");
-                return 0;
             }
         } catch (IOException e) {
-            System.err.println("Error writing to log file: " + e.getMessage());
-            e.printStackTrace();
-            return -1;
+            Main.getErrorLogger().handleException("Failed to log error", e);
         }
     }
 
@@ -105,7 +142,7 @@ public class ErrorLogger {
      *
      * @return Path to error log file
      */
-    public static Path getErrorLogPath() {
+    public Path getErrorLogPath() {
         initialize();
         return ERROR_LOG_PATH;
     }
@@ -117,7 +154,7 @@ public class ErrorLogger {
      * @param message   Error message to display
      * @param throwable Exception to log
      */
-    public static void showErrorDialog(String title, String message, Throwable throwable) {
+    public void showErrorDialog(String title, String message, Throwable throwable) {
         logError(throwable);
 
         JOptionPane.showMessageDialog(null,
@@ -128,17 +165,62 @@ public class ErrorLogger {
     /**
      * Helper method to handle and log exceptions with a simplified interface
      *
-     * @param throwable  The exception to handle
-     * @param showDialog Whether to show an error dialog
+     * @param throwable The exception to handle
      */
-    public static void handleException(Throwable throwable, boolean showDialog) {
+    public void handleException(String message, Throwable throwable) {
         logError(throwable);
 
-        if (showDialog) {
-            JOptionPane.showMessageDialog(null,
-                    "An error occurred: " + throwable.getMessage() +
-                            "\n\nError details have been logged to:\n" + ERROR_LOG_PATH,
-                    "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+                message + ": " + throwable.getMessage() +
+                        "\n\nError details have been logged to:\n" + ERROR_LOG_PATH,
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
+    /**
+     * Custom error logger class that enhances error logging with specific formatting
+     */
+    private static class CustomErrorLogger extends Logger {
+        protected CustomErrorLogger() {
+            super("errorLogger", null);
+        }
+
+        @Override
+        public void severe(String msg) {
+            super.severe("#### FATAL ERROR ####\n" + msg); // #### FATAL ERROR #### symbol
+        }
+    }
+
+    /**
+     * Custom formatter for error log entries
+     */
+    private static class CustomErrorFormatter extends Formatter {
+        private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss a");
+
+        @Override
+        public String format(LogRecord record) {
+            StringBuilder sb = new StringBuilder();
+            Date date = new Date(record.getMillis());
+
+            // Format: [LEVEL] [Timestamp] Message
+            sb.append("[").append(record.getLevel()).append("] ");
+            sb.append("[").append(dateFormat.format(date)).append("] ");
+            sb.append(formatMessage(record)).append("\n");
+
+            // Add exception details if present
+            if (record.getThrown() != null) {
+                try {
+                    StringWriter sw = new StringWriter();
+                    PrintWriter pw = new PrintWriter(sw);
+                    record.getThrown().printStackTrace(pw);
+                    pw.close();
+                    sb.append(sw);
+                } catch (Exception ex) {
+                    sb.append("Failed to print stack trace: ").append(ex.getMessage()).append("\n");
+                }
+            }
+
+            sb.append("--------------------------------------------\n");
+            return sb.toString();
         }
     }
 }

@@ -25,7 +25,7 @@ import static com.awesomeshot5051.Launcher.*;
 public class Main extends Application {
     private static final Logger LOGGER = new logger().makeLogger();
     private static Connection connection;
-
+    private static final ErrorLogger ERROR_LOGGER = new ErrorLogger();
     private static Main instance;
     private static Stage primaryStage;
 
@@ -39,6 +39,18 @@ public class Main extends Application {
 
     public static Logger getLogger() {
         return LOGGER;
+    }
+
+    public static ErrorLogger getErrorLogger() {
+        return ERROR_LOGGER;
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    public static void setConnection(Connection connection) {
+        Main.connection = connection;
     }
 
     public static Connection getConnection() {
@@ -128,7 +140,7 @@ public class Main extends Application {
                 LOGGER.warning("Invalid login by " + username.getText());
             }
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            ERROR_LOGGER.handleException("Error while checking credentials: ", ex);
         }
     }
 

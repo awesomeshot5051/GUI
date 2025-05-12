@@ -3,6 +3,7 @@ package com.awesomeshot5051.separatedFiles.dashboards;
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
 import com.awesomeshot5051.separatedFiles.adminAccess.*;
+import com.awesomeshot5051.separatedFiles.extraStuff.*;
 import com.awesomeshot5051.separatedFiles.logs.*;
 import com.awesomeshot5051.separatedFiles.personalInfo.*;
 import com.awesomeshot5051.separatedFiles.security.*;
@@ -109,7 +110,7 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
 
         // System buttons
         Button viewLogsButton = new Button("View Logs");
-        viewLogsButton.setOnAction(e -> new LogViewer().readLog());
+        viewLogsButton.setOnAction(e -> new LogViewer().showLogSelectionDialog());
         buttons.add(viewLogsButton);
 
         Button dbCommandsButton = new Button("Execute and Interact with the Database");
@@ -128,10 +129,22 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
         vault.setOnAction(e -> new VaultManagementScreen().VaultManagementMainGUI());
         buttons.add(vault);
 
+
         // Switch user button
         Button switchUserButton = getSwitchUserButton();
         buttons.add(switchUserButton);
 
+        Button codeCrackerButton = new Button("Code Cracker");
+        codeCrackerButton.setOnAction(e ->
+                new BruteForceCodeCracker().start(Main.getStage())
+        );
+        buttons.add(codeCrackerButton);
+
+        Button numberGameButton = new Button("Number Game");
+        numberGameButton.setOnAction(e ->
+                new NumberGame()
+        );
+        buttons.add(numberGameButton);
         return buttons;
     }
 

@@ -186,7 +186,7 @@ public class UserListView {
             }
             userTable.setItems(list);
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Main.getErrorLogger().handleException("Error loading user list", ex);
         }
     }
 
@@ -200,7 +200,7 @@ public class UserListView {
                 }
             }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Main.getErrorLogger().handleException("Error getting last login date", ex);
         }
         return "Unknown";
     }
@@ -213,7 +213,7 @@ public class UserListView {
             cs.setInt(3, Integer.parseInt(days));
             cs.execute();
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Main.getErrorLogger().handleException("Error updating password expiration time", ex);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.awesomeshot5051.separatedFiles.systemConfiguration.folderManagement;
 
+import com.awesomeshot5051.*;
 import javafx.application.*;
 import javafx.geometry.*;
 import javafx.scene.*;
@@ -251,7 +252,7 @@ public class ManageFiles extends Application {
                                 }
                             })
                             .exceptionally(ex -> {
-                                ex.printStackTrace();
+                                Main.getErrorLogger().handleException("Error during scan", ex);
                                 Platform.runLater(() -> {
                                     statusLabel.setText("Error during scan: " + ex.getMessage());
                                 });
@@ -259,7 +260,7 @@ public class ManageFiles extends Application {
                             });
                 })
                 .exceptionally(ex -> {
-                    ex.printStackTrace();
+                    Main.getErrorLogger().handleException("Error loading folder", ex);
                     Platform.runLater(() -> {
                         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                         errorAlert.setTitle("Error");

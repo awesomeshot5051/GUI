@@ -55,3 +55,15 @@
 #stopButton:hover {
     -fx-background-color: #f77f61;
 }
+
+.result-fast {
+    -fx-background-color: #8b0000; /* dark red */
+}
+
+.result-medium {
+    -fx-background-color: #b8860b; /* dark yellow/gold */
+}
+
+.result-slow {
+    -fx-background-color: #006400; /* dark green */
+}

@@ -1,17 +1,13 @@
 package com.awesomeshot5051.separatedFiles.logs;
 
+import com.awesomeshot5051.*;
 import javafx.application.*;
 import javafx.geometry.*;
-import javafx.geometry.Insets;
 import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.*;
 import java.nio.file.*;
 
@@ -24,47 +20,56 @@ public class LogViewer {
      * Shows a dialog allowing the user to choose between viewing regular logs or error logs
      */
     public void showLogSelectionDialog() {
-        // Create a custom dialog using Swing for selecting log type
-        JDialog dialog = new JDialog();
+        showLogSelectionDialog(Main.getStage());
+    }
+
+    /**
+     * Shows a dialog allowing the user to choose between viewing regular logs or error logs
+     *
+     * @param parentStage The parent stage to use for the dialog
+     */
+    public void showLogSelectionDialog(Stage parentStage) {
+        // Create a custom JavaFX dialog for selecting log type
+        Stage dialog = new Stage();
         dialog.setTitle("Select Log Type");
-        dialog.setSize(400, 150);
-        dialog.setLocationRelativeTo(null);
-        dialog.setModal(true);
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(parentStage);
         dialog.setResizable(false);
-        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
+        VBox root = new VBox(10);
+        root.setPadding(new Insets(20));
+        root.setAlignment(Pos.CENTER);
 
-        JLabel label = new JLabel("Select which log you would like to view:");
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        panel.add(label, BorderLayout.NORTH);
+        Label label = new Label("Select which log you would like to view:");
+        label.setStyle("-fx-font-size: 14px;");
 
-        JPanel buttonPanel = new JPanel();
+        HBox buttonBox = new HBox(10);
+        buttonBox.setAlignment(Pos.CENTER);
 
-        JButton regularLogButton = new JButton("Application Logs");
-        regularLogButton.addActionListener(e -> {
-            dialog.dispose();
+        Button regularLogButton = new Button("Application Logs");
+        regularLogButton.setPrefWidth(150);
+        regularLogButton.setOnAction(e -> {
+            dialog.close();
             openRegularLogFile();
         });
 
-        JButton errorLogButton = new JButton("Error Logs");
-        errorLogButton.addActionListener(e -> {
-            dialog.dispose();
+        Button errorLogButton = new Button("Error Logs");
+        errorLogButton.setPrefWidth(150);
+        errorLogButton.setOnAction(e -> {
+            dialog.close();
             openErrorLogFile();
         });
 
-        JButton cancelButton = new JButton("Cancel");
-        cancelButton.addActionListener(e -> dialog.dispose());
+        Button cancelButton = new Button("Cancel");
+        cancelButton.setPrefWidth(100);
+        cancelButton.setOnAction(e -> dialog.close());
 
-        buttonPanel.add(regularLogButton);
-        buttonPanel.add(errorLogButton);
-        buttonPanel.add(cancelButton);
+        buttonBox.getChildren().addAll(regularLogButton, errorLogButton, cancelButton);
+        root.getChildren().addAll(label, buttonBox);
 
-        panel.add(buttonPanel, BorderLayout.CENTER);
-
-        dialog.add(panel);
-        dialog.setVisible(true);
+        Scene scene = new Scene(root, 500, 150);
+        dialog.setScene(scene);
+        dialog.show();
     }
 
     /**
@@ -86,9 +91,11 @@ public class LogViewer {
                 Files.createDirectories(errorLogPath.getParent());
                 Files.createFile(errorLogPath);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null,
-                        "Could not create error log file: " + e.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Could not create error log file: " + e.getMessage());
+                alert.showAndWait();
                 return;
             }
         }
@@ -116,7 +123,7 @@ public class LogViewer {
         exitButton.setOnAction(e -> stage.close());
 
         Button clearButton = new Button("Clear");
-        clearButton.setOnAction(e -> clearLog(logFilePath, textArea, stage));
+        clearButton.setOnAction(e -> clearLog(logFilePath, stage));
 
         Button refreshButton = new Button("Refresh");
         refreshButton.setOnAction(e -> loadLog(logFilePath, textArea));
@@ -143,23 +150,8 @@ public class LogViewer {
     /**
      * Clears the specified log file and updates the text area
      */
-    private void clearLog(String logFilePath, TextArea textArea, Stage stage) {
-        try {
-            // Truncate the file
-            Files.write(Path.of(logFilePath), new byte[0]);
-
-            // Update the text area
-            textArea.clear();
-
-            JOptionPane.showMessageDialog(null,
-                    "Log file has been cleared.",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null,
-                    "Failed to clear log file: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    private void clearLog(String logFilePath, Stage stage) {
+        new LogClearer(logFilePath).clearLogs(stage);
     }
 
     /**

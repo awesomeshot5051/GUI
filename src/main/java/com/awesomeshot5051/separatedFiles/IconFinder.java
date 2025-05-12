@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles;
 
 
+import com.awesomeshot5051.*;
 import javafx.scene.image.*;
 
 import java.io.*;
@@ -44,8 +45,7 @@ public class IconFinder {
             return null;
 
         } catch (Exception e) {
-            System.out.println("Error loading icon: " + e.getMessage());
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error finding ETIcon.jpg", e);
             return null;
         }
     }

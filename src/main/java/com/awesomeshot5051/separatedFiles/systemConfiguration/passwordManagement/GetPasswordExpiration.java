@@ -60,7 +60,7 @@ public class GetPasswordExpiration {
                 expired = today.isAfter(nextChangedDate) || today.equals(nextChangedDate);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error checking password expiration", e);
             return false;
         }
 
@@ -77,7 +77,7 @@ public class GetPasswordExpiration {
                 return rs.getInt("days");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error getting password expiration days", e);
         }
         return 0;
     }
@@ -91,7 +91,7 @@ public class GetPasswordExpiration {
                 }
             }
         } catch (SQLException ex) {
-            ex.printStackTrace();
+            Main.getErrorLogger().handleException("Error getting password expiration days for user", ex);
         }
         return "0";
     }

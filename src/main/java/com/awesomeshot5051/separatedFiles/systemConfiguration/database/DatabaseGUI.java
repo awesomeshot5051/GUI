@@ -22,11 +22,11 @@ public class DatabaseGUI {
     private static Stage primaryStage;
     private static Scene mainScene;
 
-    public static void showDatabaseGui() {
+    public void showDatabaseGui() {
         DatabaseGUI.primaryStage = Main.getStage();
         try {
             // Read the password from the password file
-            InputStream in = DatabaseGUI.class.getResourceAsStream("/guest_password.txt");
+            InputStream in = DatabaseGUI.class.getResourceAsStream("/guestPassword.txt");
             if (in == null) {
                 throw new FileNotFoundException("password.txt not found in resources.");
             }
@@ -38,7 +38,7 @@ public class DatabaseGUI {
 
             chooseDatabase();
         } catch (IOException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error reading guest password", e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -54,7 +54,7 @@ public class DatabaseGUI {
             statement.execute(useCommand);
             Main.getLogger().info("Database changed to: " + dbName);
         } catch (SQLException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error changing database", e);
             // Handle any SQL errors here
         }
     }

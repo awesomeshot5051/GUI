@@ -1,13 +1,11 @@
 package com.awesomeshot5051.separatedFiles.defaultLoginCheck;
 
-import com.awesomeshot5051.separatedFiles.userManagement.ManageUserStatus;
-import com.awesomeshot5051.separatedFiles.userManagement.User;
-import javafx.scene.control.Alert;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.userManagement.*;
+import javafx.scene.control.*;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.SQLException;
+import java.io.*;
+import java.sql.*;
 
 public class DefaultAccountChecker {
 
@@ -19,11 +17,11 @@ public class DefaultAccountChecker {
 
     public static void markDefaultAccountUsed() {
         File file = new File(FLAG_FILE_PATH);
-        file.getParentFile().mkdirs(); // Create directory if it doesn't exist
+        final boolean worked = file.getParentFile().mkdirs(); // Create directory if it doesn't exist
         try (FileWriter writer = new FileWriter(file)) {
             writer.write("true");
         } catch (IOException e) {
-            e.printStackTrace(); // Or handle however you like
+            Main.getErrorLogger().handleException("Error marking default account as used", e);
         }
     }
 

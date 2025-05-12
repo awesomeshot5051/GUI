@@ -462,6 +462,7 @@ public class FileEncryption {
             st.show();
         } catch (Exception ex) {
             showError("View file error", ex);
+            Main.getErrorLogger().handleException("View file error", ex);
         }
     }
 
@@ -735,7 +736,7 @@ public class FileEncryption {
 
             String privPem = new PrivateKeyManager().loadPrivateKey();
             KeyVerifier verifier = new KeyVerifier(pubPem.publicKey(), privPem);
-            return !verifier.verifyKeys();
+            return verifier.verifyKeys();
         } catch (Exception e) {
             return true;
         }

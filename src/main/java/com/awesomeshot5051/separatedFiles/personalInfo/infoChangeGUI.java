@@ -113,7 +113,7 @@ public class infoChangeGUI {
                 return rs.getString("password").equals(hashedPassword);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error finding old password", e);
             showAlert("Error", "Failed to change Password.\n" + e.getMessage());
 
         }

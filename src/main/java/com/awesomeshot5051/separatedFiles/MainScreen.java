@@ -39,11 +39,18 @@ public class MainScreen {
         // Set up the main stage
         stage.setScene(dashboardScene);
         stage.setTitle(IGroupType.getGroupName() + " Dashboard");
+        stage.setWidth(600);
+        stage.setHeight(400);
+        stage.setMinWidth(600);
+        stage.setMinHeight(200);
+        stage.setMaximized(false); // Optional: prevent JavaFX from maximizing unexpectedly
+        stage.centerOnScreen();    // Optional: recenter
         stage.show();
     }
 
     // Method to determine the appropriate dashboard screen based on IGroupType
     public DashboardScreen getDashboardScreen() {
+
         return switch (IGroupType) {
             case AdminIGroup adminIGroup -> new AdminDashboard();
             case SuperAdminIGroup superAdminIGroup -> new SuperAdminDashboard();

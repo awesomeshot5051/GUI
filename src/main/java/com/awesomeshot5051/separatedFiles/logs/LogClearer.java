@@ -12,7 +12,11 @@ import java.io.*;
 
 public class LogClearer {
 
-    private static final String LOG_FILE_PATH = "C:\\Users\\Traee\\OneDrive - University of North Florida\\Programming\\College Programming\\Programming 2\\Codes\\MyGUI\\log.txt";
+    private final String LOG_FILE_PATH;
+
+    public LogClearer(String logFilePath) {
+        this.LOG_FILE_PATH = logFilePath;
+    }
 
     public void clearLogs(Stage stage) {
         Alert confirmDialog = new Alert(AlertType.CONFIRMATION);
@@ -53,7 +57,7 @@ public class LogClearer {
     private void performLogClear(Stage stage) {
         try {
             // Open the file in write mode, effectively clearing its contents
-            try (PrintWriter writer = new PrintWriter(new FileWriter(LOG_FILE_PATH))) {
+            try (PrintWriter writer = new PrintWriter(new FileWriter(this.LOG_FILE_PATH))) {
                 // File is cleared
             }
 
@@ -66,7 +70,7 @@ public class LogClearer {
             successDialog.showAndWait();
 
             // Reload the logs viewer to show the cleared logs
-            new LogViewer().readLog();
+            new LogViewer().showLogSelectionDialog();
             stage.close(); // Close the current logs window
 
         } catch (IOException e) {

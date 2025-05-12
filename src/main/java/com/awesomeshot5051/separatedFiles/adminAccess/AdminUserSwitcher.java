@@ -75,7 +75,7 @@ public class AdminUserSwitcher {
         stage.show();
     }
 
-    @SuppressWarnings("CallToPrintStackTrace")
+
     private boolean authenticateAdmin(String adminUsername, String password) {
         PasswordHasher hasher = new PasswordHasher(password);
         String hashedPassword = hasher.getUnsaltedHashedPassword() + hasher.getSalt(adminUsername);
@@ -85,12 +85,12 @@ public class AdminUserSwitcher {
             ResultSet rs = stmt.executeQuery();
             return rs.next() && rs.getString("password").equals(hashedPassword);
         } catch (SQLException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error finding Admin Password for user", e);
         }
         return false;
     }
 
-    @SuppressWarnings("CallToPrintStackTrace")
+
     private void loadUserList(ComboBox<String> userDropdown) {
         try (PreparedStatement stmt = connection.prepareStatement("SELECT username FROM users")) {
             ResultSet rs = stmt.executeQuery();
@@ -100,7 +100,7 @@ public class AdminUserSwitcher {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Error loading user list", e);
         }
     }
 

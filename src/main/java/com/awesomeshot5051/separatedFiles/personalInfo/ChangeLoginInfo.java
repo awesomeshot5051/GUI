@@ -1,5 +1,6 @@
 package com.awesomeshot5051.separatedFiles.personalInfo;
 
+import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.scene.control.*;
 
@@ -26,7 +27,7 @@ public class ChangeLoginInfo {
             stmt.execute();
             showAlert("Success", "Password changed successfully!");
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle errors properly
+            Main.getErrorLogger().handleException("Error changing password", e);
             showAlert("Error", "Failed to change password.\n" + e.getMessage());
         }
     }
@@ -41,7 +42,7 @@ public class ChangeLoginInfo {
             stmt.execute();
             showAlert("Success", "Username changed successfully!");
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle errors properly
+            Main.getErrorLogger().handleException("Error changing username", e);
         }
     }
 
