@@ -27,6 +27,11 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
         VBox root = new VBox(15);
         root.setPadding(new Insets(20));
         root.setAlignment(Pos.CENTER); // Center the entire content
+        root.setFillWidth(true);
+
+
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/dashboard.css")).toExternalForm());
+
 
         // Welcome header
         Label welcome = new Label("Welcome, " + SessionManager.getName());
@@ -64,6 +69,7 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
         int col = 0;
         for (Button button : dashboardButtons) {
             button.setMaxWidth(Double.MAX_VALUE);
+            button.getStyleClass().add("button");
             buttonGrid.add(button, col, row);
             GridPane.setFillWidth(button, true);
 
@@ -80,6 +86,7 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
         // Add logout button at the bottom
         Button logoutButton = getLogoutButton();
         logoutButton.setMaxWidth(300); // Limit width for logout button
+        logoutButton.getStyleClass().add("button"); // Apply button styling
 
         // Add all elements to the root container
         root.getChildren().addAll(welcome, scrollPane, logoutButton);

@@ -39,10 +39,10 @@ public class MainScreen {
         // Set up the main stage
         stage.setScene(dashboardScene);
         stage.setTitle(IGroupType.getGroupName() + " Dashboard");
-        stage.setWidth(600);
-        stage.setHeight(400);
-        stage.setMinWidth(600);
-        stage.setMinHeight(200);
+        stage.setWidth(1200);   // Much larger width
+        stage.setHeight(800);   // Much larger height
+        stage.setMinWidth(900); // Minimum width so it can't be too small
+        stage.setMinHeight(700); // Minimum height so it can't be too small
         stage.setMaximized(false); // Optional: prevent JavaFX from maximizing unexpectedly
         stage.centerOnScreen();    // Optional: recenter
         stage.show();

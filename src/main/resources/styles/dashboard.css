@@ -5,6 +5,10 @@
     -fx-text-fill: #2c3e50;
 }
 
+.background {
+    -fx-background-color: #42429a;
+}
+
 .button {
     -fx-font-size: 14px;
     -fx-padding: 10 20;
