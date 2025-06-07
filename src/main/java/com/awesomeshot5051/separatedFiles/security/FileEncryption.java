@@ -29,8 +29,9 @@ import java.util.stream.*;
 public class FileEncryption {
 
     private static final String ENCRYPTION_ALGORITHM = "AES";
-    private static final String CIPHER_TRANSFORMATION = "AES/CBC/PKCS5Padding";
-    private static final int IV_LENGTH = 16;
+    private static final String CIPHER_TRANSFORMATION = "AES/GCM/NoPadding";
+    private static final int GCM_IV_LENGTH = 12; // recommended length for GCM
+    private static final int GCM_TAG_LENGTH = 128; // in bits
 
     // File type categories
     private static final Set<String> TEXT_EDITABLE_EXTENSIONS = new HashSet<>(Arrays.asList(
@@ -161,23 +162,31 @@ public class FileEncryption {
         SecretKey aesKey = deriveAesKey();
         String encryptedName = fileNameEncryptor.encryptFileName(originalFileName);
 
-        byte[] iv = new byte[IV_LENGTH];
+        // Generate IV for GCM (12 bytes is recommended)
+        byte[] iv = new byte[GCM_IV_LENGTH];
         secureRandom.nextBytes(iv);
-        IvParameterSpec ivSpec = new IvParameterSpec(iv);
+
+        // Create GCM parameter spec with IV and tag length
+        GCMParameterSpec gcmSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
+
         Cipher cipher = Cipher.getInstance(CIPHER_TRANSFORMATION);
-        cipher.init(Cipher.ENCRYPT_MODE, aesKey, ivSpec);
+        cipher.init(Cipher.ENCRYPT_MODE, aesKey, gcmSpec);
 
         Path out = vaultDirectory.resolve(encryptedName);
         try (InputStream in = Files.newInputStream(sourceFile);
              OutputStream outStream = Files.newOutputStream(out)) {
 
+            // Write IV first
             outStream.write(iv);
+
             byte[] buf = new byte[4096];
             int r;
             while ((r = in.read(buf)) != -1) {
                 byte[] chunk = cipher.update(buf, 0, r);
                 if (chunk != null) outStream.write(chunk);
             }
+
+            // Write final block (includes authentication tag for GCM)
             byte[] finalBlock = cipher.doFinal();
             if (finalBlock != null) outStream.write(finalBlock);
         }
@@ -214,12 +223,17 @@ public class FileEncryption {
         try (InputStream in = Files.newInputStream(encryptedPath);
              OutputStream out = Files.newOutputStream(targetFile)) {
 
-            byte[] iv = new byte[IV_LENGTH];
-            if (in.read(iv) != IV_LENGTH) throw new IOException("Cannot read IV");
-            IvParameterSpec ivSpec = new IvParameterSpec(iv);
+            // Read IV (12 bytes for GCM)
+            byte[] iv = new byte[GCM_IV_LENGTH];
+            if (in.read(iv) != GCM_IV_LENGTH) {
+                throw new IOException("Cannot read IV - file may be corrupted or not encrypted with GCM");
+            }
+
+            // Create GCM parameter spec with IV and tag length
+            GCMParameterSpec gcmSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
 
             Cipher cipher = Cipher.getInstance(CIPHER_TRANSFORMATION);
-            cipher.init(Cipher.DECRYPT_MODE, aesKey, ivSpec);
+            cipher.init(Cipher.DECRYPT_MODE, aesKey, gcmSpec);
 
             byte[] buf = new byte[4096];
             int r;
@@ -227,6 +241,8 @@ public class FileEncryption {
                 byte[] chunk = cipher.update(buf, 0, r);
                 if (chunk != null) out.write(chunk);
             }
+
+            // Process final block (includes authentication tag verification for GCM)
             byte[] finalBlock = cipher.doFinal();
             if (finalBlock != null) out.write(finalBlock);
         }

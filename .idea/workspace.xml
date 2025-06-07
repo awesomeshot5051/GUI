@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database." />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -453,7 +456,7 @@
       <workItem from="1749144268210" duration="8351000" />
       <workItem from="1749234700486" duration="5069000" />
       <workItem from="1749246718916" duration="991000" />
-      <workItem from="1749261431224" duration="3286000" />
+      <workItem from="1749261431224" duration="4164000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -639,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749266350163</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database.">
+      <option name="closed" value="true" />
+      <created>1749266418412</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1749266418413</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
