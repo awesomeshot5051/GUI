@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" id="86d54f68-5829-4cf5-aecd-36bac1821018" customName="javaguidbhosting.alwaysdata.net" nameFormat="CUSTOM" useOpenSSHConfig="true">
+        <option name="customName" value="javaguidbhosting.alwaysdata.net" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

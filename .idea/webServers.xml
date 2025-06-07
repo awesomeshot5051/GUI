@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6905055e-fc61-4c7f-80cc-db1b34733283" name="javaguidbhosting.alwaysdata.net" url="https://ftp-javaguidbhosting.alwaysdata.net">
+        <fileTransfer rootFolder="/www" accessType="FTPS" host="ftp-javaguidbhosting.alwaysdata.net" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" isUseRsync="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

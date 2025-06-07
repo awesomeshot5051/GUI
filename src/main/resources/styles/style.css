@@ -1,0 +1,28 @@
+.menu-box, .game-box {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+}
+
+.header {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding-bottom: 10;
+}
+
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 8 16;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+}
+
+.text-field {
+    -fx-pref-width: 150;
+}
+
+.thinking-area {
+    -fx-font-size: 20px;
+    -fx-text-alignment: center;
+}
