@@ -125,7 +125,7 @@ A comprehensive JavaFX application designed to provide secure user authenticatio
 ---
 
 ## Access Keys
-- You can purchase the access keys using this (link)[https://javaguidbhosting.alwaysdata.net/]
+- You can purchase the access keys using this [link](https://javaguidbhosting.alwaysdata.net/)
 - Employers can redeem a temporary access key by uploading a copy of my resume.
 - You can redeem one free trial for the vault, which lasts 7 days.
 - All temporary access keys are valid for 7 days and will automatically be deleted past that time period
