@@ -1,0 +1,19 @@
+Index: src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.awesomeshot5051.separatedFiles;\r\n\r\nimport com.awesomeshot5051.separatedFiles.dashboards.*;\r\nimport com.awesomeshot5051.separatedFiles.group.*;\r\nimport javafx.scene.*;\r\nimport javafx.scene.control.*;\r\nimport javafx.stage.*;\r\n\r\nimport java.sql.*;\r\n\r\npublic class MainScreen {\r\n    private final IGroup IGroupType;\r\n    private final String status;\r\n    private final String username;\r\n    private final String name;\r\n    private final Connection connection;\r\n\r\n    public MainScreen(IGroup IGroupType, String status, String username, String name, Connection connection, Stage stage) {\r\n        this.connection = connection;\r\n        this.IGroupType = IGroupType;\r\n        this.status = status;\r\n        this.username = username;\r\n        this.name = name;\r\n        setUpMainScreen(stage);\r\n    }\r\n\r\n    // com.awesomeshot5051.separatedFiles.dashboards.DashboardScreen Interface (defined in separate classes)\r\n    public interface DashboardScreen {\r\n        Parent getView();\r\n\r\n        Button getLogoutButton();\r\n    }\r\n\r\n    // Redirection Logic to Load Different Screens Based on GroupType\r\n    public void setUpMainScreen(Stage stage) {\r\n        DashboardScreen dashboardScreen = getDashboardScreen();\r\n        Scene dashboardScene = new Scene(dashboardScreen.getView(), 600, 400);\r\n\r\n        // Set up the main stage\r\n        stage.setScene(dashboardScene);\r\n        stage.setTitle(IGroupType.getGroupName() + \" Dashboard\");\r\n        stage.setWidth(1200);   // Much larger width\r\n        stage.setHeight(800);   // Much larger height\r\n        stage.setMinWidth(900); // Minimum width so it can't be too small\r\n        stage.setMinHeight(700); // Minimum height so it can't be too small\r\n        stage.setMaximized(false); // Optional: prevent JavaFX from maximizing unexpectedly\r\n        stage.centerOnScreen();    // Optional: recenter\r\n        stage.show();\r\n    }\r\n\r\n    // Method to determine the appropriate dashboard screen based on IGroupType\r\n    public DashboardScreen getDashboardScreen() {\r\n\r\n        return switch (IGroupType) {\r\n            case AdminIGroup adminIGroup -> new AdminDashboard();\r\n            case SuperAdminIGroup superAdminIGroup -> new SuperAdminDashboard();\r\n            case StandardIGroup standardIGroup -> new StandardDashboard();\r\n            case null, default ->   // Default group or fallback\r\n                    new DefaultDashboard();\r\n        };\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java b/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java
+--- a/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java	(revision d4d1876ab58d5558f5566a5b16f5bd0fcb53eb89)
++++ b/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java	(date 1749318916382)
+@@ -39,7 +39,7 @@
+         // Set up the main stage
+         stage.setScene(dashboardScene);
+         stage.setTitle(IGroupType.getGroupName() + " Dashboard");
+-        stage.setWidth(1200);   // Much larger width
++        stage.setWidth(900);   // Much larger width
+         stage.setHeight(800);   // Much larger height
+         stage.setMinWidth(900); // Minimum width so it can't be too small
+         stage.setMinHeight(700); // Minimum height so it can't be too small

@@ -39,7 +39,7 @@ public class MainScreen {
         // Set up the main stage
         stage.setScene(dashboardScene);
         stage.setTitle(IGroupType.getGroupName() + " Dashboard");
-        stage.setWidth(1200);   // Much larger width
+        stage.setWidth(900);   // Much larger width
         stage.setHeight(800);   // Much larger height
         stage.setMinWidth(900); // Minimum width so it can't be too small
         stage.setMinHeight(700); // Minimum height so it can't be too small
