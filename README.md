@@ -1,175 +1,138 @@
-# Secure User Authentication & Encryption System
+# 🛡️ England Technologies – Secure User Authentication & Encryption System
 
-A comprehensive JavaFX application providing secure user authentication, role-based access control, and advanced file
-encryption. This system features robust security measures including password hashing, account status management,
-detailed logging functionality, and secure file vault capabilities.
+A comprehensive JavaFX application designed to provide secure user authentication, role-based access control, and advanced file encryption. This system employs **AES-256 GCM encryption**, secure access keys, and a professional file vault system to ensure your data is protected with military-grade security practices.
 
-## Features
+---
 
-### User Authentication & Security
+## 🔐 Key Features
 
-- **Advanced Password Management**:
-    - SHA-256 hashing with salt for enhanced security
-    - Password expiration enforcement
-    - Password history verification to prevent reuse
-- **Multi-level User Validation**:
-    - Credential verification against secure database
-    - Account status checking (enabled/disabled)
-    - Default account detection and notification
+### 🔑 User Authentication & Security
 
-### Secure File Vault
+- **Advanced Password Management**  
+  - SHA-256 password hashing with random salt  
+  - Password expiration and reuse prevention  
+  - Password history enforcement
 
-- **File Encryption Vault**:
-    - AES encryption with CBC mode and PKCS5Padding
-    - Secure storage of sensitive files in an encrypted vault
-    - Automatic file type detection and appropriate handling
-    - Both filename and content encryption for maximum security
+- **Multi-Level Verification**  
+  - Credentials securely validated against a MySQL backend  
+  - Detection of default, expired, or disabled accounts  
+  - Alert system for unusual login behavior
 
-- **Smart File Handling**:
-    - Automatic detection of file types (text, image, PDF, office documents, binary)
-    - Specialized viewers for different file formats
-    - Internal text editor for quick modifications
-    - External application integration for complex file types
+### 🧰 Secure File Vault
 
-- **Key Management**:
-    - Public/private key verification before encryption/decryption
-    - Secure key rotation for enhanced security
-    - Key verification to prevent unauthorized access
+- **Modern AES-256 GCM Encryption**  
+  - Uses AES/GCM/NoPadding — a secure, authenticated encryption mode  
+  - Protects both file contents and integrity against tampering  
+  - Eliminates vulnerability to padding oracle attacks (unlike CBC mode)
 
-### Role-Based Access Control
+- **File Vault Access Key System**  
+  - Vault access is gated by secure, rotating access keys  
+  - Public/private key verification ensures identity and access control  
+  - Permanent keys (paid licenses) and temporary employer-issued keys (via resume verification)
 
-- **User Types and Permissions**:
-    - **SuperAdmin**: Full system access with database management, system configuration, and user administration
-      privileges
-    - **Admin**: Advanced management capabilities including user creation, vault access, and log viewing
-    - **Standard**: Basic functionality with limited management capabilities
-    - **Default**: Initial account type with minimal privileges
+- **Secure Filename Encryption**  
+  - Filenames are encrypted using a separate cipher process  
+  - File extensions are hidden to prevent metadata leaks  
+  - Even file types cannot be guessed without access
 
-- **User Management Dashboard**:
-    - Complete system management interface
-    - Access to vault management functionality
-    - User switching capabilities for troubleshooting (SuperAdmin only)
+### 🧠 Smart File Handling
 
-### File and Directory Management
+- File type auto-detection (Text, Image, PDF, Office, Binary)  
+- Built-in text viewer/editor  
+- External viewer integration for complex formats  
+- Temporary decrypted files are securely wiped after use
 
-- **Manage Files and Folders**:
-    - Comprehensive file system explorer
-    - Directory size calculation and analysis
-    - File organization and cleanup tools
-    - Storage space optimization
-    - Directory navigation and file management within the application
+### 🧑‍💼 Role-Based Access Control
 
-### System Management
+| User Type  | Capabilities                                                    |
+|------------|----------------------------------------------------------------|
+| SuperAdmin | Full control over system configuration, database, users, vault, and logging |
+| Admin      | User and vault management, log access, personal settings       |
+| Standard   | Basic vault and personal access                                 |
+| Default    | Minimal access, used for system initialization                  |
 
-- **Comprehensive Logging**:
-    - Detailed event tracking with timestamps
-    - Login attempts (successful and failed)
-    - Security-related warnings
-- **Session Management**:
-    - Secure user sessions with proper authentication
-    - Last login date tracking
-    - Session information persistence
+- SuperAdmin can switch into other user accounts for testing or support  
+- All roles access only what is explicitly granted based on clearance level
 
-### User Interface
+### 🗂️ File & Directory Management
 
-- **JavaFX-based GUI**:
-    - Clean login interface
-    - Role-appropriate dashboards
-    - Alert system for notifications
-    - File vault browsing and management interface
-- **Dynamic UI Elements**:
-    - Context-sensitive screens based on user permissions
-    - Intuitive navigation
-    - Specialized file viewing and editing capabilities
+- Full directory explorer with file/folder tools  
+- Built-in storage optimization and cleanup utilities  
+- Vault integration with user-specific access
 
-## User Type Capabilities
+### 🖥️ User Interface & Experience
 
-### SuperAdmin
+- Built with JavaFX for a modern, desktop-grade interface  
+- Clean login and onboarding flow  
+- Role-specific dashboards with dynamic controls  
+- Alerts and tooltips to guide secure usage
 
-- Full system configuration access
-- Database management and execution
-- User management (create, modify, disable)
-- Password expiration settings
-- Complete access to logs
-- File vault management
-- File and folder management
-- Can switch to other user accounts for troubleshooting
+---
 
-### Admin
+## ⚙️ Technical Stack
 
-- User management (create and modify)
-- Log viewing capabilities
-- File vault access
-- File and folder management
-- Personal settings modification
+- **Java 21** – Core application  
+- **JavaFX** – UI rendering  
+- **MySQL** – Remote database via alwaysdata.net  
+- **Gradle** – Build and deployment automation  
+- **JCE (Java Cryptography Extension)** – Cryptography backend  
+- **AES-256 GCM** – File encryption (with random IV and 128-bit authentication tag)  
+- **JDBC** – Secure database connections
 
-### Standard
+---
 
-- Basic application functionality
-- Personal settings modification
-- Limited file management capabilities
+## 🧾 File Vault Access Workflow
 
-### Default
+### 🔑 Permanent Keys
 
-- Initial account used for first-time setup
-- Automatically enabled when system detects first-use
+- Purchased via the secure payment portal  
+- Stored in a MySQL table  
+- Permanently linked to a user account
 
-## Technical Details
+### 🔓 Temporary Keys
 
-### Technology Stack
+- Issued when employers upload your resume  
+- Valid for 7 days  
+- Automatically expire and are revoked
 
-- **Java 21**: Core application language
-- **JavaFX**: UI framework
-- **MySQL**: Backend database for user data
-- **JDBC**: Database connectivity
-- **Gradle**: Build system
-- **Java Cryptography Extensions (JCE)**: Encryption implementation
+### 🔐 Key Rotation and Verification
 
-### Security Implementation
+- Public keys are generated each time you login  
+- Keys rotate periodically for forward secrecy  
+- Private key is stored locally for decryption only
 
-- Passwords are never stored in plain text
-- Salted hashing prevents rainbow table attacks
-- Account locking for security breaches
-- Password expiration policies
-- AES-256 encryption for file contents
-- Secure temporary file handling with automatic cleanup
+---
 
-### File Vault Architecture
+## 🔄 Vault Architecture
 
-- **Secure File Management**:
-    - Files stored with encrypted names and contents
-    - Dedicated vault directory separate from application files
-    - Type-specific handling for different file formats
-    - Internal viewer/editor for supported formats
+- All files encrypted before disk write  
+- Vault path is isolated from application directories  
+- Encrypted files cannot be identified without a valid key  
+- Internal editors/viewers protect against temp file abuse  
+- Automatic deletion of decrypted copies on close or timeout
 
-- **Temporary File Safety**:
-    - Secure creation and deletion of temporary files
-    - Automatic cleanup on application exit
-    - Protected viewing and editing workflow
+---
 
-## Database Configuration
+## 🧬 Security Philosophy
 
-The application connects to a MySQL database hosted on alwaysdata.net:
+- Zero plaintext password storage  
+- Salted hash protection from rainbow table attacks  
+- AES-256 GCM encryption instead of insecure CBC  
+- Session tracking and last login logging  
+- Logging of suspicious activity  
+- Access key validation before decryption
 
-- Database URL: jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase
-- Username credentials are managed through the application
-- Database purges occur periodically based on last login date
+---
 
-**Security Note**: When creating accounts, use unique credentials that aren't used for other important services.
+## Access Keys
+- You can purchase the access keys using this (link)[https://javaguidbhosting.alwaysdata.net/]
+- Employers can redeem a temporary access key by uploading a copy of my resume.
+- You can redeem one free trial for the vault, which lasts 7 days.
+- All temporary access keys are valid for 7 days and will automatically be deleted past that time period
+- Peremant access keys are $2
 
-## Using the File Vault
+## ⚠️ Legal Notice
 
-The file vault system provides a secure way to store sensitive files:
+This software is proprietary to England Technologies. Unauthorized use, reproduction, reverse engineering, or distribution is strictly prohibited. All encryption logic, key management algorithms, and access validation mechanisms are protected under copyright.
 
-1. Access the vault through the "Vault" button in the dashboard
-2. View encrypted files with appropriate viewers based on file type
-3. Edit text files directly within the application
-4. Open and edit other file types using your system's default applications
-5. All files are automatically re-encrypted after editing
-
-## Legal Notice
-
-This software is proprietary and all rights are reserved. Unauthorized copying, modification, distribution, or use of
-this software is strictly prohibited. This software is provided for authorized use only.
-
-© 2025 All Rights Reserved
+© 2025 England Technologies – All Rights Reserved.
