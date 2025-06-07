@@ -6,6 +6,7 @@ import com.awesomeshot5051.separatedFiles.group.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import com.awesomeshot5051.separatedFiles.systemConfiguration.database.*;
 import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.*;
+import javafx.beans.property.*;
 import javafx.collections.*;
 import javafx.geometry.*;
 import javafx.scene.*;
@@ -35,7 +36,7 @@ public class UserListView {
 
         // ——— Name Column ———
         TableColumn<User, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(cd -> cd.getValue().nameProperty());
+        nameColumn.setCellValueFactory(cd -> cd.getValue().getName().equalsIgnoreCase(SessionManager.getName()) ? cd.getValue().nameProperty() : new SimpleStringProperty("***"));
 
         // ——— Username Column ———
         TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
@@ -104,17 +105,6 @@ public class UserListView {
             }
         });
 
-        expirationColumn.setOnEditCommit(evt -> {
-            String newVal = evt.getNewValue();
-            User u = evt.getRowValue();
-            if (newVal != null && newVal.matches("\\d+")) {
-                u.setPasswordExpiration(newVal);
-            } else {
-                // restore old if invalid
-                u.setPasswordExpiration(evt.getOldValue());
-                userTable.refresh();
-            }
-        });
 
         // ——— Delete Action Column ———
         TableColumn<User, Void> deleteColumn = getUserVoidTableColumn();

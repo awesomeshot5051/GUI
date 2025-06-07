@@ -1,17 +1,22 @@
 package com.awesomeshot5051.separatedFiles.userManagement;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.*;
-import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
-import com.awesomeshot5051.separatedFiles.group.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import javafx.geometry.*;
-import javafx.scene.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.PasswordHasher;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
+import com.awesomeshot5051.separatedFiles.group.DefaultIGroup;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CreateUser {
     private final Connection connection;
@@ -63,7 +68,25 @@ public class CreateUser {
 
         Label groupLabel = new Label("Group Type:");
         ComboBox<String> groupComboBox = new ComboBox<>();
-        groupComboBox.getItems().addAll("Standard", "Admin", "SuperAdmin");
+        // Check if SuperAdmin exists before adding items to the combo box
+        try {
+            String query = "SELECT COUNT(*) as count FROM users WHERE `group` = 'SuperAdmin'";
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    int superAdminCount = rs.getInt("count");
+                    if (superAdminCount > 0) {
+                        groupComboBox.getItems().addAll("Standard", "Admin");
+                    } else {
+                        groupComboBox.getItems().addAll("Standard", "Admin", "SuperAdmin");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", "Error checking SuperAdmin existence: " + e.getMessage());
+            groupComboBox.getItems().addAll("Standard", "Admin"); // Fallback to safe options
+        }
+
         groupComboBox.setValue("Standard");
 
         Label statusLabel = new Label("Status:");

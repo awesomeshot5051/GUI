@@ -1,9 +1,11 @@
 package com.awesomeshot5051.separatedFiles.userManagement;
 
-import com.awesomeshot5051.separatedFiles.group.*;
-import javafx.beans.property.*;
+import com.awesomeshot5051.separatedFiles.group.Group;
+import com.awesomeshot5051.separatedFiles.group.IGroup;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-import java.sql.*;
+import java.sql.SQLException;
 
 public class User {
     private final StringProperty name;
@@ -13,6 +15,7 @@ public class User {
     private boolean modified;
     private final StringProperty passwordExpiration = new SimpleStringProperty();
     private boolean expirationModified = false;
+    private boolean isAccessKeyValid;
 
     public User(String name, String username, String group, String status) throws SQLException {
         this.name = new SimpleStringProperty(name);
@@ -48,6 +51,14 @@ public class User {
 
     public void setGroup(String newGroup) throws SQLException {
         this.group = new Group(newGroup).getGroup();
+    }
+
+    public void setAccessKeyValid(boolean valid) {
+        isAccessKeyValid = valid;
+    }
+
+    public boolean isAccessKeyValid() {
+        return isAccessKeyValid;
     }
 
     public void setStatus(String newStatus) {

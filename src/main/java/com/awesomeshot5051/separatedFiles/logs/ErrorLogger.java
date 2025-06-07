@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.logs;
 
 import com.awesomeshot5051.*;
+import javafx.scene.control.*;
 
 import javax.swing.*;
 import java.io.*;
@@ -169,11 +170,12 @@ public class ErrorLogger {
      */
     public void handleException(String message, Throwable throwable) {
         logError(throwable);
-
-        JOptionPane.showMessageDialog(null,
-                message + ": " + throwable.getMessage() +
-                        "\n\nError details have been logged to:\n" + ERROR_LOG_PATH,
-                "Error", JOptionPane.ERROR_MESSAGE);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(message);
+        alert.setContentText(throwable.getMessage() +
+                "\n\nError details have been logged to:\n" + ERROR_LOG_PATH);
+        alert.showAndWait();
     }
 
     /**

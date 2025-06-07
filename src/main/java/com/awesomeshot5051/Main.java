@@ -1,26 +1,35 @@
 package com.awesomeshot5051;
 
-import com.awesomeshot5051.separatedFiles.*;
-import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
-import com.awesomeshot5051.separatedFiles.logs.*;
-import com.awesomeshot5051.separatedFiles.personalInfo.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.*;
-import com.awesomeshot5051.separatedFiles.userValidation.*;
-import javafx.application.*;
-import javafx.scene.*;
+import com.awesomeshot5051.separatedFiles.IconFinder;
+import com.awesomeshot5051.separatedFiles.MainScreen;
+import com.awesomeshot5051.separatedFiles.PasswordHasher;
+import com.awesomeshot5051.separatedFiles.UserValues;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
+import com.awesomeshot5051.separatedFiles.logs.ErrorLogger;
+import com.awesomeshot5051.separatedFiles.logs.logger;
+import com.awesomeshot5051.separatedFiles.personalInfo.infoChangeGUI;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.GetPasswordExpiration;
+import com.awesomeshot5051.separatedFiles.userValidation.CredentialChecker;
+import com.awesomeshot5051.separatedFiles.userValidation.StatusChecker;
+import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.*;
-import javafx.scene.input.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-import java.io.*;
-import java.nio.file.*;
-import java.sql.*;
-import java.util.logging.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Logger;
 
-import static com.awesomeshot5051.Launcher.*;
+import static com.awesomeshot5051.Launcher.serverPassword;
 
 public class Main extends Application {
     private static final Logger LOGGER = new logger().makeLogger();

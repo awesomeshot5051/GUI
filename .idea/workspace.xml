@@ -5,35 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added Error Logging&#10;Added Code Cracker&#10;Adjusted the Encryption to allow multiple files being encrypted at once. Encryption is done on a separate thread from the display, so it doesn't freeze up.&#10;Adjusted the Decryption to allow multiple files to be decrypted at once. Decryption is also done on a separate thread.">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a/storage_v2/_src_/schema/javaguidbhosting_userdatabase.wn1ngA.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/IconFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/IconFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/adminAccess/AdminUserSwitcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/adminAccess/AdminUserSwitcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/AdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/AdminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/StandardDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/StandardDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/defaultLoginCheck/DefaultAccountChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/defaultLoginCheck/DefaultAccountChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/ErrorLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/ErrorLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogClearer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogClearer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/BruteForceCodeCracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/extraStuff/BruteForceCodeCracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/KeyVerifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/KeyVerifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/PublicKeyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/PublicKeyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/VaultManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/VaultManagementScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/session/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/session/SessionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/folderManagement/ManageFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/folderManagement/ManageFiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/GetPasswordExpiration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/GetPasswordExpiration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/ChangePasswordHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/passwordManagement/ChangePasswordHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/AnimatedStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/AnimatedStyles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="D:GUI">
@@ -79,9 +77,9 @@
       <list>
         <option value="Kotlin Script" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,6 +105,8 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWebServerValidation" deployment_server_id="6905055e-fc61-4c7f-80cc-db1b34733283" path_to_validation_script="D:\GUI\Scripts" selected_validation_type="REMOTE" web_path_to_validation_script="http://127.0.0.1/" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -135,7 +135,7 @@
     &quot;Gradle.GUI.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [:Main.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Launcher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor&quot;: &quot;Run&quot;,
@@ -144,6 +144,8 @@
     &quot;Gradle.GUI::GUI [:separatedFiles:model].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [:separatedFiles:tasks].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [Prototype].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GUI::GUI [clean].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [jar].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [run2].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.GUI::GUI [runMainScreen].executor&quot;: &quot;Run&quot;,
@@ -171,11 +173,12 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CodeWithMe&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver&quot;,
       &quot;mysql&quot;
     ]
   }
@@ -219,37 +222,11 @@
       <command value="jpackage --type exe --name LoginGUI --input build/libs --main-jar GUI.jar --main-class com.awesomeshot5051.Main --dest out --java-options &quot;--enable-preview&quot; " />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.GUI::GUI [jar]">
-    <configuration name="BruteForceCodeCracker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.separatedFiles.extraStuff.BruteForceCodeCracker" />
-      <module name="GUI.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.awesomeshot5051.separatedFiles.extraStuff.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.GUI::GUI [run]">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.Main" />
       <module name="GUI.main" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main/java/com/awesomeshot5051" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NumberGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.separatedFiles.extraStuff.NumberGame" />
-      <module name="GUI.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.awesomeshot5051.separatedFiles.extraStuff.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="WORKING_DIRECTORY" value="D:GUI/src/main/java/com/awesomeshot5051" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -283,10 +260,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUI::GUI [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GUI::GUI [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI::GUI [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI::GUI [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="D:GUI" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -330,7 +351,7 @@
     <configuration name="GUI::GUI [shadowJar] (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="D:GUI" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -353,19 +374,19 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.PasswordHasherGUI" />
       <item itemvalue="Application.PasswordHasher" />
-      <item itemvalue="Application.NumberGame" />
-      <item itemvalue="Application.BruteForceCodeCracker" />
+      <item itemvalue="Gradle.GUI::GUI [build]" />
+      <item itemvalue="Gradle.GUI::GUI [clean]" />
       <item itemvalue="Gradle.GUI::GUI [jar]" />
-      <item itemvalue="Gradle.GUI::GUI [shadowJar] (2)" />
       <item itemvalue="Gradle.GUI::GUI [run]" />
+      <item itemvalue="Gradle.GUI::GUI [shadowJar] (2)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GUI::GUI [jar]" />
         <item itemvalue="Gradle.GUI::GUI [run]" />
-        <item itemvalue="Application.NumberGame" />
-        <item itemvalue="Application.BruteForceCodeCracker" />
+        <item itemvalue="Gradle.GUI::GUI [build]" />
+        <item itemvalue="Gradle.GUI::GUI [clean]" />
         <item itemvalue="Gradle.GUI::GUI [shadowJar] (2)" />
+        <item itemvalue="Gradle.GUI::GUI [jar]" />
       </list>
     </recent_temporary>
   </component>
@@ -431,7 +452,28 @@
       <workItem from="1746831513958" duration="1887000" />
       <workItem from="1746887760881" duration="19654000" />
       <workItem from="1746976761555" duration="16384000" />
-      <workItem from="1747055694821" duration="395000" />
+      <workItem from="1747055694821" duration="464000" />
+      <workItem from="1747056802063" duration="1185000" />
+      <workItem from="1747058746819" duration="121000" />
+      <workItem from="1747143198260" duration="959000" />
+      <workItem from="1747406621018" duration="603000" />
+      <workItem from="1747419527800" duration="14144000" />
+      <workItem from="1747511986607" duration="1758000" />
+      <workItem from="1747596953747" duration="2888000" />
+      <workItem from="1748091680684" duration="47000" />
+      <workItem from="1748265051346" duration="17000" />
+      <workItem from="1748374978789" duration="1353000" />
+      <workItem from="1748376429768" duration="916000" />
+      <workItem from="1748444941269" duration="10000" />
+      <workItem from="1748732805833" duration="1572000" />
+      <workItem from="1748823524589" duration="198000" />
+      <workItem from="1748870009613" duration="6286000" />
+      <workItem from="1748889978608" duration="123000" />
+      <workItem from="1748891401020" duration="5393000" />
+      <workItem from="1749144268210" duration="8351000" />
+      <workItem from="1749234700486" duration="5069000" />
+      <workItem from="1749246718916" duration="991000" />
+      <workItem from="1749261431224" duration="2308000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -593,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746828500109</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added Error Logging&#10;Added Code Cracker&#10;Adjusted the Encryption to allow multiple files being encrypted at once. Encryption is done on a separate thread from the display, so it doesn't freeze up.&#10;Adjusted the Decryption to allow multiple files to be decrypted at once. Decryption is also done on a separate thread.">
+      <option name="closed" value="true" />
+      <created>1747056127840</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1747056127840</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,6 +667,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <ignored-roots>
       <path value="D:GUI" />
     </ignored-roots>
@@ -633,40 +685,35 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
+          <url>file://D:GUI/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
           <line>734</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/CreateUser.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
-          <line>151</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
+          <url>file://D:GUI/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java</url>
           <line>464</line>
           <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/session/SessionManager.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
+          <line>237</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

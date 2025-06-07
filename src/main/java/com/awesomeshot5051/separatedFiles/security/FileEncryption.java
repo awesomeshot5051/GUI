@@ -49,7 +49,7 @@ public class FileEncryption {
             Collections.singletonList("pdf")
     );
 
-    private final Path vaultDirectory;
+    private Path vaultDirectory;
     private final SecureRandom secureRandom;
     private final SecureFileNameEncryptor fileNameEncryptor;
 
@@ -195,13 +195,20 @@ public class FileEncryption {
         }
 
         SecretKey aesKey = deriveAesKey();
+        if (encryptedFileName.equals(getEncryptedFileName("accesskey.key"))) {
+            vaultDirectory = vaultDirectory.resolve(".accessKey");
+        }
         Path encryptedPath = vaultDirectory.resolve(encryptedFileName);
-        if (!Files.exists(encryptedPath)) {
-            String alt = fileNameEncryptor.encryptFileName(encryptedFileName);
-            encryptedPath = vaultDirectory.resolve(alt);
+        try {
             if (!Files.exists(encryptedPath)) {
-                throw new FileNotFoundException("Vault file not found: " + encryptedFileName);
+                String alt = fileNameEncryptor.encryptFileName(encryptedFileName);
+                encryptedPath = vaultDirectory.resolve(alt);
+                if (!Files.exists(encryptedPath)) {
+                    throw new FileNotFoundException("Vault file not found: " + encryptedFileName);
+                }
             }
+        } catch (FileNotFoundException e) {
+            Main.getErrorLogger().handleException("Vault file not found: accessKey.key", e);
         }
 
         try (InputStream in = Files.newInputStream(encryptedPath);

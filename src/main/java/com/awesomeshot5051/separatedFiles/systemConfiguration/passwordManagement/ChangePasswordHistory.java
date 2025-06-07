@@ -11,7 +11,7 @@ import java.sql.*;
 
 public class ChangePasswordHistory {
 
-    private Connection connection;
+    private final Connection connection;
 
     public ChangePasswordHistory() {
         this.connection = Main.getConnection();
@@ -21,7 +21,16 @@ public class ChangePasswordHistory {
     public void ChangePasswordHistoryGUI() {
         Stage stage = new Stage();
         stage.setTitle("System Configuration");
-        TextField passwordHistoryLimit = new TextField("Password History Limit: ");
+        Label passwordHistoryLimitLabel = new Label("Password History Limit:");
+        passwordHistoryLimitLabel.setLabelFor(passwordHistoryLimitLabel);
+        TextField passwordHistoryLimit = new TextField();
+        VBox layout = getVBox(stage, passwordHistoryLimit);
+
+        stage.setScene(new Scene(layout, 300, 250));
+        stage.show();
+    }
+
+    private VBox getVBox(Stage stage, TextField passwordHistoryLimit) {
         Button set = new Button("Set");
         set.setOnAction(e -> {
             stage.close();
@@ -37,9 +46,7 @@ public class ChangePasswordHistory {
             new SystemConfigurationGUI().SystemConfigurationMainGUI();
         });
         VBox layout = new VBox(10, passwordHistoryLimit, set, exit);
-
-        stage.setScene(new Scene(layout, 300, 250));
-        stage.show();
+        return layout;
     }
 
     private void updatePasswordHistory(int i) throws SQLException {

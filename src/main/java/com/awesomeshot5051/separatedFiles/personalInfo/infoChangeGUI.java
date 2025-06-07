@@ -1,15 +1,20 @@
 package com.awesomeshot5051.separatedFiles.personalInfo;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import javafx.geometry.*;
-import javafx.scene.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.PasswordHasher;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class infoChangeGUI {
 
@@ -67,6 +72,7 @@ public class infoChangeGUI {
         layout.setPadding(new Insets(20));
 
         stage.setScene(new Scene(layout, 300, 250));
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
 

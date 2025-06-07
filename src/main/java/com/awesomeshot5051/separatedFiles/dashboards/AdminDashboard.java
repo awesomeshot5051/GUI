@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.dashboards;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.accesskey.*;
 import com.awesomeshot5051.separatedFiles.adminAccess.*;
 import com.awesomeshot5051.separatedFiles.extraStuff.*;
 import com.awesomeshot5051.separatedFiles.logs.*;
@@ -116,7 +117,14 @@ public class AdminDashboard implements MainScreen.DashboardScreen {
         buttons.add(manageFilesButton);
 
         Button vault = new Button("Vault");
-        vault.setOnAction(e -> new VaultManagementScreen().VaultManagementMainGUI());
+        vault.setOnAction(e -> {
+            if (SessionManager.isAccessKeyValid()) {
+                new VaultManagementScreen().VaultManagementMainGUI();
+            } else {
+                new AccessKeyVerification().AccessKeyVerificationWindow();
+            }
+        });
+
         buttons.add(vault);
 
         // Switch user button

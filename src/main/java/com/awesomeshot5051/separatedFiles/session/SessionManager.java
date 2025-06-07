@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.session;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.accesskey.*;
 import com.awesomeshot5051.separatedFiles.group.*;
 import com.awesomeshot5051.separatedFiles.userManagement.*;
 
@@ -13,6 +14,7 @@ public class SessionManager {
     private static String status;
     private static IGroup IGroupType;
     private static Connection connection;
+    private static boolean validAccessKey;
     private String password;
     private static User user;
     private static User originalAdminUser; // Stores the original admin session if they switch users
@@ -25,6 +27,8 @@ public class SessionManager {
         connection = conn;
         originalAdminUser = null; // Reset any previous switching session
         user = new User(fullName, username, userIGroup.getGroupName(), status);
+        new AccessKeyVerification().accessKeyExists();
+        validAccessKey = user.isAccessKeyValid();
     }
 
 
@@ -55,6 +59,14 @@ public class SessionManager {
 
     public static Connection getConnection() {
         return connection;
+    }
+
+    public static boolean isAccessKeyValid() {
+        return validAccessKey;
+    }
+
+    public static void setAccessKeyValid(boolean valid) {
+        validAccessKey = valid;
     }
 
     // Switch to another user's session (Admins/SuperAdmins only)

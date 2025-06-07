@@ -275,7 +275,9 @@ public class DatabaseGUI {
             for (int i = 1; i <= columnCount; i++) {
                 // Mask sensitive data
                 if (metaData.getColumnName(i).equalsIgnoreCase("password") ||
-                        metaData.getColumnName(i).equalsIgnoreCase("salt")) {
+                        metaData.getColumnName(i).equalsIgnoreCase("salt") ||
+                        metaData.getColumnName(i).equalsIgnoreCase("public_key") ||
+                        metaData.getColumnName(i).equalsIgnoreCase("public_salt")) {
                     row.add("***");
                 } else {
                     row.add(rs.getObject(i));

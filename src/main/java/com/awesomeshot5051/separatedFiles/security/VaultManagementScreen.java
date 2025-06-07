@@ -1,30 +1,40 @@
 package com.awesomeshot5051.separatedFiles.security;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import javafx.animation.*;
-import javafx.application.*;
-import javafx.collections.*;
-import javafx.concurrent.*;
-import javafx.geometry.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.MainScreen;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.geometry.Insets;
-import javafx.scene.*;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
-import javafx.stage.*;
-import javafx.util.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.*;
-import java.io.*;
-import java.nio.file.*;
-import java.sql.*;
-import java.util.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class VaultManagementScreen {
     private final Stage stage;
