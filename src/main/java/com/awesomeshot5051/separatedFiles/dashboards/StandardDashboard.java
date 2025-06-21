@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.dashboards;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.accesskey.*;
 import com.awesomeshot5051.separatedFiles.extraStuff.*;
 import com.awesomeshot5051.separatedFiles.personalInfo.*;
 import com.awesomeshot5051.separatedFiles.security.*;
@@ -104,7 +105,13 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
         buttons.add(manageFilesButton);
 
         Button vault = new Button("Vault");
-        vault.setOnAction(e -> new VaultManagementScreen().VaultManagementMainGUI());
+        vault.setOnAction(e -> {
+            if (SessionManager.isAccessKeyValid()) {
+                new VaultManagementScreen().VaultManagementMainGUI();
+            } else {
+                new AccessKeyVerification().AccessKeyVerificationWindow();
+            }
+        });
         buttons.add(vault);
 
         Button codeCrackerButton = new Button("Code Cracker");
