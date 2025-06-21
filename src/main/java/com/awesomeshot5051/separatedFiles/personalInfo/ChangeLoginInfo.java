@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.personalInfo;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.scene.control.*;
 
@@ -48,6 +49,7 @@ public class ChangeLoginInfo {
 
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        FXAlertStyler.style(alert);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

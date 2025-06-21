@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.systemConfiguration.database;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import com.awesomeshot5051.separatedFiles.userManagement.*;
 import javafx.scene.control.*;
@@ -46,6 +47,7 @@ public class DatabaseInteraction {
             Main.getLogger().severe("Failed to delete user: " + user.getUsername());
             // Show a popup if there is an SQL exception
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            FXAlertStyler.style(alert);
             alert.setTitle("Database Error");
             alert.setHeaderText("Operation Failed");
             alert.setContentText(e.getMessage()); // Shows "You cannot delete your own account"

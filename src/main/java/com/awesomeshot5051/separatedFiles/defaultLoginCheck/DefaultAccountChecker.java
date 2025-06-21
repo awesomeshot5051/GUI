@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.defaultLoginCheck;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.userManagement.*;
 import javafx.scene.control.*;
 
@@ -32,6 +33,7 @@ public class DefaultAccountChecker {
 
             // Show popup
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            FXAlertStyler.style(alert);
             alert.setTitle("Default Account Enabled");
             alert.setHeaderText(null);
             alert.setContentText("The default account has been enabled.\nUsername: admin\nPassword: admin");

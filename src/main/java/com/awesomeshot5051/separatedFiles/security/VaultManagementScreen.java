@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.security;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.animation.*;
 import javafx.application.*;
@@ -105,6 +106,7 @@ public class VaultManagementScreen {
 
                     // Notify user that decryption will continue in background
                     Alert backgroundAlert = new Alert(Alert.AlertType.INFORMATION);
+                    FXAlertStyler.style(backgroundAlert);
                     backgroundAlert.setTitle("Background Processing");
                     backgroundAlert.setHeaderText(null);
                     backgroundAlert.setContentText("Decryption will continue in the background.\n" +
@@ -146,6 +148,7 @@ public class VaultManagementScreen {
 
                 // Notify user that encryption will continue in background
                 Alert backgroundAlert = new Alert(Alert.AlertType.INFORMATION);
+                FXAlertStyler.style(backgroundAlert);
                 backgroundAlert.setTitle("Background Processing");
                 backgroundAlert.setHeaderText(null);
                 backgroundAlert.setContentText("Encryption will continue in the background.\n" +
@@ -371,6 +374,7 @@ public class VaultManagementScreen {
 
     private void showErrorAlert(String message, String s) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        FXAlertStyler.style(alert);
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(message);
@@ -515,6 +519,7 @@ public class VaultManagementScreen {
                 ButtonType.YES,
                 ButtonType.NO
         );
+        FXAlertStyler.style(confirmDelete);
         confirmDelete.setTitle("Delete Original Files");
         confirmDelete.setHeaderText("Secure Deletion Option");
 
@@ -582,6 +587,7 @@ public class VaultManagementScreen {
 
             Platform.runLater(() -> {
                 Alert deleteComplete = new Alert(Alert.AlertType.INFORMATION);
+                FXAlertStyler.style(deleteComplete);
                 deleteComplete.setTitle("Deletion Complete");
                 deleteComplete.setHeaderText(null);
 

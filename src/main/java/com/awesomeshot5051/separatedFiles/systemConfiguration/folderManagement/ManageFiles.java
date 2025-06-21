@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.systemConfiguration.folderManagement;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import javafx.application.*;
 import javafx.geometry.*;
 import javafx.scene.*;
@@ -283,6 +284,7 @@ public class ManageFiles extends Application {
                     Main.getErrorLogger().handleException("Error loading folder", ex);
                     Platform.runLater(() -> {
                         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        FXAlertStyler.style(errorAlert);
                         errorAlert.setTitle("Error");
                         errorAlert.setHeaderText("Error accessing folder");
                         errorAlert.setContentText("Could not access: " + folder + "\nError: " + ex.getMessage());
@@ -408,6 +410,7 @@ public class ManageFiles extends Application {
         deleteButton.getStyleClass().addAll("button", "button-cancel");
         deleteButton.setOnAction(e -> {
             Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            FXAlertStyler.style(confirmAlert);
             confirmAlert.setTitle("Confirm Delete");
             confirmAlert.setHeaderText("Delete " + info.path().getFileName());
             confirmAlert.setContentText("Are you sure you want to delete this " +
@@ -468,6 +471,7 @@ public class ManageFiles extends Application {
             loadFolderData(selectedFolder);
         } catch (IOException e) {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            FXAlertStyler.style(errorAlert);
             errorAlert.setTitle("Delete Error");
             errorAlert.setHeaderText("Could not delete " + path.getFileName());
             errorAlert.setContentText("Error: " + e.getMessage());

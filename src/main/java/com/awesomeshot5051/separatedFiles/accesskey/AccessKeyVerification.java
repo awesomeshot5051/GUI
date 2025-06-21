@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.accesskey;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.security.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.geometry.*;
@@ -97,6 +98,7 @@ public class AccessKeyVerification {
                 SessionManager.getUser().setAccessKeyValid(false);
 
                 Alert alert = new Alert(Alert.AlertType.WARNING);
+                FXAlertStyler.style(alert);
                 alert.setTitle("Access Key Expired");
                 alert.setHeaderText("Temporary Access Expired");
                 alert.setContentText("Your access key has expired. Please enter a new one.");
@@ -170,6 +172,7 @@ public class AccessKeyVerification {
                     new VaultManagementScreen().VaultManagementMainGUI();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.WARNING);
+                    FXAlertStyler.style(alert);
                     alert.setTitle("Access Key Verification");
                     alert.setHeaderText("Access Key Invalid");
                     alert.setContentText("Your access key has either expired, or doesn't exist. \nPlease enter a different one.\nIf you believe this is a mistake, \nplease open an issue on the GitHub.");
@@ -219,6 +222,7 @@ public class AccessKeyVerification {
             return keyExistsInDB(key);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            FXAlertStyler.style(alert);
             alert.setTitle("Invalid Access Key");
             alert.setHeaderText("Access Key Format Error");
             alert.setContentText(

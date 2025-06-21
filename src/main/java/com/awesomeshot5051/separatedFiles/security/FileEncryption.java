@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.security;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import javafx.beans.property.*;
 import javafx.geometry.*;
 import javafx.geometry.Insets;
@@ -653,6 +654,7 @@ public class FileEncryption {
                     "Do you want to save your changes before closing?",
                     ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
             alert.setTitle("Save Changes?");
+            FXAlertStyler.style(alert);
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.YES) {
                     try {
@@ -767,6 +769,7 @@ public class FileEncryption {
 
     private void showError(String title, Exception ex) {
         Alert a = new Alert(Alert.AlertType.ERROR);
+        FXAlertStyler.style(a);
         a.setTitle(title);
         a.setHeaderText(null);
         a.setContentText(ex.getMessage());
@@ -775,6 +778,7 @@ public class FileEncryption {
 
     private void showInfo(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
+        FXAlertStyler.style(a);
         a.setTitle(title);
         a.setHeaderText(null);
         a.setContentText(msg);

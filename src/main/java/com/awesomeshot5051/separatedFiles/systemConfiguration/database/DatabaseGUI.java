@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.systemConfiguration.database;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.application.*;
 import javafx.beans.property.*;
@@ -270,6 +271,7 @@ public class DatabaseGUI {
                 int updateCount = statement.getUpdateCount();
                 System.out.println("Update count: " + updateCount);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                FXAlertStyler.style(alert);
                 alert.setTitle("Command Result");
                 alert.setHeaderText(null);
                 alert.setContentText("Command executed successfully. Rows affected: " + updateCount);
@@ -277,6 +279,7 @@ public class DatabaseGUI {
             }
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            FXAlertStyler.style(alert);
             alert.setTitle("SQL Error");
             alert.setHeaderText("Error executing command");
             alert.setContentText("Error: " + e.getMessage());

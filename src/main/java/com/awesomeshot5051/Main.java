@@ -1,6 +1,7 @@
 package com.awesomeshot5051;
 
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
 import com.awesomeshot5051.separatedFiles.logs.*;
 import com.awesomeshot5051.separatedFiles.personalInfo.*;
@@ -161,7 +162,8 @@ public class Main extends Application {
     }
 
     private void showAlert(String title, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR); // Use ERROR for login issues
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        FXAlertStyler.style(alert);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);

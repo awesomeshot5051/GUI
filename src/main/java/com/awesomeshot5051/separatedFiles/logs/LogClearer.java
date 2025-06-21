@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.logs;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.group.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import com.awesomeshot5051.separatedFiles.userManagement.*;
@@ -20,6 +21,7 @@ public class LogClearer {
 
     public void clearLogs(Stage stage) {
         Alert confirmDialog = new Alert(AlertType.CONFIRMATION);
+        FXAlertStyler.style(confirmDialog);
         confirmDialog.setTitle("Clear Logs");
         confirmDialog.setHeaderText("Are you sure you want to clear the logs?");
         confirmDialog.setContentText("This action cannot be undone.\n(If you are not Super Admin your account will be disabled)");
@@ -28,6 +30,7 @@ public class LogClearer {
             if (response == ButtonType.OK) {
                 // Confirm clear, show another dialog explaining why logs are important
                 Alert infoDialog = new Alert(AlertType.INFORMATION);
+                FXAlertStyler.style(infoDialog);
                 infoDialog.setTitle("Log Information");
                 infoDialog.setHeaderText("Log files are important for troubleshooting and auditing.");
                 infoDialog.setContentText("Proceed with clearing logs after understanding the importance.");
@@ -39,6 +42,7 @@ public class LogClearer {
                         } else {
                             Main.getLogger().severe(SessionManager.getUsername() + " tried to clear the logs! Their account will be disabled!");
                             Alert warningDialog = new Alert(AlertType.WARNING);
+                            FXAlertStyler.style(warningDialog);
                             warningDialog.setTitle("You've performed an unauthorized action!");
                             warningDialog.setContentText("Your account will be disabled and you will be logged out!\nYou were warned.\nIf you believe this is a mistake or want your account re-enabled\n contact your super admin!");
                             new ManageUserStatus().setUserStatus(SessionManager.getUser(), "Disabled");
@@ -65,6 +69,7 @@ public class LogClearer {
             writeLog("Log files cleared");
 
             Alert successDialog = new Alert(AlertType.INFORMATION);
+            FXAlertStyler.style(successDialog);
             successDialog.setTitle("Success");
             successDialog.setHeaderText("Log files cleared!");
             successDialog.showAndWait();
@@ -75,6 +80,7 @@ public class LogClearer {
 
         } catch (IOException e) {
             Alert errorDialog = new Alert(AlertType.ERROR);
+            FXAlertStyler.style(errorDialog);
             errorDialog.setTitle("Error");
             errorDialog.setHeaderText("Error clearing the logs");
             errorDialog.setContentText("An error occurred: " + e.getMessage());

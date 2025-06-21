@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.extraStuff;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.application.*;
 import javafx.geometry.*;
@@ -291,8 +292,7 @@ public class NumberGame extends Application {
 
     private void showTempMessage(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
-        alert.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
-        alert.initOwner(primaryStage);
+        FXAlertStyler.style(alert);
         alert.setTitle("Hint");
         alert.setHeaderText(null);
         alert.showAndWait();

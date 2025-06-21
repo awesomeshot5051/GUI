@@ -1,6 +1,7 @@
 package com.awesomeshot5051.separatedFiles.logs;
 
 import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import javafx.application.*;
 import javafx.geometry.*;
 import javafx.scene.*;
@@ -77,6 +78,7 @@ public class LogViewer {
                 Files.createFile(errorLogPath);
             } catch (IOException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
+                FXAlertStyler.style(alert);
                 alert.setTitle("Error");
                 alert.setHeaderText(null);
                 alert.setContentText("Could not create error log file: " + e.getMessage());

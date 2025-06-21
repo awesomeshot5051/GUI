@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database." />
+    <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Added IntelliJ IDEA datasource configuration file for MySQL database">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/AdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/AdminDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/defaultLoginCheck/DefaultAccountChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/defaultLoginCheck/DefaultAccountChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/extraStuff/BruteForceCodeCracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/extraStuff/BruteForceCodeCracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/extraStuff/NumberGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/extraStuff/NumberGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogClearer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogClearer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/logs/LogViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/ChangeLoginInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/personalInfo/infoChangeGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/FileEncryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/VaultManagementScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/security/VaultManagementScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/database/DatabaseInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/folderManagement/ManageFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/systemConfiguration/folderManagement/ManageFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/userManagement/UserListView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +148,7 @@
     "Gradle.GUI::GUI [jar].executor": "Run",
     "Gradle.GUI::GUI [run2].executor": "Run",
     "Gradle.GUI::GUI [runMainScreen].executor": "Run",
-    "Gradle.GUI::GUI [run].executor": "Debug",
+    "Gradle.GUI::GUI [run].executor": "Run",
     "Gradle.GUI::GUI [shadowJar] (1).executor": "Run",
     "Gradle.GUI::GUI [shadowJar] (2).executor": "Run",
     "Gradle.GUI::GUI [shadowJar].executor": "Run",
@@ -470,7 +489,7 @@
       <workItem from="1750019214323" duration="6345000" />
       <workItem from="1750091363669" duration="707000" />
       <workItem from="1750376031404" duration="1986000" />
-      <workItem from="1750457943471" duration="9961000" />
+      <workItem from="1750457943471" duration="11640000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -696,7 +715,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750478796914</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added IntelliJ IDEA datasource configuration file for MySQL database">
+      <option name="closed" value="true" />
+      <created>1750478939700</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1750478939700</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,7 +761,9 @@
     <MESSAGE value="Added per user Vault Encryption.&#10;Encryption now works regardless of file type. You can view any encrypted file type from within the application, it will open the temporarily decrypted file based on what file type it is.&#10;Fixed it so that it launches based on the Resource folder rather than the drive folder whoops" />
     <MESSAGE value="Added Error Logging&#10;Added Code Cracker&#10;Adjusted the Encryption to allow multiple files being encrypted at once. Encryption is done on a separate thread from the display, so it doesn't freeze up.&#10;Adjusted the Decryption to allow multiple files to be decrypted at once. Decryption is also done on a separate thread." />
     <MESSAGE value="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database." />
+    <MESSAGE value="GUI fully updated with CSS" />
+    <MESSAGE value="Added IntelliJ IDEA datasource configuration file for MySQL database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added IntelliJ IDEA datasource configuration file for MySQL database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -751,12 +780,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
-          <line>68</line>
+          <line>69</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
-          <line>178</line>
+          <line>181</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
       </breakpoints>

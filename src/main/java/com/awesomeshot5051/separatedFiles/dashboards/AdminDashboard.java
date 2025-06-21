@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.dashboards;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.accesskey.*;
 import com.awesomeshot5051.separatedFiles.adminAccess.*;
 import com.awesomeshot5051.separatedFiles.extraStuff.*;
@@ -146,6 +147,7 @@ public class AdminDashboard implements MainScreen.DashboardScreen {
         } else {
             switchUserButton.setOnAction(e -> {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                FXAlertStyler.style(alert);
                 alert.setTitle("Already Switched");
                 alert.setHeaderText(null);
                 alert.setContentText("You're already logged in as someone else! Logout to switch to a different user.");

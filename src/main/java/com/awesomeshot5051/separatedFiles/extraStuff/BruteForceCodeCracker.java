@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.extraStuff;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.animation.*;
 import javafx.application.*;
@@ -154,6 +155,7 @@ public class BruteForceCodeCracker extends Application {
                     "The target is " + target.length() + " characters long. Brute forcing may take an extremely long time.\n" +
                             "Are you sure you want to proceed?",
                     ButtonType.YES, ButtonType.NO);
+            FXAlertStyler.style(alert);
             alert.setTitle("Confirmation");
             alert.setHeaderText("Long Target Warning");
 
@@ -161,6 +163,7 @@ public class BruteForceCodeCracker extends Application {
                 if (response == ButtonType.YES) {
                     if (target.length() > 10) {
                         Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Since the target is longer than 10 characters, it might go off screen. To see the whole target, please maximize the window");
+                        FXAlertStyler.style(alert1);
                         alert1.setTitle("Maximize the Screen to see the whole target");
                         alert1.setHeaderText("Long Target Warning");
                         alert1.showAndWait();
@@ -372,6 +375,7 @@ public class BruteForceCodeCracker extends Application {
                 "Password cracked: " + result.crackedPassword + "\n" +
                         "Attempts: " + result.attempts + "\n" +
                         "Time: " + formatDuration(result.durationMillis) + "\n Your password Strength is: " + strength);
+        FXAlertStyler.style(cracked);
         cracked.setTitle("Success");
         cracked.setHeaderText("Password cracked");
         cracked.getDialogPane().setPrefWidth(450);
@@ -437,6 +441,7 @@ public class BruteForceCodeCracker extends Application {
 
     private void showAlert(Alert.AlertType type, String title, String content) {
         Alert alert = new Alert(type);
+        FXAlertStyler.style(alert);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(content);

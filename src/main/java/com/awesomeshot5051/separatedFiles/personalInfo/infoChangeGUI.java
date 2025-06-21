@@ -2,6 +2,7 @@ package com.awesomeshot5051.separatedFiles.personalInfo;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.geometry.*;
 import javafx.scene.*;
@@ -142,6 +143,7 @@ public class infoChangeGUI {
     // Display alert box
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        FXAlertStyler.style(alert);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
