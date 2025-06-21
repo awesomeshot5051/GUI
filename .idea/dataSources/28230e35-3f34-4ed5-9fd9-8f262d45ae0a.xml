@@ -1203,7 +1203,7 @@
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <Current>1</Current>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-04-27.20:00:59</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-11.00:10:53</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <user id="510" parent="1" name="409644"/>
@@ -1229,7 +1229,7 @@
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
-      <SourceTextLength>433</SourceTextLength>
+      <SourceTextLength>487</SourceTextLength>
     </routine>
     <routine id="515" parent="509" name="checkAccessKeyExists">
       <Definer>409644@%</Definer>
@@ -1237,733 +1237,836 @@
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>160</SourceTextLength>
     </routine>
-    <routine id="516" parent="509" name="createAccessKeyUserLink">
+    <routine id="516" parent="509" name="checkUserExists">
+      <Definer>409644@%</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>85</SourceTextLength>
+    </routine>
+    <routine id="517" parent="509" name="createAccessKeyUserLink">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>477</SourceTextLength>
     </routine>
-    <routine id="517" parent="509" name="createPermanentAccessKey">
+    <routine id="518" parent="509" name="createPermanentAccessKey">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>134</SourceTextLength>
     </routine>
-    <routine id="518" parent="509" name="createTemporaryAccessKey">
+    <routine id="519" parent="509" name="createTemporaryAccessKey">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>201</SourceTextLength>
     </routine>
-    <routine id="519" parent="509" name="createUser">
+    <routine id="520" parent="509" name="createUser">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>811</SourceTextLength>
     </routine>
-    <routine id="520" parent="509" name="getID">
+    <routine id="521" parent="509" name="getID">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>86</SourceTextLength>
     </routine>
-    <routine id="521" parent="509" name="getLastLoginDate">
+    <routine id="522" parent="509" name="getLastLoginDate">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>116</SourceTextLength>
     </routine>
-    <routine id="522" parent="509" name="getPK">
+    <routine id="523" parent="509" name="getPK">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>168</SourceTextLength>
     </routine>
-    <routine id="523" parent="509" name="getPasswordExpiration">
+    <routine id="524" parent="509" name="getPasswordExpiration">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>192</SourceTextLength>
     </routine>
-    <routine id="524" parent="509" name="getPasswordExpirationDays">
+    <routine id="525" parent="509" name="getPasswordExpirationDays">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>316</SourceTextLength>
     </routine>
-    <routine id="525" parent="509" name="getUID">
+    <routine id="526" parent="509" name="getUID">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>70</SourceTextLength>
     </routine>
-    <routine id="526" parent="509" name="getUserStatus">
+    <routine id="527" parent="509" name="getUserStatus">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>1272</SourceTextLength>
     </routine>
-    <routine id="527" parent="509" name="manageUserStatus">
+    <routine id="528" parent="509" name="logIP">
+      <Definer>409644@%</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>81</SourceTextLength>
+    </routine>
+    <routine id="529" parent="509" name="manageUserStatus">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>320</SourceTextLength>
     </routine>
-    <routine id="528" parent="509" name="removeAccessKey">
+    <routine id="530" parent="509" name="removeAccessKey">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>60</SourceTextLength>
     </routine>
-    <routine id="529" parent="509" name="setPublicKey">
+    <routine id="531" parent="509" name="setPublicKey">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>182</SourceTextLength>
     </routine>
-    <routine id="530" parent="509" name="updateExpirationTime">
+    <routine id="532" parent="509" name="updateExpirationTime">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>165</SourceTextLength>
     </routine>
-    <routine id="531" parent="509" name="updateGlobalExpirationTime">
+    <routine id="533" parent="509" name="updateGlobalExpirationTime">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>82</SourceTextLength>
     </routine>
-    <routine id="532" parent="509" name="updateGlobalPasswordHistory">
+    <routine id="534" parent="509" name="updateGlobalPasswordHistory">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>91</SourceTextLength>
     </routine>
-    <routine id="533" parent="509" name="updateLastLoginDate">
+    <routine id="535" parent="509" name="updateLastChangedDate">
+      <Definer>409644@%</Definer>
+      <DetailsLevel>3</DetailsLevel>
+      <RoutineKind>procedure</RoutineKind>
+      <SourceTextLength>156</SourceTextLength>
+    </routine>
+    <routine id="536" parent="509" name="updateLastLoginDate">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>135</SourceTextLength>
     </routine>
-    <routine id="534" parent="509" name="updatePasswordHistory">
+    <routine id="537" parent="509" name="updatePasswordHistory">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <RoutineKind>procedure</RoutineKind>
       <SourceTextLength>193</SourceTextLength>
     </routine>
-    <table id="535" parent="509" name="access_keys">
+    <table id="538" parent="509" name="access_keys">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="536" parent="509" name="password_history">
+    <table id="539" parent="509" name="license_sessions">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="537" parent="509" name="passwordexpiration">
+    <table id="540" parent="509" name="password_history">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="538" parent="509" name="user_access_keys">
+    <table id="541" parent="509" name="passwordexpiration">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="539" parent="509" name="users">
+    <table id="542" parent="509" name="userIPLogging">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <view id="540" parent="509" name="users_safe_view">
+    <table id="543" parent="509" name="user_access_keys">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="544" parent="509" name="users">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <view id="545" parent="509" name="users_safe_view">
       <Definer>409644@%</Definer>
       <DetailsLevel>3</DetailsLevel>
       <SourceTextLength>437</SourceTextLength>
     </view>
-    <argument id="541" parent="511" name="p_salt">
+    <argument id="546" parent="511" name="p_salt">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="542" parent="511" name="p_newUsername">
+    <argument id="547" parent="511" name="p_newUsername">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="543" parent="511" name="p_oldUsername">
+    <argument id="548" parent="511" name="p_oldUsername">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="544" parent="512" name="p_username">
+    <argument id="549" parent="512" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="545" parent="512" name="p_name">
+    <argument id="550" parent="512" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="546" parent="512" name="p_current_user">
+    <argument id="551" parent="512" name="p_current_user">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="547" parent="513" name="p_username">
+    <argument id="552" parent="513" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="548" parent="513" name="p_name">
+    <argument id="553" parent="513" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="549" parent="513" name="p_group">
+    <argument id="554" parent="513" name="p_group">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="550" parent="513" name="p_status">
+    <argument id="555" parent="513" name="p_status">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="551" parent="514" name="p_username">
+    <argument id="556" parent="514" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="552" parent="514" name="p_name">
+    <argument id="557" parent="514" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="553" parent="514" name="p_newPassword">
+    <argument id="558" parent="514" name="p_newPassword">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="554" parent="515" name="p_access_key">
+    <argument id="559" parent="515" name="p_access_key">
       <Position>1</Position>
       <StoredType>varchar(41)|0s</StoredType>
     </argument>
-    <argument id="555" parent="515" name="p_exists">
+    <argument id="560" parent="515" name="p_exists">
       <ArgumentDirection>O</ArgumentDirection>
       <Position>2</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </argument>
-    <argument id="556" parent="516" name="p_username">
+    <argument id="561" parent="516" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="557" parent="516" name="p_name">
+    <argument id="562" parent="516" name="userExists">
+      <ArgumentDirection>O</ArgumentDirection>
+      <Position>2</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </argument>
+    <argument id="563" parent="517" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="564" parent="517" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="558" parent="516" name="p_accessKey">
+    <argument id="565" parent="517" name="p_accessKey">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="559" parent="517" name="p_key_value">
+    <argument id="566" parent="518" name="p_key_value">
       <Position>1</Position>
       <StoredType>varchar(64)|0s</StoredType>
     </argument>
-    <argument id="560" parent="518" name="p_key_value">
+    <argument id="567" parent="519" name="p_key_value">
       <Position>1</Position>
       <StoredType>varchar(64)|0s</StoredType>
     </argument>
-    <argument id="561" parent="519" name="p_name">
+    <argument id="568" parent="520" name="p_name">
       <Position>1</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </argument>
-    <argument id="562" parent="519" name="p_username">
+    <argument id="569" parent="520" name="p_username">
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </argument>
-    <argument id="563" parent="519" name="p_password">
+    <argument id="570" parent="520" name="p_password">
       <Position>3</Position>
       <StoredType>varchar(125)|0s</StoredType>
     </argument>
-    <argument id="564" parent="519" name="p_group">
+    <argument id="571" parent="520" name="p_group">
       <Position>4</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="565" parent="519" name="p_status">
+    <argument id="572" parent="520" name="p_status">
       <Position>5</Position>
       <StoredType>enum(&apos;Enabled&apos;, &apos;Disabled&apos;)|0e</StoredType>
     </argument>
-    <argument id="566" parent="519" name="p_salt">
+    <argument id="573" parent="520" name="p_salt">
       <Position>6</Position>
       <StoredType>varchar(32)|0s</StoredType>
     </argument>
-    <argument id="567" parent="519" name="p_expiration_time">
+    <argument id="574" parent="520" name="p_expiration_time">
       <Position>7</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </argument>
-    <argument id="568" parent="519" name="p_expires_after_days">
+    <argument id="575" parent="520" name="p_expires_after_days">
       <Position>8</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <argument id="569" parent="520" name="p_username">
+    <argument id="576" parent="521" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="570" parent="520" name="p_name">
+    <argument id="577" parent="521" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="571" parent="520" name="user_id">
+    <argument id="578" parent="521" name="user_id">
       <ArgumentDirection>O</ArgumentDirection>
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <argument id="572" parent="521" name="v_name">
+    <argument id="579" parent="522" name="v_name">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="573" parent="521" name="v_username">
+    <argument id="580" parent="522" name="v_username">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="574" parent="522" name="v_username">
+    <argument id="581" parent="523" name="v_username">
       <Position>1</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="575" parent="522" name="v_name">
+    <argument id="582" parent="523" name="v_name">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="576" parent="523" name="p_username">
+    <argument id="583" parent="524" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="577" parent="523" name="p_password">
+    <argument id="584" parent="524" name="p_password">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="578" parent="524" name="p_username">
+    <argument id="585" parent="525" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="579" parent="525" name="p_username">
+    <argument id="586" parent="526" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="580" parent="525" name="p_password">
+    <argument id="587" parent="526" name="p_password">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="581" parent="525" name="user_id">
+    <argument id="588" parent="526" name="user_id">
       <ArgumentDirection>O</ArgumentDirection>
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <argument id="582" parent="526" name="p_username">
+    <argument id="589" parent="527" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="583" parent="526" name="p_identifier">
+    <argument id="590" parent="527" name="p_identifier">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="584" parent="527" name="p_username">
+    <argument id="591" parent="528" name="ip">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="585" parent="527" name="p_name">
+    <argument id="592" parent="528" name="access_key">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="586" parent="527" name="new_status">
+    <argument id="593" parent="529" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="594" parent="529" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </argument>
+    <argument id="595" parent="529" name="new_status">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="587" parent="528" name="p_key">
+    <argument id="596" parent="530" name="p_key">
       <Position>1</Position>
       <StoredType>varchar(64)|0s</StoredType>
     </argument>
-    <argument id="588" parent="529" name="v_username">
+    <argument id="597" parent="531" name="v_username">
       <Position>1</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="589" parent="529" name="v_name">
+    <argument id="598" parent="531" name="v_name">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="590" parent="529" name="v_public_key">
+    <argument id="599" parent="531" name="v_public_key">
       <Position>3</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="591" parent="529" name="v_public_salt">
+    <argument id="600" parent="531" name="v_public_salt">
       <Position>4</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="592" parent="530" name="p_username">
+    <argument id="601" parent="532" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="593" parent="530" name="p_name">
+    <argument id="602" parent="532" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="594" parent="530" name="time">
+    <argument id="603" parent="532" name="time">
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <argument id="595" parent="531" name="time">
+    <argument id="604" parent="533" name="time">
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <argument id="596" parent="532" name="v_password_history_limit">
+    <argument id="605" parent="534" name="v_password_history_limit">
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <argument id="597" parent="533" name="v_day">
+    <argument id="606" parent="535" name="p_username">
+      <Position>1</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </argument>
+    <argument id="607" parent="535" name="p_name">
+      <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </argument>
+    <argument id="608" parent="536" name="v_day">
       <Position>1</Position>
       <StoredType>date|0s</StoredType>
     </argument>
-    <argument id="598" parent="533" name="v_name">
+    <argument id="609" parent="536" name="v_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="599" parent="533" name="v_username">
+    <argument id="610" parent="536" name="v_username">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="600" parent="534" name="p_username">
+    <argument id="611" parent="537" name="p_username">
       <Position>1</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="601" parent="534" name="p_name">
+    <argument id="612" parent="537" name="p_name">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </argument>
-    <argument id="602" parent="534" name="v_password_history_limit">
+    <argument id="613" parent="537" name="v_password_history_limit">
       <Position>3</Position>
       <StoredType>int(11)|0s</StoredType>
     </argument>
-    <column id="603" parent="535" name="id">
-      <AutoIncrement>2</AutoIncrement>
+    <column id="614" parent="538" name="id">
+      <AutoIncrement>18</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="604" parent="535" name="key_value">
+    <column id="615" parent="538" name="key_value">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(64)|0s</StoredType>
     </column>
-    <column id="605" parent="535" name="is_temporary">
+    <column id="616" parent="538" name="is_temporary">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="606" parent="535" name="created_at">
+    <column id="617" parent="538" name="created_at">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="607" parent="535" name="expires_at">
+    <column id="618" parent="538" name="expires_at">
       <Position>5</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="608" parent="535" name="PRIMARY">
+    <index id="619" parent="538" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="609" parent="535" name="access_keys_pk">
+    <index id="620" parent="538" name="access_keys_pk">
       <ColNames>key_value</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="610" parent="535" name="key_value">
+    <index id="621" parent="538" name="key_value">
       <ColNames>key_value</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="611" parent="535" name="PRIMARY">
+    <key id="622" parent="538" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="612" parent="535" name="access_keys_pk">
+    <key id="623" parent="538" name="access_keys_pk">
       <UnderlyingIndexName>access_keys_pk</UnderlyingIndexName>
     </key>
-    <key id="613" parent="535" name="key_value">
+    <key id="624" parent="538" name="key_value">
       <UnderlyingIndexName>key_value</UnderlyingIndexName>
     </key>
-    <column id="614" parent="536" name="id">
+    <column id="625" parent="539" name="session_id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="626" parent="539" name="license_key">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(64)|0s</StoredType>
+    </column>
+    <index id="627" parent="539" name="PRIMARY">
+      <ColNames>session_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="628" parent="539" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="629" parent="540" name="id">
       <AutoIncrement>4</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="615" parent="536" name="user_id">
+    <column id="630" parent="540" name="user_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="616" parent="536" name="password">
+    <column id="631" parent="540" name="password">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="617" parent="536" name="password_history_limit">
+    <column id="632" parent="540" name="password_history_limit">
       <DefaultExpression>5</DefaultExpression>
       <Position>4</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="618" parent="536" name="created_at">
+    <column id="633" parent="540" name="created_at">
       <DefaultExpression>current_timestamp()</DefaultExpression>
       <Position>5</Position>
       <StoredType>timestamp|0s</StoredType>
     </column>
-    <foreign-key id="619" parent="536" name="password_history_ibfk_1">
+    <foreign-key id="634" parent="540" name="password_history_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="620" parent="536" name="PRIMARY">
+    <index id="635" parent="540" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="621" parent="536" name="user_id">
+    <index id="636" parent="540" name="user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="622" parent="536" name="PRIMARY">
+    <key id="637" parent="540" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <trigger id="623" parent="536" name="enforce_password_history_limit">
-      <Definer>409644@%</Definer>
-      <Events>I</Events>
-      <SourceTextLength>1317</SourceTextLength>
-      <Turn>before-row</Turn>
-    </trigger>
-    <trigger id="624" parent="536" name="prevent_protected_user_update">
-      <Definer>409644@%</Definer>
-      <Events>U</Events>
-      <SourceTextLength>324</SourceTextLength>
-      <Turn>before-row</Turn>
-    </trigger>
-    <column id="625" parent="537" name="userID">
+    <column id="638" parent="541" name="userID">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="626" parent="537" name="password">
+    <column id="639" parent="541" name="password">
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="627" parent="537" name="lastChangedDate">
+    <column id="640" parent="541" name="lastChangedDate">
       <Position>3</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="628" parent="537" name="expires_after_days">
+    <column id="641" parent="541" name="expires_after_days">
       <Position>4</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="629" parent="537" name="nextChangeDate">
+    <column id="642" parent="541" name="nextChangeDate">
       <ColumnKind>generated-stored</ColumnKind>
       <DefaultExpression>`lastChangedDate` + interval `expires_after_days` day</DefaultExpression>
       <Position>5</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <foreign-key id="630" parent="537" name="passwordexpiration_ibfk_1">
+    <foreign-key id="643" parent="541" name="passwordexpiration_ibfk_1">
       <ColNames>userID</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="631" parent="537" name="userID">
+    <index id="644" parent="541" name="userID">
       <ColNames>userID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="632" parent="537" name="password">
+    <index id="645" parent="541" name="password">
       <ColNames>password</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="633" parent="537" name="userID">
+    <key id="646" parent="541" name="userID">
       <UnderlyingIndexName>userID</UnderlyingIndexName>
     </key>
-    <key id="634" parent="537" name="password">
+    <key id="647" parent="541" name="password">
       <UnderlyingIndexName>password</UnderlyingIndexName>
     </key>
-    <trigger id="635" parent="537" name="protectProtectedAccounts">
+    <trigger id="648" parent="541" name="protectProtectedAccounts">
       <Definer>409644@%</Definer>
       <Events>U</Events>
       <SourceTextLength>310</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="636" parent="538" name="user_id">
+    <column id="649" parent="542" name="id">
+      <AutoIncrement>3</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="637" parent="538" name="access_key_id">
+    <column id="650" parent="542" name="ip">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <column id="651" parent="542" name="access_key">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
+    </column>
+    <index id="652" parent="542" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="653" parent="542" name="ip">
+      <ColNames>ip</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="654" parent="542" name="access_key">
+      <ColNames>access_key</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="655" parent="542" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="656" parent="542" name="ip">
+      <UnderlyingIndexName>ip</UnderlyingIndexName>
+    </key>
+    <key id="657" parent="542" name="access_key">
+      <UnderlyingIndexName>access_key</UnderlyingIndexName>
+    </key>
+    <column id="658" parent="543" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int(11)|0s</StoredType>
+    </column>
+    <column id="659" parent="543" name="access_key_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <foreign-key id="638" parent="538" name="user_access_keys_ibfk_1">
+    <foreign-key id="660" parent="543" name="user_access_keys_ibfk_1">
       <ColNames>user_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="639" parent="538" name="fk_access_key">
+    <foreign-key id="661" parent="543" name="fk_access_key">
       <ColNames>access_key_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>access_keys</RefTableName>
     </foreign-key>
-    <foreign-key id="640" parent="538" name="user_access_keys_ibfk_2">
+    <foreign-key id="662" parent="543" name="user_access_keys_ibfk_2">
       <ColNames>access_key_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>access_keys</RefTableName>
     </foreign-key>
-    <index id="641" parent="538" name="PRIMARY">
+    <index id="663" parent="543" name="PRIMARY">
       <ColNames>user_id
 access_key_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="642" parent="538" name="unique_user_id">
+    <index id="664" parent="543" name="unique_user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="643" parent="538" name="unique_access_key_id">
+    <index id="665" parent="543" name="unique_access_key_id">
       <ColNames>access_key_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="644" parent="538" name="PRIMARY">
+    <key id="666" parent="543" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="645" parent="538" name="unique_user_id">
+    <key id="667" parent="543" name="unique_user_id">
       <UnderlyingIndexName>unique_user_id</UnderlyingIndexName>
     </key>
-    <key id="646" parent="538" name="unique_access_key_id">
+    <key id="668" parent="543" name="unique_access_key_id">
       <UnderlyingIndexName>unique_access_key_id</UnderlyingIndexName>
     </key>
-    <column id="647" parent="539" name="id">
-      <AutoIncrement>95869287</AutoIncrement>
+    <column id="669" parent="544" name="id">
+      <AutoIncrement>95869298</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="648" parent="539" name="name">
+    <column id="670" parent="544" name="name">
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="649" parent="539" name="username">
+    <column id="671" parent="544" name="username">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="650" parent="539" name="password">
+    <column id="672" parent="544" name="password">
       <Position>4</Position>
       <StoredType>varchar(125)|0s</StoredType>
     </column>
-    <column id="651" parent="539" name="group">
+    <column id="673" parent="544" name="group">
       <Position>5</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="652" parent="539" name="status">
+    <column id="674" parent="544" name="status">
       <DefaultExpression>&apos;Enabled&apos;</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>enum(&apos;Enabled&apos;, &apos;Disabled&apos;)|0e</StoredType>
     </column>
-    <column id="653" parent="539" name="last_login">
+    <column id="675" parent="544" name="last_login">
       <Position>7</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="654" parent="539" name="salt">
+    <column id="676" parent="544" name="salt">
       <Position>8</Position>
       <StoredType>varchar(32)|0s</StoredType>
     </column>
-    <column id="655" parent="539" name="expiration_time">
+    <column id="677" parent="544" name="expiration_time">
       <Position>9</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="656" parent="539" name="public_key">
+    <column id="678" parent="544" name="public_key">
       <Position>10</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="657" parent="539" name="public_salt">
+    <column id="679" parent="544" name="public_salt">
       <Position>11</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <index id="658" parent="539" name="PRIMARY">
+    <index id="680" parent="544" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="659" parent="539" name="username">
+    <index id="681" parent="544" name="username">
       <ColNames>username</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="660" parent="539" name="PRIMARY">
+    <key id="682" parent="544" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="661" parent="539" name="username">
+    <key id="683" parent="544" name="username">
       <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>
-    <trigger id="662" parent="539" name="before_user_insert">
+    <trigger id="684" parent="544" name="before_user_insert">
       <Definer>409644@%</Definer>
       <Events>I</Events>
       <SourceTextLength>344</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <trigger id="663" parent="539" name="before_user_update">
+    <trigger id="685" parent="544" name="before_user_update">
       <Definer>409644@%</Definer>
       <Events>U</Events>
       <SourceTextLength>435</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <trigger id="664" parent="539" name="control_protected_users_update">
+    <trigger id="686" parent="544" name="control_protected_users_update">
       <Definer>409644@%</Definer>
       <Events>U</Events>
       <SourceTextLength>670</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <trigger id="665" parent="539" name="before_user_delete">
+    <trigger id="687" parent="544" name="before_user_delete">
       <Definer>409644@%</Definer>
       <Events>D</Events>
       <SourceTextLength>67</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <trigger id="666" parent="539" name="before_user_delete_delete_history">
+    <trigger id="688" parent="544" name="before_user_delete_delete_history">
       <Definer>409644@%</Definer>
       <Events>D</Events>
       <SourceTextLength>199</SourceTextLength>
       <Turn>before-row</Turn>
     </trigger>
-    <column id="667" parent="540" name="id">
+    <column id="689" parent="545" name="id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int(11)|0s</StoredType>
     </column>
-    <column id="668" parent="540" name="username">
+    <column id="690" parent="545" name="username">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="669" parent="540" name="group">
+    <column id="691" parent="545" name="group">
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="670" parent="540" name="status">
+    <column id="692" parent="545" name="status">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>enum(&apos;Enabled&apos;, &apos;Disabled&apos;)|0e</StoredType>
     </column>
-    <column id="671" parent="540" name="last_login">
+    <column id="693" parent="545" name="last_login">
       <Position>5</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="672" parent="540" name="expiration_time">
+    <column id="694" parent="545" name="expiration_time">
       <Position>6</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>

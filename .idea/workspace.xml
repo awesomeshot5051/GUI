@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Access Key based vault access. You must have a valid access key to use the vault. You can also use a free trial to use it for 7 days. After that it will expire. All access keys are synced with the database.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0951346c-abf7-4b66-9eab-4d29e484e7cb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0951346c-abf7-4b66-9eab-4d29e484e7cb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1fc88931-6d95-4a54-8d76-6dfa6666561d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1fc88931-6d95-4a54-8d76-6dfa6666561d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28230e35-3f34-4ed5-9fd9-8f262d45ae0a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/dashboards/SuperAdminDashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/styles/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/styles/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/awesomeshot5051/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/guestPassword.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/guestPassword.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +47,6 @@
                 <item name="GUI" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="GUI" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -73,6 +70,11 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -106,68 +108,68 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BruteForceCodeCracker.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Build GUI.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [clean jlink].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [clean jpackage].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [jpackage \&quot;-Djavafx.platform=win\&quot;].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [jpackage].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [package \&quot;-Djavafx.platform=win\&quot;].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Launcher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor&quot;: &quot;Debug&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.extraStuff.BruteForceCodeCracker.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.extraStuff.NumberGame.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:separatedFiles:model].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [:separatedFiles:tasks].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [Prototype].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [jar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [run2].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [runMainScreen].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [shadowJar] (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [shadowJar] (2).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [shadowJar].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GUI::GUI [startScripts].executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [javafx:jlink].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GUI/src/main/resources/icon&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BruteForceCodeCracker.executor": "Coverage",
+    "Gradle.Build GUI.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.GUI [clean jlink].executor": "Run",
+    "Gradle.GUI [clean jpackage].executor": "Run",
+    "Gradle.GUI [jpackage \"-Djavafx.platform=win\"].executor": "Run",
+    "Gradle.GUI [jpackage].executor": "Run",
+    "Gradle.GUI [package \"-Djavafx.platform=win\"].executor": "Run",
+    "Gradle.GUI [shadowJar].executor": "Run",
+    "Gradle.GUI.executor": "Run",
+    "Gradle.GUI::GUI [:Main.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.Launcher.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.Main.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.PasswordHasherGUI.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.IconFinder.main()].executor": "Debug",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.PasswordHasher.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.extraStuff.BruteForceCodeCracker.main()].executor": "Run",
+    "Gradle.GUI::GUI [:com.awesomeshot5051.separatedFiles.extraStuff.NumberGame.main()].executor": "Run",
+    "Gradle.GUI::GUI [:separatedFiles:model].executor": "Run",
+    "Gradle.GUI::GUI [:separatedFiles:tasks].executor": "Run",
+    "Gradle.GUI::GUI [Prototype].executor": "Run",
+    "Gradle.GUI::GUI [build].executor": "Run",
+    "Gradle.GUI::GUI [clean].executor": "Run",
+    "Gradle.GUI::GUI [jar].executor": "Run",
+    "Gradle.GUI::GUI [run2].executor": "Run",
+    "Gradle.GUI::GUI [runMainScreen].executor": "Run",
+    "Gradle.GUI::GUI [run].executor": "Run",
+    "Gradle.GUI::GUI [shadowJar] (1).executor": "Run",
+    "Gradle.GUI::GUI [shadowJar] (2).executor": "Run",
+    "Gradle.GUI::GUI [shadowJar].executor": "Run",
+    "Gradle.GUI::GUI [startScripts].executor": "Run",
+    "Maven. [javafx:jlink].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "v3.5",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/GUI/src/main/resources/icon",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver",
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.awesomeshot5051.separatedFiles.extraStuff" />
@@ -368,10 +370,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.GUI::GUI [run]" />
-        <item itemvalue="Gradle.GUI::GUI [build]" />
-        <item itemvalue="Gradle.GUI::GUI [clean]" />
         <item itemvalue="Gradle.GUI::GUI [shadowJar] (2)" />
         <item itemvalue="Gradle.GUI::GUI [jar]" />
+        <item itemvalue="Gradle.GUI::GUI [clean]" />
+        <item itemvalue="Gradle.GUI::GUI [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -661,8 +663,38 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="214a6b30-8ca1-49d0-a74a-03013193bc04" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="214a6b30-8ca1-49d0-a74a-03013193bc04">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -711,16 +743,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/session/SessionManager.java</url>
           <line>80</line>
           <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/awesomeshot5051/separatedFiles/accesskey/AccessKeyVerification.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="124" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
