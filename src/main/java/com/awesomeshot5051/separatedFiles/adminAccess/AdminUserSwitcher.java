@@ -39,7 +39,10 @@ public class AdminUserSwitcher {
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(20));
 
-        stage.setScene(new Scene(layout, 300, 200));
+        Scene scene = new Scene(layout, 300, 200);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
+
+        stage.setScene(scene);
         stage.show();
     }
 
@@ -71,10 +74,12 @@ public class AdminUserSwitcher {
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(20));
 
-        stage.setScene(new Scene(layout, 300, 200));
+        Scene scene = new Scene(layout, 300, 200);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
+
+        stage.setScene(scene);
         stage.show();
     }
-
 
     private boolean authenticateAdmin(String adminUsername, String password) {
         PasswordHasher hasher = new PasswordHasher(password);
@@ -89,7 +94,6 @@ public class AdminUserSwitcher {
         }
         return false;
     }
-
 
     private void loadUserList(ComboBox<String> userDropdown) {
         try (PreparedStatement stmt = connection.prepareStatement("SELECT username FROM users")) {
@@ -106,6 +110,10 @@ public class AdminUserSwitcher {
 
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
+        dialogPane.getStyleClass().add("form-container");
+
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(message);

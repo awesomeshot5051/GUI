@@ -36,46 +36,46 @@ public class UserListView {
 
         // ——— Name Column ———
         TableColumn<User, String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setCellValueFactory(cd -> cd.getValue().getName().equalsIgnoreCase(SessionManager.getName()) ? cd.getValue().nameProperty() : new SimpleStringProperty("***"));
+        nameColumn.setCellValueFactory(cd ->
+                cd.getValue().getName().equalsIgnoreCase(SessionManager.getName())
+                        ? cd.getValue().nameProperty()
+                        : new SimpleStringProperty("***")
+        );
 
         // ——— Username Column ———
         TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
         usernameColumn.setCellValueFactory(cd -> cd.getValue().usernameProperty());
+
+        // ——— Last Login Column ———
         TableColumn<User, String> lastLoginColumn = new TableColumn<>("Last Login");
         lastLoginColumn.setCellValueFactory(cd -> cd.getValue().lastLoginProperty());
+
         // ——— Group Column ———
         TableColumn<User, String> groupColumn = new TableColumn<>("Group");
         groupColumn.setCellValueFactory(cd -> cd.getValue().groupProperty());
-        if (SessionManager.getGroupType() instanceof SuperAdminIGroup) {
-            groupColumn.setCellFactory(ComboBoxTableCell.forTableColumn("Default", "Standard", "Admin", "SuperAdmin"));
-        } else {
-            groupColumn.setCellFactory(ComboBoxTableCell.forTableColumn("Default", "Standard", "Admin"));
-        }
+        groupColumn.setCellFactory(ComboBoxTableCell.forTableColumn(
+                "Default",
+                "Standard", "Admin",
+                SessionManager.getGroupType() instanceof SuperAdminIGroup ? "SuperAdmin" : null
+        ));
         groupColumn.setOnEditCommit(evt -> {
             User u = evt.getRowValue();
             try {
                 if (u.getGroup().getGroupName().equalsIgnoreCase("default")) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Cannot change the default group!");
-                    alert.showAndWait();
+                    showAlert("Error", "Cannot change the default group!");
                     u.setGroup(evt.getOldValue());
                     return;
                 } else if (u.getName().equalsIgnoreCase(SessionManager.getName())) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Cannot change your own group!\nContact another admin to change your group.");
-                    alert.showAndWait();
+                    showAlert("Error", "Cannot change your own group!\nContact another admin.");
                     u.setGroup(evt.getOldValue());
                     return;
-                } else
+                } else {
                     u.setGroup(evt.getNewValue());
+                    u.setModified(true);
+                }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            u.setModified(true);
         });
 
         // ——— Status Column ———
@@ -99,17 +99,15 @@ public class UserListView {
                 user.setPasswordExpiration(newVal);
                 user.setExpirationModified(true);
             } else {
-                // Revert the value if input is invalid
                 user.setPasswordExpiration(evt.getOldValue());
                 userTable.refresh();
             }
         });
 
-
         // ——— Delete Action Column ———
         TableColumn<User, Void> deleteColumn = getUserVoidTableColumn();
 
-        userTable.getColumns().addAll(List.of(
+        userTable.getColumns().setAll(List.of(
                 nameColumn,
                 usernameColumn,
                 groupColumn,
@@ -118,8 +116,9 @@ public class UserListView {
                 lastLoginColumn,
                 deleteColumn
         ));
-
         userTable.setEditable(true);
+        userTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        userTable.getStyleClass().add("user-table");
 
         loadUsersFromDatabase();
 
@@ -128,6 +127,8 @@ public class UserListView {
         // ——— Buttons ———
         Button updateButton = new Button("Update Database");
         Button exitButton = new Button("Exit");
+        updateButton.getStyleClass().add("button");
+        exitButton.getStyleClass().add("button");
 
         updateButton.setOnAction(e -> {
             for (User u : userTable.getItems()) {
@@ -141,15 +142,28 @@ public class UserListView {
                 }
             }
         });
+
         exitButton.setOnAction(e -> exitUserManagement());
 
-        HBox buttonPanel = new HBox(10, updateButton, exitButton);
+        HBox buttonPanel = new HBox(12, updateButton, exitButton);
         buttonPanel.setAlignment(Pos.CENTER);
+        buttonPanel.setPadding(new Insets(10));
         root.setBottom(buttonPanel);
 
-        primaryStage.setScene(new Scene(root, 800, 600));
+        Scene scene = new Scene(root, 900, 600);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
+
+        primaryStage.setScene(scene);
         primaryStage.setTitle("User List");
         primaryStage.show();
+    }
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     private void loadUsersFromDatabase() {

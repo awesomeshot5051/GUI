@@ -1,22 +1,18 @@
 package com.awesomeshot5051.separatedFiles.userManagement;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.PasswordHasher;
-import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
-import com.awesomeshot5051.separatedFiles.group.DefaultIGroup;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
+import com.awesomeshot5051.separatedFiles.group.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import javafx.geometry.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 public class CreateUser {
     private final Connection connection;
@@ -33,20 +29,27 @@ public class CreateUser {
         dialog.setTitle("Create New User");
 
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10));
+        grid.setPadding(new Insets(20));
         grid.setVgap(10);
         grid.setHgap(10);
+        grid.setAlignment(Pos.CENTER);
+        grid.getStyleClass().add("form-container");
 
         Label usernameLabel = new Label("Username:");
         TextField usernameField = new TextField();
+        usernameField.getStyleClass().add("text-field");
 
         Label passwordLabel = new Label("Password:");
         PasswordField passwordField = new PasswordField();
+        passwordField.getStyleClass().add("text-field");
+
         TextField passwordTextField = new TextField();
+        passwordTextField.getStyleClass().add("text-field");
         passwordTextField.setManaged(false);
         passwordTextField.setVisible(false);
 
         CheckBox showPasswordCheckbox = new CheckBox("Show Password");
+        showPasswordCheckbox.getStyleClass().add("checkbox");
         showPasswordCheckbox.setOnAction(e -> {
             if (showPasswordCheckbox.isSelected()) {
                 passwordTextField.setText(passwordField.getText());
@@ -65,10 +68,13 @@ public class CreateUser {
 
         Label nameLabel = new Label("Full Name:");
         TextField nameField = new TextField();
+        nameField.getStyleClass().add("text-field");
 
         Label groupLabel = new Label("Group Type:");
         ComboBox<String> groupComboBox = new ComboBox<>();
-        // Check if SuperAdmin exists before adding items to the combo box
+        groupComboBox.getStyleClass().add("combo-box");
+
+        // Populate group options
         try {
             String query = "SELECT COUNT(*) as count FROM users WHERE `group` = 'SuperAdmin'";
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -84,17 +90,20 @@ public class CreateUser {
             }
         } catch (SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Database Error", "Error checking SuperAdmin existence: " + e.getMessage());
-            groupComboBox.getItems().addAll("Standard", "Admin"); // Fallback to safe options
+            groupComboBox.getItems().addAll("Standard", "Admin"); // Safe fallback
         }
 
         groupComboBox.setValue("Standard");
 
         Label statusLabel = new Label("Status:");
         ComboBox<String> statusComboBox = new ComboBox<>();
+        statusComboBox.getStyleClass().add("combo-box");
         statusComboBox.getItems().addAll("Enabled", "Disabled");
         statusComboBox.setValue("Enabled");
 
         Button createButton = new Button("Create User");
+        createButton.getStyleClass().add("button");
+
         createButton.setOnAction(e -> {
             String username = usernameField.getText().trim();
             String fullName = nameField.getText().trim();
@@ -121,6 +130,7 @@ public class CreateUser {
         });
 
         Button cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().add("button-cancel");
         cancelButton.setOnAction(e -> dialog.close());
 
         grid.add(usernameLabel, 0, 0);
@@ -138,10 +148,12 @@ public class CreateUser {
         grid.add(createButton, 0, 6);
         grid.add(cancelButton, 1, 6);
 
-        Scene scene = new Scene(grid, 350, 350);
+        Scene scene = new Scene(grid, 380, 380);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
         dialog.setScene(scene);
         dialog.showAndWait();
     }
+
 
     private boolean createUserInDatabase(String name, String username, String groupType, String status, String password) {
         PasswordHasher hasher = new PasswordHasher();

@@ -17,6 +17,8 @@ import java.nio.charset.*;
 import java.sql.*;
 import java.util.*;
 
+import static com.awesomeshot5051.Launcher.*;
+
 public class DatabaseGUI {
     private static String databaseName;
     private static Stage primaryStage;
@@ -30,11 +32,11 @@ public class DatabaseGUI {
             if (in == null) {
                 throw new FileNotFoundException("password.txt not found in resources.");
             }
-            String serverPassword = new String(in.readAllBytes(), StandardCharsets.UTF_8);
+            serverPassword = new String(in.readAllBytes(), StandardCharsets.UTF_8);
 
 
-            // Use existing connection method
-            new Main().connectToDatabase(serverPassword);
+            // Use an existing connection method
+            new Main().connectToDatabase();
 
             chooseDatabase();
         } catch (IOException e) {
@@ -65,28 +67,52 @@ public class DatabaseGUI {
             Statement statement = Main.getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("SHOW DATABASES");
 
-            // Create a layout to display the database buttons
-            FlowPane buttonPane = new FlowPane(10, 10);
-            buttonPane.setPadding(new Insets(10));
-            buttonPane.setAlignment(Pos.CENTER);
+            // Create a GridPane for 2 columns
+            GridPane grid = new GridPane();
+            grid.setPadding(new Insets(20));
+            grid.setHgap(15);  // Horizontal spacing between buttons
+            grid.setVgap(15);  // Vertical spacing between buttons
+            grid.setAlignment(Pos.CENTER);
+            grid.getStyleClass().add("vbox");  // reuse your container styling
+
+            int colCount = 2;  // Number of columns
+            int col = 0;
+            int row = 0;
 
             // Iterate through the result set and create a button for each database
             while (resultSet.next()) {
                 String dbName = resultSet.getString(1);
                 Button dbButton = getDbButton(dbName);
-                buttonPane.getChildren().add(dbButton);
+                dbButton.getStyleClass().add("button");  // Your button style class
+                dbButton.setPrefWidth(150);
+                grid.add(dbButton, col, row);
+
+                col++;
+                if (col >= colCount) {
+                    col = 0;
+                    row++;
+                }
             }
 
+            // Exit button setup
             Button exitButton = new Button("Exit");
-            exitButton.setPrefWidth(120);
+            exitButton.setPrefWidth(150);
+            exitButton.getStyleClass().addAll("button", "button-cancel");
             exitButton.setOnAction(e -> {
-                // Create new MainScreen using SessionManager
                 new MainScreen(SessionManager.getGroupType(), SessionManager.getStatus(), SessionManager.getUsername(), SessionManager.getName(), SessionManager.getConnection(), Main.getStage());
             });
-            buttonPane.getChildren().add(exitButton);
 
-            // Set the scene and show the stage
-            Scene scene = new Scene(buttonPane, 400, 200);
+            // Add exit button wrapped in centered HBox
+            row++;  // next row after last db button
+            HBox exitButtonWrapper = new HBox(exitButton);
+            exitButtonWrapper.setAlignment(Pos.CENTER);
+            grid.add(exitButtonWrapper, 0, row, 2, 1);  // span 2 columns but button centered inside
+
+
+            // Set the scene and add your stylesheet
+            Scene scene = new Scene(grid, 400, 300);
+            scene.getStylesheets().add(Objects.requireNonNull(Main.class.getResource("/styles/Styles.css")).toExternalForm());
+
             primaryStage.setTitle("Choose Database");
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -97,9 +123,9 @@ public class DatabaseGUI {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle any SQL errors here
         }
     }
+
 
     private static Button getDbButton(String dbName) {
         Button dbButton = new Button(dbName);
@@ -121,14 +147,19 @@ public class DatabaseGUI {
     private static void databaseInteraction() throws SQLException {
         // Create root layout
         BorderPane root = new BorderPane();
+        root.getStyleClass().add("form-container"); // apply dark background and shadow
 
         // Create text field for SQL commands
         TextField commandField = new TextField();
         commandField.setPromptText("Enter SQL command");
+        commandField.getStyleClass().add("text-field");
 
         // Create buttons
         Button executeButton = new Button("Execute Command");
+        executeButton.getStyleClass().add("button");
+
         Button exitButton = new Button("Exit");
+        exitButton.getStyleClass().add("button");
 
         HBox buttonBox = new HBox(10, executeButton, exitButton);
         buttonBox.setAlignment(Pos.CENTER);
@@ -163,7 +194,6 @@ public class DatabaseGUI {
                     String prevCommand = historyManager.getPreviousCommand();
                     if (prevCommand != null) {
                         commandField.setText(prevCommand);
-                        // Position cursor at the end
                         Platform.runLater(() -> commandField.positionCaret(prevCommand.length()));
                     }
                     break;
@@ -171,7 +201,6 @@ public class DatabaseGUI {
                     String nextCommand = historyManager.getNextCommand();
                     commandField.setText(nextCommand != null ? nextCommand : "");
                     if (nextCommand != null) {
-                        // Position cursor at the end
                         Platform.runLater(() -> commandField.positionCaret(nextCommand.length()));
                     }
                     break;
@@ -187,11 +216,16 @@ public class DatabaseGUI {
         root.setTop(commandField);
         root.setBottom(buttonBox);
 
-        // Create and set scene
-        Scene scene = new Scene(root, 500, 200);
+        // Create and set scene with Styles.css applied
+        Scene scene = new Scene(root, 400, 300);
+        scene.getStylesheets().add(Objects.requireNonNull(
+                Main.class.getResource("/styles/Styles.css")).toExternalForm()
+        );
+        primaryStage.setMaximized(true);
         primaryStage.setTitle("Command Executor for Database " + databaseName);
         primaryStage.setScene(scene);
     }
+
 
     private static void executeCommand(String command, CommandHistoryManager historyManager) {
         historyManager.addCommand(command);
@@ -254,6 +288,7 @@ public class DatabaseGUI {
         // Create a TableView
         TableView<ObservableList<Object>> tableView = new TableView<>();
         tableView.setEditable(false);
+        tableView.getStyleClass().add("table-view"); // Apply dark styling
 
         // Get metadata
         ResultSetMetaData metaData = rs.getMetaData();
@@ -263,8 +298,8 @@ public class DatabaseGUI {
         for (int i = 0; i < columnCount; i++) {
             final int j = i;
             TableColumn<ObservableList<Object>, Object> column = new TableColumn<>(metaData.getColumnName(j + 1));
-            column.setCellValueFactory(param ->
-                    new SimpleObjectProperty<>(param.getValue().get(j)));
+            column.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().get(j)));
+            column.setPrefWidth(150);
             tableView.getColumns().add(column);
         }
 
@@ -273,11 +308,8 @@ public class DatabaseGUI {
         while (rs.next()) {
             ObservableList<Object> row = FXCollections.observableArrayList();
             for (int i = 1; i <= columnCount; i++) {
-                // Mask sensitive data
-                if (metaData.getColumnName(i).equalsIgnoreCase("password") ||
-                        metaData.getColumnName(i).equalsIgnoreCase("salt") ||
-                        metaData.getColumnName(i).equalsIgnoreCase("public_key") ||
-                        metaData.getColumnName(i).equalsIgnoreCase("public_salt")) {
+                String colName = metaData.getColumnName(i).toLowerCase();
+                if (colName.contains("password") || colName.contains("salt") || colName.contains("public_key")) {
                     row.add("***");
                 } else {
                     row.add(rs.getObject(i));
@@ -287,15 +319,25 @@ public class DatabaseGUI {
         }
         tableView.setItems(data);
 
-        // Create a new window to display the table
-        Stage resultStage = new Stage();
+        // Container setup
         VBox vbox = new VBox(tableView);
         vbox.setPadding(new Insets(10));
-        Scene scene = new Scene(vbox, 600, 400);
-        resultStage.setScene(scene);
+        vbox.getStyleClass().add("form-container");
+
+        // Scene setup with dark theme
+        Scene scene = new Scene(vbox);
+        scene.getStylesheets().add(Objects.requireNonNull(
+                Main.class.getResource("/styles/Styles.css")).toExternalForm()
+        );
+
+        // Stage setup
+        Stage resultStage = new Stage();
+        resultStage.setMaximized(true);
         resultStage.setTitle("Query Results");
+        resultStage.setScene(scene);
         resultStage.show();
     }
+
 
     // Command history manager
     private static class CommandHistoryManager {

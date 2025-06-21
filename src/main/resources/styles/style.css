@@ -1,28 +1,101 @@
-.menu-box, .game-box {
-    -fx-background-color: #f5f5f5;
-    -fx-padding: 20;
-    -fx-spacing: 10;
+/* Root container styling */
+.root, .main-layout {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: white;
 }
 
-.header {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-padding-bottom: 10;
+/* Labels */
+.label {
+    -fx-text-fill: #dddddd;
+    -fx-font-size: 14px;
 }
 
+/* PasswordField and TextField */
+.text-field, .password-field {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #f0f0f0;
+    -fx-border-color: #444;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 6 10;
+}
+
+/* Buttons */
 .button {
     -fx-font-size: 14px;
-    -fx-padding: 8 16;
-    -fx-background-color: #3498db;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 6;
     -fx-text-fill: white;
-    -fx-background-radius: 4;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
 }
 
-.text-field {
-    -fx-pref-width: 150;
+.button:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 8);
 }
 
-.thinking-area {
-    -fx-font-size: 20px;
-    -fx-text-alignment: center;
+/* Progress bar styling */
+.progress-bar {
+    -fx-accent: #00bfff;
+    -fx-control-inner-background: #222;
+    -fx-background-insets: 0;
+}
+
+/* TextArea (Log) */
+.text-area {
+    -fx-control-inner-background: #1e1e1e;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #444;
+    -fx-border-radius: 4;
+}
+
+/* HBox/VBox spacing */
+.hbox, .vbox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* Display Text */
+.animated-display {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #444;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 10;
+}
+
+/* Dialog header and title area */
+.dialog-pane .header-panel {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #e0e0e0;
+    -fx-padding: 10 10 10 10;
+}
+
+.dialog-pane .title {
+    -fx-text-fill: #e0e0e0;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .graphic {
+    -fx-fill: #e0e0e0;
+}
+
+/* Dialog title bar background (JavaFX internal) */
+.dialog > .title-pane {
+    -fx-background-color: #2b2b2b;
+}
+
+/* Dialog content panel */
+.dialog-pane .content {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #e0e0e0;
 }

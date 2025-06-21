@@ -1,20 +1,16 @@
 package com.awesomeshot5051.separatedFiles.personalInfo;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.PasswordHasher;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import javafx.geometry.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.*;
 
 public class infoChangeGUI {
 
@@ -27,17 +23,25 @@ public class infoChangeGUI {
 
         Label newUserLabel = new Label("New Username:");
         TextField newUsernameField = new TextField();
+        newUsernameField.getStyleClass().add("text-field");
 
-        Label passwordLabel = new Label("Password");
+        Label passwordLabel = new Label("Password:");
         PasswordField passwordField = new PasswordField();
+        passwordField.getStyleClass().add("text-field");
 
         Button submitButton = getButton(passwordField, newUsernameField, stage);
+        submitButton.getStyleClass().add("button");
 
         VBox layout = new VBox(10, newUserLabel, newUsernameField, passwordLabel, passwordField, submitButton);
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(20));
+        layout.getStyleClass().add("form-container");
 
-        stage.setScene(new Scene(layout, 300, 200));
+        Scene scene = new Scene(layout, 350, 250);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
+
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
 
@@ -53,6 +57,7 @@ public class infoChangeGUI {
                 showAlert("Error", "Username cannot be empty!");
             }
         });
+
         return submitButton;
     }
 
@@ -63,15 +68,24 @@ public class infoChangeGUI {
 
         Label oldPassLabel = new Label("Old Password:");
         PasswordField oldPassField = new PasswordField();
+        oldPassField.getStyleClass().add("text-field");
+
         Label newPassLabel = new Label("New Password:");
         PasswordField newPassField = new PasswordField();
+        newPassField.getStyleClass().add("text-field");
+
         Button submitButton = createSubmitButton(oldPassField, newPassField, stage);
+        submitButton.getStyleClass().add("button");
 
         VBox layout = new VBox(10, oldPassLabel, oldPassField, newPassLabel, newPassField, submitButton);
         layout.setAlignment(Pos.CENTER);
         layout.setPadding(new Insets(20));
+        layout.getStyleClass().add("form-container");
 
-        stage.setScene(new Scene(layout, 300, 250));
+        Scene scene = new Scene(layout, 350, 260);
+        scene.getStylesheets().add(getClass().getResource("/styles/Styles.css").toExternalForm());
+
+        stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
@@ -90,12 +104,12 @@ public class infoChangeGUI {
 
             String username = SessionManager.getUsername();
             PasswordHasher newPasswordHasher = new PasswordHasher(newPassword);
+
             if (SessionManager.getConnection() == null) {
                 new ChangeLoginInfo(Main.getConnection()).changePassword(SessionManager.getName(), username, newPasswordHasher.hashPassword() + newPasswordHasher.getSalt(username));
                 stage.close();
             } else {
                 if (validateOldPassword(username, oldPassword)) {
-
                     new ChangeLoginInfo().changePassword(SessionManager.getName(), SessionManager.getUsername(), newPasswordHasher.hashPassword() + newPasswordHasher.getSalt(username));
                     stage.close();
                 } else {
@@ -120,8 +134,7 @@ public class infoChangeGUI {
             }
         } catch (SQLException e) {
             Main.getErrorLogger().handleException("Error finding old password", e);
-            showAlert("Error", "Failed to change Password.\n" + e.getMessage());
-
+            showAlert("Error", "Failed to change password.\n" + e.getMessage());
         }
         return false;
     }

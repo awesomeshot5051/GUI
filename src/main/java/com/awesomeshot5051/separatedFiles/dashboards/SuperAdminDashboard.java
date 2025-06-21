@@ -23,48 +23,48 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
 
     @Override
     public Parent getView() {
-        // Main container
         VBox root = new VBox(15);
         root.setPadding(new Insets(20));
-        root.setAlignment(Pos.CENTER); // Center the entire content
+        root.setAlignment(Pos.CENTER);
         root.setFillWidth(true);
 
+        // Add style class "root" for background styling
+        root.getStyleClass().add("root");
 
         root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/dashboard.css")).toExternalForm());
 
-
-        // Welcome header
         Label welcome = new Label("Welcome, " + SessionManager.getName());
         welcome.getStyleClass().add("dashboard-header");
 
-        // Create a scrollable area for the buttons
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setFitToWidth(true);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
-        // Create a grid layout for the buttons (2 columns)
+        // Add style class to ScrollPane to enable CSS targeting
+        scrollPane.getStyleClass().add("scroll-pane");
+
         GridPane buttonGrid = new GridPane();
         buttonGrid.setHgap(10);
         buttonGrid.setVgap(10);
         buttonGrid.setPadding(new Insets(5));
-        buttonGrid.setAlignment(Pos.CENTER); // Center the grid content
+        buttonGrid.setAlignment(Pos.CENTER);
 
-        // Set column constraints to ensure both columns have equal width
+        // Add style class "grid-pane" for background styling
+        buttonGrid.getStyleClass().add("grid-pane");
+
         ColumnConstraints column1 = new ColumnConstraints();
         column1.setPercentWidth(50);
-        column1.setHalignment(HPos.CENTER); // Center horizontally within each cell
+        column1.setHalignment(HPos.CENTER);
 
         ColumnConstraints column2 = new ColumnConstraints();
         column2.setPercentWidth(50);
-        column2.setHalignment(HPos.CENTER); // Center horizontally within each cell
+        column2.setHalignment(HPos.CENTER);
 
         buttonGrid.getColumnConstraints().addAll(column1, column2);
 
-        // Create all dashboard buttons
         List<Button> dashboardButtons = createDashboardButtons();
 
-        // Arrange buttons in 2 columns
         int row = 0;
         int col = 0;
         for (Button button : dashboardButtons) {
@@ -73,7 +73,6 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
             buttonGrid.add(button, col, row);
             GridPane.setFillWidth(button, true);
 
-            // Move to next column or row
             col++;
             if (col > 1) {
                 col = 0;
@@ -83,12 +82,10 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
 
         scrollPane.setContent(buttonGrid);
 
-        // Add logout button at the bottom
         Button logoutButton = getLogoutButton();
-        logoutButton.setMaxWidth(300); // Limit width for logout button
-        logoutButton.getStyleClass().add("button"); // Apply button styling
+        logoutButton.setMaxWidth(300);
+        logoutButton.getStyleClass().add("button");
 
-        // Add all elements to the root container
         root.getChildren().addAll(welcome, scrollPane, logoutButton);
 
         return root;
@@ -176,13 +173,15 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
         Button logoutButton = new Button(SessionManager.isSwitchedUser() ? "Exit User Mode" : "Logout");
         logoutButton.setOnAction(e -> {
             if (SessionManager.isSwitchedUser()) {
-                SessionManager.revertToAdmin(); // Go back to original SuperAdmin session
-                Main.getStage().setScene(new Scene(new SuperAdminDashboard().getView())); // Reload dashboard
+                SessionManager.revertToAdmin();
+                Main.getStage().setScene(new Scene(new SuperAdminDashboard().getView()));
             } else {
-                Main.getStage().close(); // Close application
-                new Main().loginScreen();
+                // Use the reusable method properly
+                new Main().loginScreen(); // This is now safe because it uses Main.getStage()
             }
         });
+        logoutButton.getStyleClass().add("button");
         return logoutButton;
     }
+
 }

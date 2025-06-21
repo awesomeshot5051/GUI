@@ -1,35 +1,28 @@
 package com.awesomeshot5051;
 
-import com.awesomeshot5051.separatedFiles.IconFinder;
-import com.awesomeshot5051.separatedFiles.MainScreen;
-import com.awesomeshot5051.separatedFiles.PasswordHasher;
-import com.awesomeshot5051.separatedFiles.UserValues;
-import com.awesomeshot5051.separatedFiles.defaultLoginCheck.DefaultAccountChecker;
-import com.awesomeshot5051.separatedFiles.logs.ErrorLogger;
-import com.awesomeshot5051.separatedFiles.logs.logger;
-import com.awesomeshot5051.separatedFiles.personalInfo.infoChangeGUI;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.GetPasswordExpiration;
-import com.awesomeshot5051.separatedFiles.userValidation.CredentialChecker;
-import com.awesomeshot5051.separatedFiles.userValidation.StatusChecker;
-import javafx.application.Application;
-import javafx.scene.Scene;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.defaultLoginCheck.*;
+import com.awesomeshot5051.separatedFiles.logs.*;
+import com.awesomeshot5051.separatedFiles.personalInfo.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.*;
+import com.awesomeshot5051.separatedFiles.userValidation.*;
+import javafx.application.*;
+import javafx.geometry.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.image.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
+import javafx.stage.*;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Logger;
+import java.io.*;
+import java.nio.file.*;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.*;
 
-import static com.awesomeshot5051.Launcher.serverPassword;
+import static com.awesomeshot5051.Launcher.*;
 
 public class Main extends Application {
     private static final Logger LOGGER = new logger().makeLogger();
@@ -69,25 +62,22 @@ public class Main extends Application {
 
     // Connect to the MySQL database
     public void connectToDatabase() throws SQLException {
-        String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase?noAccessToProcedureBodies=true";
-        connection = DriverManager.getConnection(url, "409644_guest", serverPassword);
+        String url = "jdbc:mysql://mysql-java-hosting-javaguidbhosting.d.aivencloud.com:11510/userdatabase?noAccessToProcedureBodies=true";
+        connection = DriverManager.getConnection(url, "guest", serverPassword);
     }
 
     public void connectToDatabase(String filePath) throws SQLException, IOException {
         String url = "jdbc:mysql://mysql-javaguidbhosting.alwaysdata.net:3306/javaguidbhosting_userdatabase?noAccessToProcedureBodies=true";
-        connection = DriverManager.getConnection(url, "409644_guest", new String(Files.readAllBytes(Paths.get("D:\\GUI\\src\\main\\resources\\guestPassword.txt"))));
+        connection = DriverManager.getConnection(url, "409644_guest", new String(Files.readAllBytes(Paths.get(filePath))));
     }
 
-    // Setup the login screen
     public void loginScreen() {
-        // Create UI elements
         Label userLabel = new Label("Username:");
         TextField username = new TextField();
         Label passLabel = new Label("Password:");
         PasswordField password = new PasswordField();
         Button loginButton = new Button("Login");
 
-        // Set login action for button & enter key press
         loginButton.setOnAction(e -> handleLogin(username, password));
         username.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ENTER) handleLogin(username, password);
@@ -96,17 +86,34 @@ public class Main extends Application {
             if (e.getCode() == KeyCode.ENTER) handleLogin(username, password);
         });
 
-        // Use VBox for vertical layout
-        VBox root = new VBox(10); // Spacing of 10px between elements
-        root.getChildren().addAll(userLabel, username, passLabel, password, loginButton);
+        VBox root = new VBox(10, userLabel, username, passLabel, password, loginButton);
+        root.setAlignment(Pos.CENTER); // This centers the content *within* the VBox
+        root.setPadding(new Insets(20));
+        root.getStyleClass().add("root");
 
-        // Create scene
-        Scene scene = new Scene(root, 400, 300);
+        // Create the scene with the desired initial size
+        Scene loginScene = new Scene(root, 400, 300);
+        loginScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/login.css")).toExternalForm());
 
-        // Configure stage
-        primaryStage.setTitle("JavaFX App");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Stage stage = Main.getStage(); // Get the existing primary stage
+
+
+        // 2. Set the scene on the stage
+        stage.setScene(loginScene);
+
+        // 3. Explicitly set the stage's width and height.
+        //    It's important to do this *after* setting the scene, and preferably
+        //    within Platform.runLater() to ensure the rendering engine has a chance
+        //    to process the scene change.
+        Platform.runLater(() -> {
+            stage.setWidth(400);  // Set the desired width
+            stage.setHeight(300); // Set the desired height
+            stage.centerOnScreen(); // Center the stage on the screen
+        });
+
+
+        stage.setTitle("Login");
+        stage.show();
     }
 
     // Handles login logic

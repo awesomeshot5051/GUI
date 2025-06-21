@@ -1,22 +1,128 @@
+/* Root background to match your dark gradient */
+.root {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: white;
+}
+
+/* Dashboard header matching hero h1 style */
 .dashboard-header {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
-    -fx-padding: 10 0 20 0;
-    -fx-text-fill: #2c3e50;
+    -fx-font-size: 3.5em; /* ~ clamp(2.5rem,5vw,4rem) */
+    -fx-font-weight: 700;
+    -fx-text-fill: #00bfff;
+    -fx-effect: dropshadow(gaussian, #00bfff, 12, 0, 0, 0);
+    -fx-padding: 20 0 30 0;
+    -fx-alignment: center;
 }
 
-.background {
-    -fx-background-color: #42429a;
+/* Accent shadow layers for header (simulate pseudo elements) */
+.dashboard-header-shadow1 {
+    -fx-text-fill: #9333ea;
+    -fx-opacity: 0.7;
+    -fx-translate-x: 2;
+    -fx-translate-y: 2;
+    -fx-font-weight: 700;
+    -fx-font-size: 3.5em;
 }
 
+.dashboard-header-shadow2 {
+    -fx-text-fill: #ef4444;
+    -fx-opacity: 0.7;
+    -fx-translate-x: -2;
+    -fx-translate-y: -2;
+    -fx-font-weight: 700;
+    -fx-font-size: 3.5em;
+}
+
+/* Buttons with your vibrant gradients & hover */
 .button {
     -fx-font-size: 14px;
-    -fx-padding: 10 20;
-    -fx-background-color: #3498db;
+    -fx-font-weight: 600;
+    -fx-padding: 12 24;
+    -fx-background-radius: 8;
     -fx-text-fill: white;
-    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
+    -fx-transition: all 0.3s ease;
 }
 
+/* Hover effect */
 .button:hover {
-    -fx-background-color: #2980b9;
+    -fx-translate-y: -3;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 8);
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+}
+
+/* Secondary Button (like btn-secondary) */
+.button.secondary {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 2;
+    -fx-text-fill: white;
+}
+
+.button.secondary:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Panels or cards with translucent dark backgrounds and subtle borders */
+.panel {
+    -fx-background-color: rgba(45, 45, 45, 0.6);
+    -fx-padding: 25;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 20, 0, 0, 5);
+}
+
+/* Text inside panels */
+.panel-label {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 1.1em;
+}
+
+/* Link style (if you have hyperlinks) */
+.hyperlink {
+    -fx-text-fill: #3b82f6;
+    -fx-underline: true;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #60a5fa;
+}
+
+/* ScrollPane background transparent */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+/* Tooltip style (optional) */
+.tooltip {
+    -fx-background-color: #222222;
+    -fx-text-fill: white;
+    -fx-font-size: 0.85em;
+    -fx-padding: 6 10 6 10;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 191, 255, 0.5), 5, 0, 0, 0);
+}
+
+/*.root {*/
+/*    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1a1a1a, #2d2d2d, #1a1a1a);*/
+/*}*/
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.grid-pane {
+    -fx-background-color: transparent;
 }

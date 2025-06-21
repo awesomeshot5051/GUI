@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-251.25410.129">
+  <component name="dataSourceStorageLocal" created-in="IU-251.26094.121">
     <data-source name="userdatabase@localhost" uuid="1fc88931-6d95-4a54-8d76-6dfa6666561d">
       <database-info product="MySQL" version="8.0.41" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.0.41" exact-driver-version="8.2">
         <extra-name-characters>#@</extra-name-characters>
@@ -32,7 +32,7 @@
       <load-sources>user_and_system_sources</load-sources>
     </data-source>
     <data-source name="javaguidbhosting_userdatabase_guest" uuid="0951346c-abf7-4b66-9eab-4d29e484e7cb">
-      <database-info product="MariaDB" version="10.11.11-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.3.3" dbms="MARIADB" exact-version="10.11.11" exact-driver-version="3.3">
+      <database-info product="MariaDB" version="10.11.13-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.3.3" dbms="MARIADB" exact-version="10.11.13" exact-driver-version="3.3">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -44,6 +44,24 @@
           <node kind="schema">
             <name qname="@" />
             <name qname="javaguidbhosting_userdatabase" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+      <load-sources>user_and_system_sources</load-sources>
+    </data-source>
+    <data-source name="defaultdb@mysql-java-hosting-javaguidbhosting.d.aivencloud.com" uuid="de6789e0-fcc6-4bc3-bb07-b91db2e2be14">
+      <database-info product="MySQL" version="8.0.35" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-j-8.2.0 (Revision: 06a1f724497fd81c6a659131fda822c9e5085b6c)" dbms="MYSQL" exact-version="8.0.35" exact-driver-version="8.2">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>avnadmin</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="@" />
+            <name qname="userdatabase" />
           </node>
         </introspection-scope>
       </schema-mapping>

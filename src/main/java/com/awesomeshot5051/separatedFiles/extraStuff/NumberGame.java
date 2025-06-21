@@ -36,6 +36,7 @@ public class NumberGame extends Application {
         VBox menuBox = new VBox(10);
         menuBox.setPadding(new Insets(20));
         menuBox.getStyleClass().add("menu-box");
+        menuBox.setAlignment(Pos.CENTER);  // <-- center the content
 
         Label header = new Label("Game Type");
         header.getStyleClass().add("header");
@@ -56,7 +57,7 @@ public class NumberGame extends Application {
 
         menuBox.getChildren().addAll(header, computerGuessBtn, userGuessBtn, userVsUserBtn, exitBtn);
 
-        Scene scene = new Scene(menuBox, 300, 250);
+        Scene scene = new Scene(menuBox, 300, 200);  // <-- smaller window size
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
 
         primaryStage.setScene(scene);
@@ -104,7 +105,7 @@ public class NumberGame extends Application {
             int userNum = Integer.parseInt(inputField.getText());
             Random random = new Random();
             num = random.nextInt(low, high + 1);
-                    guessingThread = new Thread(() -> {
+            guessingThread = new Thread(() -> {
                 long realStart = System.currentTimeMillis();
                 int guesses = 0;
 
@@ -166,6 +167,8 @@ public class NumberGame extends Application {
         if (animationThread != null) animationThread.interrupt();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+        alert.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
+        alert.initOwner(primaryStage);
         alert.setTitle("Result");
         alert.setHeaderText(null);
         alert.showAndWait();
@@ -179,6 +182,8 @@ public class NumberGame extends Application {
         int attempts = 0;
         do {
             TextInputDialog dialog = new TextInputDialog();
+            dialog.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
+            dialog.initOwner(primaryStage);
             dialog.setTitle("Guess the number (0-100):");
             dialog.setHeaderText(attempts == 0 ? "Guess the Number" : "Guess the Number:\n(Attempt " + (attempts + 1) + " of 10)");
             Optional<String> input = dialog.showAndWait();
@@ -232,6 +237,8 @@ public class NumberGame extends Application {
     private void userVsUser() {
         int target;
         TextInputDialog setterDialog = new TextInputDialog();
+        setterDialog.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
+        setterDialog.initOwner(primaryStage);
         setterDialog.setHeaderText("Player 1: Enter a number between 0 and 100");
         Optional<String> input = setterDialog.showAndWait();
 
@@ -255,7 +262,9 @@ public class NumberGame extends Application {
 
         while (true) {
             TextInputDialog guessDialog = new TextInputDialog();
-            guessDialog.setHeaderText("Player 2: Guess the number:");
+            guessDialog.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
+            guessDialog.initOwner(primaryStage);
+            guessDialog.setHeaderText("Player 2: Enter a number between 0 and 100");
             Optional<String> guessInput = guessDialog.showAndWait();
 
             if (guessInput.isEmpty()) {
@@ -282,6 +291,8 @@ public class NumberGame extends Application {
 
     private void showTempMessage(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
+        alert.getDialogPane().getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/style.css")).toExternalForm());
+        alert.initOwner(primaryStage);
         alert.setTitle("Hint");
         alert.setHeaderText(null);
         alert.showAndWait();

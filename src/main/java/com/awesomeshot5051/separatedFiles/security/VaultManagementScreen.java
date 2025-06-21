@@ -1,40 +1,30 @@
 package com.awesomeshot5051.separatedFiles.security;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.MainScreen;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
-import javafx.animation.PauseTransition;
-import javafx.application.Platform;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.session.*;
+import javafx.animation.*;
+import javafx.application.*;
+import javafx.collections.*;
+import javafx.concurrent.*;
+import javafx.geometry.*;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.util.Duration;
+import javafx.scene.layout.*;
+import javafx.stage.*;
+import javafx.util.*;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.*;
+import java.nio.file.*;
+import java.sql.*;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 public class VaultManagementScreen {
     private final Stage stage;
@@ -47,12 +37,9 @@ public class VaultManagementScreen {
     public void VaultManagementMainGUI() {
         stage.setTitle("Vault Management");
 
-        // Button for Vault operations
+        // Buttons
         Button encryptButton = getEncryptButton();
-
-
         Button decryptButton = getDecryptButton();
-
 
         Button viewButton = new Button("View");
         viewButton.setOnAction(e -> {
@@ -62,39 +49,41 @@ public class VaultManagementScreen {
                 throw new RuntimeException(ex);
             }
         });
+
         Button openVaultFolder = new Button("Open Vault Folder");
         openVaultFolder.setOnAction(e -> {
             try {
-                // Get the FileEncryption instance which contains the vault directory path
-                FileEncryption fileEncryption = new FileEncryption();
-
-                // Use Desktop.getDesktop().open() to open the folder in File Explorer
-                File vaultFolder = fileEncryption.getVaultDirectory().toFile();
+                File vaultFolder = new FileEncryption().getVaultDirectory().toFile();
                 Desktop.getDesktop().open(vaultFolder);
             } catch (Exception ex) {
-                // Show an error message if something goes wrong
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Could not open vault folder: " + ex.getMessage());
-                alert.showAndWait();
+                showErrorAlert("Could not open vault folder", ex.getMessage());
             }
         });
-        Button editButton = new Button("Edit");
-        editButton.setOnAction(e -> {
-        });
 
-
-        // Exit Button
         Button exitButton = new Button("Exit");
         exitButton.setOnAction(e -> {
-//            stage.close();
-            new MainScreen(SessionManager.getGroupType(), SessionManager.getStatus(), SessionManager.getUsername(), SessionManager.getName(), SessionManager.getConnection(), Main.getStage());
+            new MainScreen(SessionManager.getGroupType(), SessionManager.getStatus(), SessionManager.getUsername(), SessionManager.getName(), SessionManager.getConnection(), stage);
         });
 
         VBox layout = getVBox(encryptButton, decryptButton, viewButton, openVaultFolder, exitButton);
+        layout.getStyleClass().addAll("vault-screen", "root");  // Add both
 
-        stage.setScene(new Scene(layout, 300, 250));
+
+        // Add a CSS class to your layout VBox
+        layout.getStyleClass().add("vault-layout");
+
+        // Apply the CSS stylesheet to the scene
+        Scene scene = new Scene(layout, 300, 250);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/vault.css")).toExternalForm());
+
+        // Add CSS classes to buttons to style them
+        encryptButton.getStyleClass().add("vault-button");
+        decryptButton.getStyleClass().add("vault-button");
+        viewButton.getStyleClass().add("vault-button");
+        openVaultFolder.getStyleClass().add("vault-button");
+        exitButton.getStyleClass().add("vault-button");
+
+        stage.setScene(scene);
         stage.show();
     }
 

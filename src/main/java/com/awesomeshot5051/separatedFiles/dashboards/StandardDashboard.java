@@ -18,51 +18,50 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
 
     @Override
     public Parent getView() {
-        // Main container
         VBox root = new VBox(15);
         root.setPadding(new Insets(20));
-        root.setAlignment(Pos.CENTER); // Center the entire content
+        root.setAlignment(Pos.CENTER);
+        root.getStyleClass().add("root");
 
-        // Welcome header
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/dashboard.css")).toExternalForm());
+
         Label welcome = new Label("Welcome, " + SessionManager.getName());
         welcome.getStyleClass().add("dashboard-header");
 
-        // Create a scrollable area for the buttons
+
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setFitToWidth(true);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.getStyleClass().add("scroll-pane");
 
-        // Create a grid layout for the buttons (2 columns)
         GridPane buttonGrid = new GridPane();
         buttonGrid.setHgap(10);
         buttonGrid.setVgap(10);
         buttonGrid.setPadding(new Insets(5));
-        buttonGrid.setAlignment(Pos.CENTER); // Center the grid content
+        buttonGrid.setAlignment(Pos.CENTER);
+        buttonGrid.getStyleClass().add("grid-pane");
 
-        // Set column constraints to ensure both columns have equal width
         ColumnConstraints column1 = new ColumnConstraints();
         column1.setPercentWidth(50);
-        column1.setHalignment(HPos.CENTER); // Center horizontally within each cell
+        column1.setHalignment(HPos.CENTER);
 
         ColumnConstraints column2 = new ColumnConstraints();
         column2.setPercentWidth(50);
-        column2.setHalignment(HPos.CENTER); // Center horizontally within each cell
+        column2.setHalignment(HPos.CENTER);
 
         buttonGrid.getColumnConstraints().addAll(column1, column2);
 
-        // Create all dashboard buttons
         List<Button> dashboardButtons = createDashboardButtons();
 
-        // Arrange buttons in 2 columns
         int row = 0;
         int col = 0;
         for (Button button : dashboardButtons) {
             button.setMaxWidth(Double.MAX_VALUE);
+            button.getStyleClass().add("button");
             buttonGrid.add(button, col, row);
             GridPane.setFillWidth(button, true);
 
-            // Move to next column or row
             col++;
             if (col > 1) {
                 col = 0;
@@ -70,13 +69,16 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
             }
         }
 
-        scrollPane.setContent(buttonGrid);
+        VBox panelWrapper = new VBox(buttonGrid);
+        panelWrapper.setPadding(new Insets(20));
+        panelWrapper.getStyleClass().add("panel");
 
-        // Add logout button at the bottom
+        scrollPane.setContent(panelWrapper);
+
         Button logoutButton = getLogoutButton();
-        logoutButton.setMaxWidth(300); // Limit width for logout button
+        logoutButton.setMaxWidth(300);
+        logoutButton.getStyleClass().add("button");
 
-        // Add all elements to the root container
         root.getChildren().addAll(welcome, scrollPane, logoutButton);
 
         return root;
@@ -85,7 +87,6 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
     private List<Button> createDashboardButtons() {
         List<Button> buttons = new ArrayList<>();
 
-        // Personal Information buttons
         Button changeUsername = new Button("Change Username");
         changeUsername.setOnAction(e -> new infoChangeGUI().showChangeUsernameGUI());
         buttons.add(changeUsername);
@@ -106,17 +107,12 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
         vault.setOnAction(e -> new VaultManagementScreen().VaultManagementMainGUI());
         buttons.add(vault);
 
-        // Extra fun features
         Button codeCrackerButton = new Button("Code Cracker");
-        codeCrackerButton.setOnAction(e ->
-                new BruteForceCodeCracker().start(Main.getStage())
-        );
+        codeCrackerButton.setOnAction(e -> new BruteForceCodeCracker().start(Main.getStage()));
         buttons.add(codeCrackerButton);
 
         Button numberGameButton = new Button("Number Game");
-        numberGameButton.setOnAction(e ->
-                new NumberGame()
-        );
+        numberGameButton.setOnAction(e -> new NumberGame());
         buttons.add(numberGameButton);
 
         return buttons;
@@ -133,6 +129,7 @@ public class StandardDashboard implements MainScreen.DashboardScreen {
                 new Main().loginScreen();
             }
         });
+        logoutButton.getStyleClass().add("button");
         return logoutButton;
     }
 }

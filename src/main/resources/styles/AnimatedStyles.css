@@ -1,3 +1,16 @@
+/* ===== Base Theme (Dark Gradient Background) ===== */
+.root, .main-layout {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: white;
+}
+
+/* ====== Animated Display Area ====== */
 .animated-display {
     -fx-background-color: #222;
     -fx-background-radius: 5;
@@ -6,31 +19,46 @@
     -fx-border-width: 2;
 }
 
+/* Green active characters */
 .animated-char {
     -fx-fill: #0f0;
     -fx-effect: dropshadow(gaussian, #0f0, 10, 0.3, 0, 0);
 }
 
+/* Yellow cracked characters */
 .cracked-char {
     -fx-fill: #ff0;
     -fx-effect: dropshadow(gaussian, #ff0, 15, 0.5, 0, 0);
 }
 
-.progress-bar > .bar {
-    -fx-background-color: linear-gradient(to right, #2a9d8f, #e9c46a);
+/* ====== Text Fields ====== */
+.text-field, .password-field {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #f0f0f0;
+    -fx-prompt-text-fill: #888;
+    -fx-border-color: #555;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 13px;
 }
 
-.text-area {
-    -fx-font-family: "Consolas", "Courier New", monospace;
+/* ====== Labels ====== */
+.label {
+    -fx-text-fill: #dddddd;
+    -fx-font-size: 14px;
 }
 
+/* ====== Buttons ====== */
 .button {
-    -fx-background-color: #3a86ff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 6;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-padding: 8 16;
-    -fx-background-radius: 4;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
 }
+
 
 .button:hover {
     -fx-background-color: #4895ff;
@@ -40,6 +68,7 @@
     -fx-background-color: #2a76ef;
 }
 
+/* Specific Buttons */
 #startButton {
     -fx-background-color: #2a9d8f;
 }
@@ -56,6 +85,32 @@
     -fx-background-color: #f77f61;
 }
 
+/* ====== Progress Bar ====== */
+.progress-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #2a9d8f, #e9c46a);
+}
+
+.progress-bar {
+    -fx-control-inner-background: #222;
+}
+
+/* ====== TextArea (Log) ====== */
+.text-area {
+    -fx-control-inner-background: #1e1e1e;
+    -fx-text-fill: #e0e0e0;
+    -fx-border-color: #444;
+    -fx-border-radius: 4;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+}
+
+/* ====== Layout Containers ====== */
+.vbox, .hbox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* ====== Result Coloring ====== */
 .result-fast {
     -fx-background-color: #8b0000; /* dark red */
 }

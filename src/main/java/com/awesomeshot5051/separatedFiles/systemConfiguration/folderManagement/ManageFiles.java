@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
+import org.checkerframework.checker.nullness.qual.*;
 
 import java.io.*;
 import java.nio.file.*;
@@ -56,13 +57,25 @@ public class ManageFiles extends Application {
     @Override
     public void start(Stage primaryStage) {
         progressBar = new ProgressBar(0);
+        progressBar.getStyleClass().add("progress-bar");
 
         cancelButton = new Button("Cancel");
+        cancelButton.getStyleClass().addAll("button", "button-cancel");
+
         Button refreshButton = new Button("Refresh");
+        refreshButton.getStyleClass().add("button");
+
         Button browseButton = new Button("Browse...");
+        browseButton.getStyleClass().add("button");
+
         backButton = new Button("Back");
+        backButton.getStyleClass().add("button");
+
         upButton = new Button("Up");
+        upButton.getStyleClass().add("button");
+
         sortSizeButton = new ToggleButton("Sort by Size");
+        sortSizeButton.getStyleClass().add("toggle-button");
 
         cancelButton.setOnAction(e -> cancelScan());
         refreshButton.setOnAction(e -> {
@@ -79,29 +92,35 @@ public class ManageFiles extends Application {
         HBox buttonBar = new HBox(10, cancelButton, refreshButton, browseButton, backButton, upButton, sortSizeButton);
         buttonBar.setPadding(new Insets(10));
         buttonBar.setAlignment(Pos.CENTER_LEFT);
+        buttonBar.getStyleClass().add("hbox");
 
-        // Add current path display
         currentPathLabel = new Label();
-        currentPathLabel.setStyle("-fx-font-weight: bold;");
+        currentPathLabel.getStyleClass().add("label-bold");
 
-        // Add summary label at the top
         summaryLabel = new Label();
-        summaryLabel.setStyle("-fx-font-weight: bold; -fx-padding: 5 0;");
+        summaryLabel.getStyleClass().add("label-bold");
+        summaryLabel.setPadding(new Insets(5, 0, 5, 0));
 
-        // Add status label for showing processing status
         statusLabel = new Label();
-        statusLabel.setStyle("-fx-font-style: italic;");
+        statusLabel.getStyleClass().add("status-label");
 
         fileListVBox = new VBox(10);
         fileListVBox.setPadding(new Insets(10));
+        fileListVBox.getStyleClass().add("vbox");
+
         ScrollPane scrollPane = new ScrollPane(fileListVBox);
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.getStyleClass().add("scroll-pane");
 
         VBox mainLayout = new VBox(10, progressBar, buttonBar, currentPathLabel, summaryLabel, statusLabel, scrollPane);
         mainLayout.setPadding(new Insets(10));
+        mainLayout.getStyleClass().add("vbox");
 
         Scene scene = new Scene(mainLayout, 800, 600);
+
+        // Apply your main stylesheet here (adjust the path as needed)
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
 
         // Folder selection at startup
         DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -121,13 +140,14 @@ public class ManageFiles extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        // Set up a shutdown hook to clean up the thread pools
+        // Clean up thread pools on close
         primaryStage.setOnCloseRequest(e -> {
             cancelScan = true;
             folderScanExecutor.shutdownNow();
             forkJoinPool.shutdownNow();
         });
     }
+
 
     private static void loadFolderData(Path folder) {
         if (folder == null) return;
@@ -307,20 +327,14 @@ public class ManageFiles extends Application {
             double value = Double.parseDouble(parts[0]);
             String unit = parts[1];
 
-            switch (unit) {
-                case "B":
-                    return (long) value;
-                case "KB":
-                    return (long) (value * 1024);
-                case "MB":
-                    return (long) (value * 1024 * 1024);
-                case "GB":
-                    return (long) (value * 1024 * 1024 * 1024);
-                case "TB":
-                    return (long) (value * 1024 * 1024 * 1024 * 1024);
-                default:
-                    return 0;
-            }
+            return switch (unit) {
+                case "B" -> (long) value;
+                case "KB" -> (long) (value * 1024);
+                case "MB" -> (long) (value * 1024 * 1024);
+                case "GB" -> (long) (value * 1024 * 1024 * 1024);
+                case "TB" -> (long) (value * 1024 * 1024 * 1024 * 1024);
+                default -> 0;
+            };
         } catch (Exception e) {
             return 0;
         }
@@ -338,21 +352,24 @@ public class ManageFiles extends Application {
                 try {
                     Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {
                         @Override
-                        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                        @NonNull
+                        public FileVisitResult visitFile(@NonNull Path file, @NonNull BasicFileAttributes attrs) {
                             if (cancelScan) return FileVisitResult.TERMINATE;
                             size.addAndGet(attrs.size());
                             fileCount.incrementAndGet();
                             return FileVisitResult.CONTINUE;
                         }
 
+                        @NonNull
                         @Override
-                        public FileVisitResult visitFileFailed(Path file, IOException exc) {
+                        public FileVisitResult visitFileFailed(@NonNull Path file, @NonNull IOException exc) {
                             // Skip files that can't be accessed
                             return FileVisitResult.CONTINUE;
                         }
 
+                        @NonNull
                         @Override
-                        public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) {
+                        public FileVisitResult preVisitDirectory(@NonNull Path dir, @NonNull BasicFileAttributes attrs) {
                             if (cancelScan) return FileVisitResult.TERMINATE;
                             return FileVisitResult.CONTINUE;
                         }
@@ -373,19 +390,22 @@ public class ManageFiles extends Application {
         hBox.setAlignment(Pos.CENTER_LEFT);
 
         Label nameLabel = new Label(info.path().getFileName().toString());
+        nameLabel.getStyleClass().add("file-name-label");  // optional, for text styling
 
-        // For directories, show "Calculating..." initially
         String sizeText = info.isDirectory() && info.sizeBytes() == 0 ? "Calculating..." : humanReadableByteCount(info.sizeBytes());
         String fileCountText = info.isDirectory() && info.fileCount() == 0 ? "Calculating..." : info.fileCount() + " files";
 
         Label sizeLabel = new Label(sizeText);
+        sizeLabel.getStyleClass().add("size-label");  // optional
+
         Label fileCountLabel = new Label(fileCountText);
+        fileCountLabel.getStyleClass().add("count-label");  // optional
 
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        // Create action buttons
         Button deleteButton = new Button("Delete");
+        deleteButton.getStyleClass().addAll("button", "button-cancel");
         deleteButton.setOnAction(e -> {
             Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
             confirmAlert.setTitle("Confirm Delete");
@@ -399,15 +419,15 @@ public class ManageFiles extends Application {
             }
         });
 
-        hBox.getChildren().addAll(nameLabel, spacer, sizeLabel, fileCountLabel, deleteButton);
+        hBox.getChildren().addAll(nameLabel, spacer, sizeLabel, fileCountLabel);
 
-        // Add Open button for directories
         if (info.isDirectory()) {
             Button openButton = new Button("Open");
+            openButton.getStyleClass().add("button");
             openButton.setOnAction(e -> openFolder(info.path()));
-            hBox.getChildren().add(5, openButton); // Insert before delete button
+            hBox.getChildren().add(openButton);
 
-            hBox.setStyle("-fx-background-color: lightblue; -fx-padding: 5;");
+            hBox.getStyleClass().add("folder-entry");
 
             // Double-click to open folder
             hBox.setOnMouseClicked(e -> {
@@ -416,8 +436,12 @@ public class ManageFiles extends Application {
                 }
             });
         } else {
-            hBox.setStyle("-fx-background-color: lightgray; -fx-padding: 5;");
+            hBox.getStyleClass().add("file-entry");
         }
+
+        hBox.getChildren().add(deleteButton);
+
+        // Optionally, hover effect with CSS; no inline styles here
 
         return hBox;
     }
