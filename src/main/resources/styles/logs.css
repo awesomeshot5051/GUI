@@ -1,0 +1,63 @@
+/* logs.css - dark theme for log viewer */
+
+.root, .main-layout {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: white;
+}
+
+
+.text-area {
+    -fx-control-inner-background: #2b2b2b;
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-text-fill: #dcdcdc;
+    -fx-highlight-fill: #44475a;
+    -fx-highlight-text-fill: #ffffff;
+    -fx-border-color: #444;
+}
+
+/* Buttons */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 6;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
+}
+
+.button:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 8);
+}
+
+
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+.dialog-pane {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+}
+
+.dialog-pane .content {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #3a3a3a;
+    -fx-text-fill: #ffffff;
+}

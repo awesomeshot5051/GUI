@@ -1,0 +1,341 @@
+/* Root background with dark gradient */
+.root {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #e0e0e0;
+    -fx-font-size: 13px;
+}
+
+/* Buttons - Gradient style */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
+}
+
+.button:hover {
+    -fx-translate-y: -3;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 8);
+}
+
+/* Cancel button override */
+.button-cancel {
+    -fx-background-color: #882222;
+    -fx-text-fill: white;
+    -fx-border-color: #770000;
+}
+
+.button-cancel:hover {
+    -fx-background-color: #aa3333;
+}
+
+/* Text field & password field */
+.text-field,
+.password-field,
+.text-area {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #f0f0f0;
+    -fx-prompt-text-fill: #888;
+    -fx-border-color: #555;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 14px;
+    -fx-padding: 6 8;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.7), 8, 0, 0, 0);
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #3b82f6;
+}
+
+/* CheckBox */
+.checkbox {
+    -fx-text-fill: #e0e0e0;
+}
+
+/* Tooltip */
+.tooltip {
+    -fx-background-color: #222;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 6 10;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0, 191, 255, 0.5), 5, 0, 0, 0);
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: rgba(30, 30, 30, 0.9);
+    -fx-table-cell-border-color: #444;
+    -fx-control-inner-background: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #333;
+    -fx-border-width: 0 0 1 0;
+    -fx-text-fill: #00bfff;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: #333;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-row-cell:focused {
+    -fx-background-color: rgba(0, 191, 255, 0.1);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2d2d2d;
+}
+
+.table-cell {
+    -fx-padding: 8;
+    -fx-text-fill: #e0e0e0;
+}
+
+/* ScrollPane */
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Form containers (like dialogs) */
+.form-container {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #444;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.2, 0, 2);
+}
+
+/* Layout containers */
+.vbox {
+    -fx-spacing: 10;
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
+
+.hbox {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+.text-placeholder {
+    -fx-text-fill: #888;
+}
+
+
+/* Folder Scanner specific styles */
+
+/* Progress Bar */
+.progress-bar {
+    -fx-accent: #3b82f6; /* consistent bright blue accent */
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+/* Labels */
+.label-bold {
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-text-fill: #e0e0e0;
+}
+
+.status-label {
+    -fx-font-style: italic;
+    -fx-text-fill: #a0a0a0;
+}
+
+/* HBox and VBox containers (extend your existing classes) */
+.hbox {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+.vbox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+    -fx-alignment: center;
+}
+
+/* ScrollPane transparent background */
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Buttons and ToggleButtons */
+.button,
+.toggle-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: all 0.3s ease;
+}
+
+.button:hover,
+.toggle-button:hover {
+    -fx-translate-y: -3;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #a14eea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 8);
+}
+
+.button:pressed,
+.toggle-button:selected {
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #2c62c4, #6c23a1);
+    -fx-effect: dropshadow(gaussian, rgba(44, 98, 196, 0.7), 15, 0, 0, 8);
+}
+
+/* Container holding the list of files/folders */
+.file-list-container {
+    -fx-background-color: #1a1a1a; /* match root background */
+    -fx-padding: 10;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-spacing: 8;
+}
+
+.folder-entry {
+    -fx-background-color: #2a2a40; /* darker bluish background */
+    -fx-padding: 6 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.file-entry {
+    -fx-background-color: #3a3a3a; /* dark gray background */
+    -fx-padding: 6 10;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.folder-entry:hover,
+.file-entry:hover {
+    -fx-background-color: #4a4a6a; /* slightly lighter on hover */
+    -fx-cursor: hand;
+}
+
+.file-name-label {
+    -fx-text-fill: #e0e0e0; /* light gray text */
+    -fx-font-weight: normal;
+}
+
+.size-label, .count-label {
+    -fx-text-fill: #aaaaaa; /* medium gray */
+    -fx-font-size: 12px;
+}
+
+/* Ensure buttons match existing styles */
+.folder-entry .button,
+.file-entry .button,
+.folder-entry .button-cancel,
+.file-entry .button-cancel {
+    -fx-font-size: 12px;
+    -fx-padding: 4 8;
+}
+
+/* ComboBox (expanded + selected text fix) */
+.combo-box {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: #555;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #3b82f6;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #2b2b2b;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #3b3b3b;
+}
+
+.combo-box .list-cell:selected {
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #2c62c4, #6c23a1);
+    -fx-effect: dropshadow(gaussian, rgba(44, 98, 196, 0.7), 15, 0, 0, 8);
+    -fx-text-fill: white;
+}
+
+.combo-box .text {
+    -fx-fill: white;
+}
+
+/* Ensure BorderPane containers with form usage are styled */
+.form-container {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #444;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.2, 0, 2);
+}
+
+/* Input field for SQL commands */
+.text-field {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #f0f0f0;
+    -fx-prompt-text-fill: #888;
+    -fx-border-color: #555;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 14px;
+    -fx-padding: 6 8;
+}
+
+.text-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.7), 8, 0, 0, 0);
+}
+

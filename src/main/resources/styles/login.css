@@ -1,0 +1,56 @@
+/* Root dark gradient background */
+.root {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: white;
+    -fx-padding: 30;
+    -fx-alignment: center;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #00bfff;
+    -fx-font-size: 1.1em;
+    -fx-font-weight: 600;
+}
+
+/* Text fields */
+.text-field, .password-field {
+    -fx-background-color: #333333;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #555555;
+    -fx-border-width: 1;
+    -fx-padding: 10 12;
+    -fx-font-size: 1em;
+}
+
+/* Focused text fields */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #00bfff;
+    -fx-effect: dropshadow(gaussian, #00bfff, 10, 0, 0, 0);
+}
+
+/* Login button */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 24;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
+}
+
+/* Hover effect */
+.button:hover {
+    -fx-translate-y: -2;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 6);
+}

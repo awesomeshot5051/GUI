@@ -1,0 +1,61 @@
+/* Vault Screen Root Styling */
+.vault-screen {
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 100%,
+            #1a1a1a 0%,
+            #2d2d2d 50%,
+            #1a1a1a 100%
+    );
+    -fx-font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Vault Screen Buttons */
+.vault-screen .button {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-background-color: linear-gradient(from 0% 100% to 100% 0%, #3b82f6, #9333ea);
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.3), 10, 0, 0, 4);
+    -fx-pref-width: 200px;
+}
+
+.vault-screen .button:hover {
+    -fx-translate-y: -3;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.5), 15, 0, 0, 8);
+}
+
+/* Vault Labels */
+.vault-screen .label {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 13px;
+}
+
+/* Vault TextFields and PasswordFields */
+.vault-screen .text-field,
+.vault-screen .password-field {
+    -fx-background-color: #2c2c2c;
+    -fx-text-fill: #f0f0f0;
+    -fx-prompt-text-fill: #888;
+    -fx-border-color: #555;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-font-size: 14px;
+    -fx-padding: 6 8;
+}
+
+.vault-screen .text-field:focused,
+.vault-screen .password-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.7), 8, 0, 0, 0);
+}
+
+/* Vault Containers */
+.vault-screen .vbox {
+    -fx-spacing: 10;
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
