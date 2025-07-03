@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="221f0ff1-d60b-4b0f-9df5-aa057f37628e" name="Changes" comment="Update to version 5.0&#10;Password Manger fully online&#10;Automatic update checker functional&#10;CSS completely done&#10;Ready for Dev Testing">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/de6789e0-fcc6-4bc3-bb07-b91db2e2be14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/de6789e0-fcc6-4bc3-bb07-b91db2e2be14.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SetupScript/EnglandTechnologies.iss" beforeDir="false" afterPath="$PROJECT_DIR$/SetupScript/EnglandTechnologies.iss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,12 @@
                 <item name="GUI" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="GUI" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="shadow" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -214,7 +221,7 @@
       <command value="./gradlew clean build " />
     </option>
   </component>
-  <component name="RunManager" selected="Application.AccessKeyGenerator">
+  <component name="RunManager" selected="Gradle.GUI::GUI [shadowJar]">
     <configuration name="AccessKeyGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.awesomeshot5051.AccessKeyGenerator" />
       <module name="GUI.main" />
@@ -310,28 +317,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GUI::GUI [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="GUI::GUI [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -354,6 +339,28 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="GUI::GUI [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.PasswordHasherGUI" />
@@ -361,16 +368,16 @@
       <item itemvalue="Application.AccessKeyGenerator" />
       <item itemvalue="Gradle.GUI [clean build]" />
       <item itemvalue="Gradle.GUI [processResources]" />
-      <item itemvalue="Gradle.GUI::GUI [build]" />
       <item itemvalue="Gradle.GUI::GUI [run]" />
+      <item itemvalue="Gradle.GUI::GUI [shadowJar]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GUI::GUI [shadowJar]" />
         <item itemvalue="Application.AccessKeyGenerator" />
         <item itemvalue="Gradle.GUI::GUI [run]" />
         <item itemvalue="Gradle.GUI [clean build]" />
         <item itemvalue="Gradle.GUI [processResources]" />
-        <item itemvalue="Gradle.GUI::GUI [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -485,7 +492,7 @@
       <workItem from="1751387334823" duration="59000" />
       <workItem from="1751400504613" duration="20014000" />
       <workItem from="1751481571526" duration="7665000" />
-      <workItem from="1751489432643" duration="5677000" />
+      <workItem from="1751489432643" duration="7010000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -759,7 +766,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751563929020</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Update to version 5.0&#10;Password Manger fully online&#10;Automatic update checker functional&#10;CSS completely done&#10;Ready for Dev Testing">
+      <option name="closed" value="true" />
+      <created>1751564061035</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1751564061035</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

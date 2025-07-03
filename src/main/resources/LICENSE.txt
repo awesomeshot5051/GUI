@@ -1,0 +1,32 @@
+ETVault Guard Copyright © 2025 Trae England. All rights reserved.
+
+This software and all associated source code, binaries, assets, and documentation
+(collectively, “the Software”) are the intellectual property of Trae England.
+
+## General License Terms
+
+Use of the Software is permitted only under the following conditions:
+
+1. **No Redistribution or Modification**
+   You may not distribute, sublicense, sell, rent, lease, modify, reverse engineer, or decompile the Software, in whole or in part, without the express written permission of the author.
+
+2. **No Resale of Access Keys or Licenses**
+   You may not resell, share, or transfer any license keys, access credentials, or other activation mechanisms provided with this Software. All such keys are issued individually and are non-transferable.
+
+3. **Developer Testing Exception**
+   Select individuals ("Developer Testers") may be granted access to the Software solely for the purpose of quality assurance, debugging, performance testing, or providing feedback.
+   - These testers are granted temporary and revocable access to the Software under this exception.
+   - Developer Testers may not distribute, modify, or use the Software beyond the scope of testing.
+   - All developer access keys issued under this exception are for testing only and may be deactivated without notice.
+
+4. **Termination**
+   Any breach of this license automatically terminates all granted rights. The author reserves the right to revoke access or disable issued keys at any time.
+
+## Legal Disclaimer
+
+This Software is provided “as is” without warranty of any kind, express or implied.
+In no event shall the author be liable for any damages arising out of the use or inability to use the Software.
+
+By using or accessing the Software, you acknowledge that you have read, understood, and agreed to the terms of this License.
+
+For licensing or support inquiries, contact: [traeengland01@att.net]
