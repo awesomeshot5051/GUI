@@ -1,6 +1,6 @@
-# 🛡️ England Technologies – Secure User Authentication & Encryption System
+# 🛡️ England Technologies – Secure User Authentication, Vault, & Password Manager
 
-A comprehensive JavaFX application designed to provide secure user authentication, role-based access control, and advanced file encryption. This system employs **AES-256 GCM encryption**, secure access keys, and a professional file vault system to ensure your data is protected with military-grade security practices.
+A comprehensive JavaFX application providing secure user authentication, role-based access control, password management, and advanced file encryption. Designed for maximum privacy and usability, this system implements **AES-256 GCM encryption**, rotating access keys, and a secure file vault to protect your most sensitive data.
 
 ---
 
@@ -8,131 +8,153 @@ A comprehensive JavaFX application designed to provide secure user authenticatio
 
 ### 🔑 User Authentication & Security
 
-- **Advanced Password Management**  
+- **Advanced Password Management**
   - SHA-256 password hashing with random salt  
   - Password expiration and reuse prevention  
   - Password history enforcement
 
-- **Multi-Level Verification**  
-  - Credentials securely validated against a MySQL backend  
-  - Detection of default, expired, or disabled accounts  
+- **Multi-Level Login Verification**
+  - Credentials validated securely against a MySQL backend  
+  - Detection of expired, default, or disabled accounts  
   - Alert system for unusual login behavior
 
-### 🧰 Secure File Vault
+---
 
-- **Modern AES-256 GCM Encryption**  
-  - Uses AES/GCM/NoPadding — a secure, authenticated encryption mode  
-  - Protects both file contents and integrity against tampering  
-  - Eliminates vulnerability to padding oracle attacks (unlike CBC mode)
+### 🔐 Secure Password Manager
 
-- **File Vault Access Key System**  
-  - Vault access is gated by secure, rotating access keys  
-  - Public/private key verification ensures identity and access control  
-  - Permanent keys (paid licenses) and temporary employer-issued keys (via resume verification)
+- **Fully Encrypted Credential Storage**
+  - Passwords, usernames, notes, and labels are stored encrypted using AES-256 GCM
+  - Access to password entries is protected by account-level authentication and access key
 
-- **Secure Filename Encryption**  
-  - Filenames are encrypted using a separate cipher process  
-  - File extensions are hidden to prevent metadata leaks  
-  - Even file types cannot be guessed without access
+- **On-Device Decryption**
+  - Decryption only occurs locally, ensuring plaintext credentials are never transmitted
+
+- **Strength Testing & Labeling**
+  - Built-in password strength analysis tool  
+  - Editable labels and notes for each entry
+
+- **Secure Field-Level Storage**
+  - Each password field is independently encrypted using unique IVs  
+  - Prevents structural inference or brute-force correlation
+
+---
+
+### 🧰 File Vault
+
+- **AES-256 GCM Encryption**
+  - Full support for modern authenticated encryption  
+  - Integrity-checked decryption prevents tampering  
+  - Protection against CBC-based padding attacks
+
+- **Filename Encryption**
+  - Fully encrypted filenames and extensions  
+  - No metadata leaks, even file type is hidden
+
+- **Access Key System**
+  - Access gated by per-user subscription key
+  - Identity and access validated using public/private key system
+
+- **Temporary File Protections**
+  - Secure auto-deletion of temporary decrypted files  
+  - Internal editor support to prevent data exposure
+
+---
 
 ### 🧠 Smart File Handling
 
-- File type auto-detection (Text, Image, PDF, Office, Binary)  
-- Built-in text viewer/editor  
-- External viewer integration for complex formats  
-- Temporary decrypted files are securely wiped after use
+- File type auto-detection: Text, Image, PDF, Office, Binary  
+- Built-in secure viewer/editor  
+- Integration with default applications for external viewing  
+- Encrypted file management within the vault
+
+---
 
 ### 🧑‍💼 Role-Based Access Control
 
 | User Type  | Capabilities                                                    |
 |------------|----------------------------------------------------------------|
-| SuperAdmin | Full control over system configuration, database, users, vault, and logging |
-| Admin      | User and vault management, log access, personal settings       |
-| Standard   | Basic vault and personal access                                 |
-| Default    | Minimal access, used for system initialization                  |
+| SuperAdmin | Full system control: configs, vaults, users, logs              |
+| Admin      | User and vault management, settings, log viewer                |
+| Standard   | Basic vault and password manager access                        |
+| Default    | Minimal access, primarily system setup                         |
 
-- SuperAdmin can switch into other user accounts for testing or support  
-- All roles access only what is explicitly granted based on clearance level
-
-### 🗂️ File & Directory Management
-
-- Full directory explorer with file/folder tools  
-- Built-in storage optimization and cleanup utilities  
-- Vault integration with user-specific access
-
-### 🖥️ User Interface & Experience
-
-- Built with JavaFX for a modern, desktop-grade interface  
-- Clean login and onboarding flow  
-- Role-specific dashboards with dynamic controls  
-- Alerts and tooltips to guide secure usage
+- SuperAdmins can "impersonate" other users for support/debug but the vault and the Password Manager is strictly per-user accessible  
+- Permissions tightly scoped by clearance level
 
 ---
 
 ## ⚙️ Technical Stack
 
-- **Java 21** – Core application  
-- **JavaFX** – UI rendering  
-- **MySQL** – Remote database via alwaysdata.net  
-- **Gradle** – Build and deployment automation  
-- **JCE (Java Cryptography Extension)** – Cryptography backend  
-- **AES-256 GCM** – File encryption (with random IV and 128-bit authentication tag)  
-- **JDBC** – Secure database connections
+- **Java 21** – Core language  
+- **JavaFX** – Desktop GUI  
+- **MySQL** – Encrypted backend storage  
+- **Gradle** – Build & deployment automation  
+- **AES-256 GCM** – Encryption layer  
+- **JDBC** – Secure database communication  
+- **Stripe** – Subscription processing
 
 ---
 
-## 🧾 File Vault Access Workflow
+## 🔑 Access Keys & Subscription System
 
-### 🔑 Permanent Keys
+Vault and password manager access is gated by secure **subscription-based access keys**.
 
-- Purchased via the secure payment portal  
-- Stored in a MySQL table  
-- Permanently linked to a user account
+### 🛒 Purchase Access Keys
 
-### 🔓 Temporary Keys
+- Subscriptions are processed through Stripe
+- Pricing:
+  - **$2/month**
+  - **$22/year** (discounted)
+- Each user account is allowed **one access key**
+- Once a valid subscription is active, the key is **automatically renewed and updated**
+- Keys grant access to both the **vault system** and **password manager**
 
-- Issued when employers upload your resume  
-- Valid for 7 days  
-- Automatically expire and are revoked
+### 🧪 Trial Access
 
-### 🔐 Key Rotation and Verification
+- New users may redeem **one 7-day free trial**  
+- Trial keys are revoked automatically after expiration  
+- Employers may also issue temporary keys via resume upload
 
-- Public keys are generated each time you login  
-- Keys rotate periodically for forward secrecy  
-- Private key is stored locally for decryption only
+### 🔄 Key Rotation & Management
+
+- Public keys rotate per-login for forward secrecy  
+- Private keys remain local for security  
+- All access is validated server-side before vault or password access
 
 ---
 
-## 🔄 Vault Architecture
+## 🧾 Vault Architecture
 
-- All files encrypted before disk write  
-- Vault path is isolated from application directories  
-- Encrypted files cannot be identified without a valid key  
-- Internal editors/viewers protect against temp file abuse  
-- Automatic deletion of decrypted copies on close or timeout
+- Encrypted vault folder separate from core app directory  
+- Encrypted before disk write  
+- No filenames or file types visible without decryption  
+- Decryption creates temp copies only if explicitly requested  
+- Automatic deletion on timeout, close, or logout
 
 ---
 
 ## 🧬 Security Philosophy
 
-- Zero plaintext password storage  
-- Salted hash protection from rainbow table attacks  
-- AES-256 GCM encryption instead of insecure CBC  
-- Session tracking and last login logging  
-- Logging of suspicious activity  
-- Access key validation before decryption
+- No plaintext passwords stored or transmitted  
+- Salted SHA-256 hashing to block rainbow tables  
+- AES-256 GCM prevents tampering and ensures data authenticity  
+- Zero-trust access key validation  
+- Logging and alerting for security anomalies
 
 ---
 
-## Access Keys
-- You can purchase the access keys using this [link](https://javaguidbhosting.alwaysdata.net/)
-- Employers can redeem a temporary access key by uploading a copy of my resume.
-- You can redeem one free trial for the vault, which lasts 7 days.
-- All temporary access keys are valid for 7 days and will automatically be deleted past that time period
-- Peremant access keys are $2
+## 🔗 Links
+
+- 💼 [Purchase Access Key (via Stripe)](https://javaguidbhosting.alwaysdata.net/)
+- 📝 [Submit Resume for Temporary Key](https://javaguidbhosting.alwaysdata.net/employer-resume)
+- 🧪 Free trials available to new users
+
+---
 
 ## ⚠️ Legal Notice
 
-This software is proprietary to England Technologies. Unauthorized use, reproduction, reverse engineering, or distribution is strictly prohibited. All encryption logic, key management algorithms, and access validation mechanisms are protected under copyright.
+This software is proprietary to **England Technologies**.  
+Unauthorized copying, redistribution, reverse engineering, or resale of access keys is strictly prohibited.  
+All encryption logic, key systems, and platform designs are protected by copyright and applicable security laws.
 
 © 2025 England Technologies – All Rights Reserved.
