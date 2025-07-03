@@ -6,6 +6,8 @@ import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.image.*;
+import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 
@@ -18,22 +20,29 @@ public class AdminUserSwitcher {
 
     public void showUserSwitchGUI() {
         Stage stage = new Stage();
+        Image icon = IconFinder.findIcon();
+        stage.getIcons().add(icon);
         stage.setTitle("Authenticate Admin");
 
         Label passLabel = new Label("Enter Admin Password:");
         PasswordField passwordField = new PasswordField();
         Button submitButton = new Button("Authenticate");
-
-        submitButton.setOnAction(e -> {
-            String adminPassword = passwordField.getText();
-            if (authenticateAdmin(SessionManager.getUsername(), adminPassword)) {
-                stage.close();
-                showUserSelectionGUI();
-            } else {
-                showAlert("Incorrect password!");
-                Main.getLogger().warning("Invalid login by " + SessionManager.getUsername());
+        passwordField.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER || e.getSource() == submitButton) {
+                if (authenticateAdmin(SessionManager.getUsername(), passwordField.getText())) {
+                    stage.close();
+                    showUserSelectionGUI();
+                } else {
+                    showAlert("Incorrect password!");
+                    Main.getLogger().warning("Invalid login by " + SessionManager.getUsername());
+                }
             }
         });
+
+        submitButton.setOnAction(e -> passwordField.fireEvent(
+                new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.ENTER, false, false, false, false)
+        ));
+
 
         VBox layout = new VBox(10, passLabel, passwordField, submitButton);
         layout.setAlignment(Pos.CENTER);

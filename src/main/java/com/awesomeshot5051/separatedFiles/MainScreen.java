@@ -1,7 +1,9 @@
 package com.awesomeshot5051.separatedFiles;
 
+import com.awesomeshot5051.separatedFiles.Messages.*;
 import com.awesomeshot5051.separatedFiles.dashboards.*;
 import com.awesomeshot5051.separatedFiles.group.*;
+import com.awesomeshot5051.separatedFiles.session.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
@@ -35,10 +37,12 @@ public class MainScreen {
     public void setUpMainScreen(Stage stage) {
         DashboardScreen dashboardScreen = getDashboardScreen();
         Scene dashboardScene = new Scene(dashboardScreen.getView(), 600, 400);
-
+        if (!SessionManager.isSwitchedUser()) {
+            MessageHandler.checkForMessage();
+        }
         // Set up the main stage
         stage.setScene(dashboardScene);
-        stage.setTitle(IGroupType.getGroupName() + " Dashboard");
+        stage.setTitle("ETVaultGuard");
         stage.setWidth(900);   // Much larger width
         stage.setHeight(700);   // Much larger height
         stage.setMinWidth(400); // Minimum width so it can't be too small

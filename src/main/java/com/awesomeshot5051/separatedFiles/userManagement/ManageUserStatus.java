@@ -1,11 +1,9 @@
 package com.awesomeshot5051.separatedFiles.userManagement;
 
-import com.awesomeshot5051.Main;
-import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import com.awesomeshot5051.*;
+import com.awesomeshot5051.separatedFiles.session.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ManageUserStatus {
 
@@ -25,7 +23,6 @@ public class ManageUserStatus {
             stmt.execute();
             Main.getLogger().info("Successfully changed " + user.getUsername() + " status changed to " + status + " successfully!");
         } catch (SQLException e) {
-            e.printStackTrace(); // Proper error handling
             Main.getLogger().severe("Error Failed to change user status.\n" + e.getMessage());
         }
     }

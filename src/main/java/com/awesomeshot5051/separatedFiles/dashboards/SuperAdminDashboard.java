@@ -7,12 +7,14 @@ import com.awesomeshot5051.separatedFiles.adminAccess.*;
 import com.awesomeshot5051.separatedFiles.extraStuff.*;
 import com.awesomeshot5051.separatedFiles.logs.*;
 import com.awesomeshot5051.separatedFiles.personalInfo.*;
+import com.awesomeshot5051.separatedFiles.security.PasswordManagement.*;
 import com.awesomeshot5051.separatedFiles.security.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import com.awesomeshot5051.separatedFiles.systemConfiguration.*;
 import com.awesomeshot5051.separatedFiles.systemConfiguration.database.*;
 import com.awesomeshot5051.separatedFiles.systemConfiguration.folderManagement.*;
 import com.awesomeshot5051.separatedFiles.userManagement.*;
+import javafx.application.*;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -150,6 +152,17 @@ public class SuperAdminDashboard implements MainScreen.DashboardScreen {
                 new NumberGame()
         );
         buttons.add(numberGameButton);
+        Button passwordManagerButton = new Button("Password Manager");
+        passwordManagerButton.setOnAction(e -> {
+            Platform.runLater(() -> {
+                try {
+                    new PasswordManager().showPasswordManager(Main.getStage());
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+        });
+        buttons.add(passwordManagerButton);
         return buttons;
     }
 

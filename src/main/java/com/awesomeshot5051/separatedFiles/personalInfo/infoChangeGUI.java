@@ -21,6 +21,7 @@ public class infoChangeGUI {
     public void showChangeUsernameGUI() {
         Stage stage = new Stage();
         stage.setTitle("Change Username");
+        stage.getIcons().add(IconFinder.findIcon());
 
         Label newUserLabel = new Label("New Username:");
         TextField newUsernameField = new TextField();
@@ -66,7 +67,7 @@ public class infoChangeGUI {
     public void showChangePasswordGUI() {
         Stage stage = new Stage();
         stage.setTitle("Change Password");
-
+        stage.getIcons().add(IconFinder.findIcon());
         Label oldPassLabel = new Label("Old Password:");
         PasswordField oldPassField = new PasswordField();
         oldPassField.getStyleClass().add("text-field");
@@ -84,7 +85,7 @@ public class infoChangeGUI {
         layout.getStyleClass().add("form-container");
 
         Scene scene = new Scene(layout, 350, 260);
-        scene.getStylesheets().add(getClass().getResource("/styles/Styles.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
 
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);

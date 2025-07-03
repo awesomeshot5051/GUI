@@ -16,6 +16,7 @@ import java.nio.file.*;
 import java.nio.file.attribute.*;
 import java.sql.*;
 import java.time.*;
+import java.util.*;
 
 public class AccessKeyVerification {
     private final Stage stage;
@@ -78,7 +79,7 @@ public class AccessKeyVerification {
             SessionManager.getUser().setAccessKeyValid(valid);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Main.getErrorLogger().silentlyHandle(e);
             SessionManager.getUser().setAccessKeyValid(false);
         }
     }
@@ -106,7 +107,7 @@ public class AccessKeyVerification {
                 return true;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Main.getErrorLogger().silentlyHandle(e);
             // You can also show a user-friendly alert here
         }
         return false;
@@ -145,7 +146,7 @@ public class AccessKeyVerification {
             SessionManager.setAccessKeyValid(true);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            Main.getErrorLogger().handleException("Failed to write and encrypt access key.", e);
             throw new RuntimeException("Failed to write and encrypt access key.", e);
         }
     }
@@ -155,7 +156,7 @@ public class AccessKeyVerification {
         // Setup layout
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20));
-        layout.setStyle("-fx-background-color: #f4f4f4;");
+//        layout.setStyle("-fx-background-color: #f4f4f4;");
 
         Label promptLabel = new Label("Enter your access key:");
         TextField accessKeyField = new TextField();
@@ -190,15 +191,18 @@ public class AccessKeyVerification {
             });
         } else {
             redeemFreeTrial.setDisable(true);
-            redeemFreeTrial.setStyle("-fx-background-color: #d3d3d3;");
+//            redeemFreeTrial.setStyle("-fx-background-color: #d3d3d3;");
             redeemFreeTrial.setText("Free Trial Redeemed");
         }
         layout.getChildren().addAll(promptLabel, accessKeyField, redeemFreeTrial, verifyButton);
 
-        Scene scene = new Scene(layout, 300, 150);
+        Scene scene = new Scene(layout, 315, 250);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Access Key Verification");
-        stage.initModality(Modality.APPLICATION_MODAL); // Blocks until closed
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.getIcons().add(IconFinder.findIcon());
+        // Blocks until closed
         stage.showAndWait();
 
         if (isAccessKeyValid[0]) {

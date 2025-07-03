@@ -149,6 +149,124 @@ public class FileEncryption {
         return FileType.BINARY;
     }
 
+    public byte[] encryptText(String inputText) throws Exception {
+        new PublicKeyManager().rotatePublicKey();
+        if (!new KeyVerifier(
+                new PublicKeyManager().getPublicKey().publicKey(),
+                new PrivateKeyManager().loadPrivateKey()
+        ).verifyKeys()) {
+            throw new SecurityException("Key verification failed. Cannot encrypt text.");
+        }
+
+        SecretKey aesKey = deriveAesKey();
+
+        byte[] iv = new byte[GCM_IV_LENGTH];
+        secureRandom.nextBytes(iv);
+        GCMParameterSpec gcmSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
+
+        Cipher cipher = Cipher.getInstance(CIPHER_TRANSFORMATION);
+        cipher.init(Cipher.ENCRYPT_MODE, aesKey, gcmSpec);
+
+        byte[] plaintextBytes = inputText.getBytes(StandardCharsets.UTF_8);
+        byte[] ciphertext = cipher.doFinal(plaintextBytes);
+
+        // Combine IV + ciphertext
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        outputStream.write(iv);
+        outputStream.write(ciphertext);
+
+        return outputStream.toByteArray();
+    }
+
+    public String decryptText(byte[] encryptedData) throws Exception {
+        if (!new KeyVerifier(
+                new PublicKeyManager().getPublicKey().publicKey(),
+                new PrivateKeyManager().loadPrivateKey()
+        ).verifyKeys()) {
+            throw new SecurityException("Key verification failed. Cannot decrypt text.");
+        }
+
+        SecretKey aesKey = deriveAesKey();
+
+        if (encryptedData.length < GCM_IV_LENGTH) {
+            throw new IllegalArgumentException("Encrypted data is too short to contain an IV.");
+        }
+
+        // Extract IV and ciphertext
+        byte[] iv = Arrays.copyOfRange(encryptedData, 0, GCM_IV_LENGTH);
+        byte[] ciphertext = Arrays.copyOfRange(encryptedData, GCM_IV_LENGTH, encryptedData.length);
+
+        GCMParameterSpec gcmSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
+        Cipher cipher = Cipher.getInstance(CIPHER_TRANSFORMATION);
+        cipher.init(Cipher.DECRYPT_MODE, aesKey, gcmSpec);
+
+        byte[] plaintextBytes = cipher.doFinal(ciphertext);
+        return new String(plaintextBytes, StandardCharsets.UTF_8);
+    }
+
+    public List<byte[]> batchEncryptText(String... texts) throws Exception {
+        new PublicKeyManager().rotatePublicKey();
+        if (!new KeyVerifier(
+                new PublicKeyManager().getPublicKey().publicKey(),
+                new PrivateKeyManager().loadPrivateKey()
+        ).verifyKeys()) {
+            throw new SecurityException("Key verification failed. Cannot encrypt text.");
+        }
+
+        SecretKey aesKey = deriveAesKey();
+        List<byte[]> encryptedList = new ArrayList<>();
+
+        for (String inputText : texts) {
+            byte[] iv = new byte[GCM_IV_LENGTH];
+            secureRandom.nextBytes(iv);
+            GCMParameterSpec gcmSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
+
+            Cipher cipher = Cipher.getInstance(CIPHER_TRANSFORMATION);
+            cipher.init(Cipher.ENCRYPT_MODE, aesKey, gcmSpec);
+
+            byte[] plaintextBytes = inputText.getBytes(StandardCharsets.UTF_8);
+            byte[] ciphertext = cipher.doFinal(plaintextBytes);
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            outputStream.write(iv);
+            outputStream.write(ciphertext);
+
+            encryptedList.add(outputStream.toByteArray());
+        }
+
+        return encryptedList;
+    }
+
+    public List<String> batchDecryptText(byte[]... encryptedBlobs) throws Exception {
+        if (!new KeyVerifier(
+                new PublicKeyManager().getPublicKey().publicKey(),
+                new PrivateKeyManager().loadPrivateKey()
+        ).verifyKeys()) {
+            throw new SecurityException("Key verification failed. Cannot decrypt text.");
+        }
+
+        SecretKey aesKey = deriveAesKey();
+        List<String> results = new ArrayList<>();
+
+        for (byte[] encryptedData : encryptedBlobs) {
+            if (encryptedData.length < GCM_IV_LENGTH) {
+                throw new IllegalArgumentException("Encrypted data too short to contain IV.");
+            }
+
+            byte[] iv = Arrays.copyOfRange(encryptedData, 0, GCM_IV_LENGTH);
+            byte[] ciphertext = Arrays.copyOfRange(encryptedData, GCM_IV_LENGTH, encryptedData.length);
+
+            GCMParameterSpec gcmSpec = new GCMParameterSpec(GCM_TAG_LENGTH, iv);
+            Cipher cipher = Cipher.getInstance(CIPHER_TRANSFORMATION);
+            cipher.init(Cipher.DECRYPT_MODE, aesKey, gcmSpec);
+
+            byte[] plaintextBytes = cipher.doFinal(ciphertext);
+            results.add(new String(plaintextBytes, StandardCharsets.UTF_8));
+        }
+
+        return results;
+    }
+
     public boolean encryptFile(Path sourceFile, String originalFileName) throws Exception {
         // Rotate public key before each encryption
         new PublicKeyManager().rotatePublicKey();
@@ -218,7 +336,7 @@ public class FileEncryption {
                 }
             }
         } catch (FileNotFoundException e) {
-            Main.getErrorLogger().handleException("Vault file not found: accessKey.key", e);
+            Main.getErrorLogger().silentlyHandle(e);
         }
 
         try (InputStream in = Files.newInputStream(encryptedPath);

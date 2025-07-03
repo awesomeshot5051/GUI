@@ -18,6 +18,7 @@ import javafx.util.*;
 import java.security.*;
 import java.util.*;
 import java.util.concurrent.atomic.*;
+import java.util.function.*;
 
 public class BruteForceCodeCracker extends Application {
 
@@ -32,7 +33,7 @@ public class BruteForceCodeCracker extends Application {
     private Button stopButton;
     private final AtomicBoolean isRunning = new AtomicBoolean(false);
     private BruteForceService bruteForceService;
-    private final SecureRandom random = new SecureRandom();
+    private static final SecureRandom random = new SecureRandom();
     private Timeline animationTimeline;
     private Text[] animatedChars;
     private String currentAttempt = "";
@@ -138,14 +139,14 @@ public class BruteForceCodeCracker extends Application {
     private void startBruteForce() {
         String target = targetField.getText().trim();
         if (target.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Please enter a target string to crack.");
+            showAlert("Error", "Please enter a target string to crack.");
             return;
         }
         if (target.length() > 50) {
-            showAlert(Alert.AlertType.ERROR, "Too long!", "Please enter a target string less than 51 characters in length.");
+            showAlert("Too long!", "Please enter a target string less than 51 characters in length.");
             return;
         } else if (target.length() < 8) {
-            showAlert(Alert.AlertType.ERROR, "Too short!", "Please enter a target string greater than 8 characters in length.");
+            showAlert("Too short!", "Please enter a target string greater than 8 characters in length.");
             return;
         }
 
@@ -162,7 +163,7 @@ public class BruteForceCodeCracker extends Application {
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.YES) {
                     if (target.length() > 10) {
-                        Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Since the target is longer than 10 characters, it might go off screen. To see the whole target, please maximize the window");
+                        Alert alert1 = new Alert(Alert.AlertType.INFORMATION, "Since the target is longer than 10 characters, \nit might go off screen. To see the whole target, please maximize the window");
                         FXAlertStyler.style(alert1);
                         alert1.setTitle("Maximize the Screen to see the whole target");
                         alert1.setHeaderText("Long Target Warning");
@@ -398,7 +399,7 @@ public class BruteForceCodeCracker extends Application {
         });
 
         // Show error dialog
-        showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + exception.getMessage());
+        showAlert("Error", "An error occurred: " + exception.getMessage());
     }
 
     private void handleBruteForceCancelled() {
@@ -439,8 +440,8 @@ public class BruteForceCodeCracker extends Application {
         }
     }
 
-    private void showAlert(Alert.AlertType type, String title, String content) {
-        Alert alert = new Alert(type);
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         FXAlertStyler.style(alert);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -455,6 +456,112 @@ public class BruteForceCodeCracker extends Application {
     public void setMinAnimationSpeed(double minAnimationSpeed) {
         this.minAnimationSpeed = minAnimationSpeed;
     }
+
+
+    public static void testPasswordStrength(String password, Consumer<Integer> onScoreReady, Consumer<Throwable> onError) {
+        BackgroundBruteForceService service = new BackgroundBruteForceService(password);
+
+        service.setOnSucceeded(e -> {
+            BruteForceResult result = service.getValue();
+            int score = calculateStrengthScore(result);
+            onScoreReady.accept(score);
+        });
+
+        service.setOnFailed(e -> onError.accept(service.getException()));
+        service.start();
+    }
+
+    private static class BackgroundBruteForceService extends Service<BruteForceResult> {
+        private final String password;
+
+        public BackgroundBruteForceService(String password) {
+            this.password = password;
+        }
+
+        @Override
+        protected Task<BruteForceResult> createTask() {
+            return new Task<>() {
+                @Override
+                protected BruteForceResult call() throws Exception {
+                    // Strip out ALL UI calls — no Platform.runLater, no logArea, no animated display
+                    long startTime = System.currentTimeMillis();
+                    long attempts = 0;
+
+                    int maxLength = 50;
+                    int currentLength = 8;
+
+                    int[] indices = new int[maxLength];
+                    char[] current = new char[maxLength];
+                    boolean[] locked = new boolean[maxLength];
+
+                    for (int i = 0; i < maxLength; i++) {
+                        indices[i] = 0;
+                        current[i] = CHARSET.charAt(0);
+                        locked[i] = false;
+                    }
+
+                    while (currentLength <= maxLength) {
+                        boolean allCurrentLengthLocked = false;
+
+                        while (!allCurrentLengthLocked) {
+                            attempts++;
+
+                            for (int i = 0; i < currentLength; i++) {
+                                if (!locked[i]) {
+                                    current[i] = CHARSET.charAt(random.nextInt(CHARSET.length()));
+                                }
+                            }
+
+                            String attempt = new String(current, 0, currentLength);
+
+                            if (attempt.equals(password)) {
+                                long endTime = System.currentTimeMillis();
+                                return new BruteForceResult(attempt, attempts, endTime - startTime);
+                            }
+
+                            // Lock characters
+                            for (int i = 0; i < currentLength; i++) {
+                                if (i < password.length() && !locked[i] && current[i] == password.charAt(i)) {
+                                    locked[i] = true;
+                                }
+                            }
+
+                            allCurrentLengthLocked = true;
+                            for (int i = 0; i < currentLength; i++) {
+                                if (i < password.length() && !locked[i]) {
+                                    allCurrentLengthLocked = false;
+                                    break;
+                                }
+                            }
+
+                            Thread.sleep(10);
+                        }
+
+                        currentLength++;
+                    }
+
+                    throw new RuntimeException("Password not cracked");
+                }
+            };
+        }
+    }
+
+
+    private static int calculateStrengthScore(BruteForceResult result) {
+        long time = result.durationMillis();
+        long attempts = result.attempts();
+
+        int score = 0;
+        if (time > 2000) score += 2;
+        if (time > 4000) score += 2;
+        if (time > 6000) score += 2;
+        if (attempts > 500) score += 1;
+        if (attempts > 1000) score += 2;
+        if (time > 8000 || attempts > 2000) score += 1; // Bonus
+
+        return Math.min(score, 10);
+    }
+
 
     /**
      * Service for running the brute force attack on a background thread
@@ -606,7 +713,7 @@ public class BruteForceCodeCracker extends Application {
     /**
      * Class to hold the result of a brute force operation
      */
-    private record BruteForceResult(String crackedPassword, long attempts, long durationMillis) {
+    public record BruteForceResult(String crackedPassword, long attempts, long durationMillis) {
     }
 
     public static void main(String[] args) {

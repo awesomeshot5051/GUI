@@ -23,6 +23,11 @@ jar {
     }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
+processResources {
+    filesMatching("version.properties") {
+        expand(project.properties)
+    }
+}
 
 dependencies {
     implementation 'org.openjfx:javafx-controls:21'

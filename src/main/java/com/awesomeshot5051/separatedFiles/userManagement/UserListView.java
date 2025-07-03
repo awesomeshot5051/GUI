@@ -1,23 +1,31 @@
 package com.awesomeshot5051.separatedFiles.userManagement;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.*;
-import com.awesomeshot5051.separatedFiles.Styler.*;
-import com.awesomeshot5051.separatedFiles.group.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import com.awesomeshot5051.separatedFiles.systemConfiguration.database.*;
-import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.*;
-import javafx.beans.property.*;
-import javafx.collections.*;
-import javafx.geometry.*;
-import javafx.scene.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.MainScreen;
+import com.awesomeshot5051.separatedFiles.Messages.MessageHandler;
+import com.awesomeshot5051.separatedFiles.PasswordHasher;
+import com.awesomeshot5051.separatedFiles.Styler.FXAlertStyler;
+import com.awesomeshot5051.separatedFiles.group.SuperAdminIGroup;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import com.awesomeshot5051.separatedFiles.systemConfiguration.database.DatabaseInteraction;
+import com.awesomeshot5051.separatedFiles.systemConfiguration.passwordManagement.GetPasswordExpiration;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.*;
-import javafx.scene.layout.*;
-import javafx.stage.*;
+import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class UserListView {
     private final Stage primaryStage;
@@ -63,11 +71,11 @@ public class UserListView {
             User u = evt.getRowValue();
             try {
                 if (u.getGroup().getGroupName().equalsIgnoreCase("default")) {
-                    showAlert("Error", "Cannot change the default group!");
+                    showAlert("Cannot change the default group!");
                     u.setGroup(evt.getOldValue());
                     return;
                 } else if (u.getName().equalsIgnoreCase(SessionManager.getName())) {
-                    showAlert("Error", "Cannot change your own group!\nContact another admin.");
+                    showAlert("Cannot change your own group!\nContact another admin.");
                     u.setGroup(evt.getOldValue());
                     return;
                 } else {
@@ -159,10 +167,10 @@ public class UserListView {
         primaryStage.show();
     }
 
-    private void showAlert(String title, String content) {
+    private void showAlert(String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         FXAlertStyler.style(alert);
-        alert.setTitle(title);
+        alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
@@ -234,7 +242,83 @@ public class UserListView {
                     try {
                         new DatabaseInteraction().deleteUser(u, currentUser);
                         loadUsersFromDatabase();
-                    } catch (Exception ex) {
+                    } catch (SQLException ex) {
+                        if ("45002".equals(ex.getSQLState())) {
+                            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+                            FXAlertStyler.style(confirm);
+                            confirm.setTitle("Account Deletion");
+                            confirm.setHeaderText("You cannot delete your own account.");
+                            confirm.setContentText("Would you like to request deletion from an admin?");
+
+                            ButtonType yes = new ButtonType("Yes");
+                            ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                            confirm.getButtonTypes().setAll(yes, no);
+
+                            confirm.showAndWait().ifPresent(response -> {
+                                if (response == yes) {
+                                    UserList adminList = DatabaseInteraction.getAdmins(); // Call stored procedure
+                                    if (adminList == null || adminList.isEmpty()) {
+                                        return;
+                                    }
+
+                                    // Convert to usernames + "All Admins" option
+                                    List<String> adminNames = new ArrayList<>();
+                                    adminNames.add("All Admins");
+                                    for (User admin : adminList) {
+                                        if (admin.getUsername().equalsIgnoreCase(SessionManager.getUsername())) {
+                                            continue;
+                                        }
+                                        adminNames.add(admin.getUsername());
+                                    }
+
+                                    ChoiceDialog<String> choiceDialog = new ChoiceDialog<>("All Admins", adminNames);
+                                    FXAlertStyler.style(choiceDialog);
+                                    choiceDialog.setTitle("Select Admin");
+                                    choiceDialog.setHeaderText("Send deletion request to:");
+                                    choiceDialog.setContentText("Choose an admin:");
+
+                                    choiceDialog.showAndWait().ifPresent(selected -> {
+                                        try {
+                                            String currentUsername = SessionManager.getUsername(); // Or wherever you store the current user
+                                            String requestMsg = currentUsername + " has requested their account be deleted.";
+
+                                            if (selected.equals("All Admins")) {
+                                                for (User admin : adminList) {
+                                                    MessageHandler.sendMessage(admin, requestMsg);
+                                                }
+                                            } else {
+                                                MessageHandler.sendMessage(adminList.findByUsername(selected), requestMsg); // Fallback User
+                                            }
+
+                                            Alert sent = new Alert(Alert.AlertType.INFORMATION);
+                                            FXAlertStyler.style(sent);
+                                            sent.setTitle("Request Sent");
+                                            sent.setHeaderText(null);
+                                            sent.setContentText("Your deletion request has been sent to " + selected + ".");
+                                            sent.showAndWait();
+
+                                        } catch (Exception exception) {
+                                            Main.getErrorLogger().silentlyHandle(exception);
+                                            Alert error = new Alert(Alert.AlertType.ERROR);
+                                            FXAlertStyler.style(error);
+                                            error.setTitle("Error");
+                                            error.setHeaderText("Could not send message");
+                                            error.setContentText(exception.getMessage());
+                                            error.showAndWait();
+                                        }
+                                    });
+                                }
+                            });
+                        } else {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            FXAlertStyler.style(alert);
+                            alert.setTitle("Database Error");
+                            alert.setHeaderText("Operation Failed");
+                            alert.setContentText(ex.getMessage());
+                            alert.showAndWait();
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Main.getLogger().severe("Failed to delete user: " + u.getUsername());
                         // Show a popup if there is an SQL exception
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         FXAlertStyler.style(alert);
@@ -244,6 +328,8 @@ public class UserListView {
                         alert.showAndWait();
                     }
                 });
+
+
             }
 
             @Override

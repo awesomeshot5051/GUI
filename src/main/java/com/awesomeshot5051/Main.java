@@ -64,7 +64,7 @@ public class Main extends Application {
     // Connect to the MySQL database
     public void connectToDatabase() throws SQLException {
         String url = "jdbc:mysql://mysql-java-hosting-javaguidbhosting.d.aivencloud.com:11510/userdatabase?noAccessToProcedureBodies=true";
-        connection = DriverManager.getConnection(url, "guest", serverPassword);
+        connection = DriverManager.getConnection(url, "avnadmin", serverPassword);
     }
 
     public void connectToDatabase(String filePath) throws SQLException, IOException {
@@ -154,6 +154,7 @@ public class Main extends Application {
             } else {
                 // ❗ Invalid login credentials
                 showAlert("Invalid Login", "Invalid username or password.");
+                password.clear();
                 LOGGER.warning("Invalid login by " + username.getText());
             }
         } catch (SQLException ex) {
@@ -177,6 +178,7 @@ public class Main extends Application {
     // Start method to initialize the application
     @Override
     public void start(Stage primaryStage) throws SQLException {
+        UpdateChecker.checkForUpdate(primaryStage);
         Main.primaryStage = primaryStage;
         connectToDatabase(); // Ensure connection before loading the UI
         Image icon = IconFinder.findIcon();

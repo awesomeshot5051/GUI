@@ -1,10 +1,9 @@
 package com.awesomeshot5051.separatedFiles.systemConfiguration.database;
 
-import com.awesomeshot5051.*;
-import com.awesomeshot5051.separatedFiles.Styler.*;
-import com.awesomeshot5051.separatedFiles.session.*;
-import com.awesomeshot5051.separatedFiles.userManagement.*;
-import javafx.scene.control.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.session.SessionManager;
+import com.awesomeshot5051.separatedFiles.userManagement.User;
+import com.awesomeshot5051.separatedFiles.userManagement.UserList;
 
 import java.sql.*;
 
@@ -27,31 +26,36 @@ public class DatabaseInteraction {
                 stmt.setString(3, user.getGroup().getGroupName());
                 stmt.setString(4, user.statusProperty().get());
                 stmt.executeUpdate();
-                System.out.println("User " + user.getUsername() + " updated successfully.");
+//                System.out.println("User " + user.getUsername() + " updated successfully.");
                 user.setModified(false);
             } catch (SQLException e) {
                 Main.getLogger().severe("Failed to update user: " + user.getUsername());
-                e.printStackTrace();
             }
         }
     }
 
-    public void deleteUser(User user, String currentUser) {
+    public void deleteUser(User user, String currentUser) throws SQLException, ClassNotFoundException {
         try (PreparedStatement stmt = connection.prepareStatement("CALL DeleteUser(?, ?, ?)")) {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getName());
             stmt.setString(3, currentUser);
             stmt.executeUpdate();
             Main.getLogger().info("User " + user.getUsername() + " deleted successfully.");
-        } catch (SQLException e) {
-            Main.getLogger().severe("Failed to delete user: " + user.getUsername());
-            // Show a popup if there is an SQL exception
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            FXAlertStyler.style(alert);
-            alert.setTitle("Database Error");
-            alert.setHeaderText("Operation Failed");
-            alert.setContentText(e.getMessage()); // Shows "You cannot delete your own account"
-            alert.showAndWait();
         }
+
+    }
+
+    public static UserList getAdmins() {
+        UserList admins = new UserList();
+        try (CallableStatement cs = SessionManager.getConnection().prepareCall("{ call getAdmins()}")) {
+            try (ResultSet rs = cs.executeQuery()) {
+                while (rs.next()) {
+                    admins.add(new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+                }
+            }
+        } catch (SQLException ex) {
+            Main.getErrorLogger().handleException("Error getting admins for user", ex);
+        }
+        return admins.isEmpty() ? null : admins;
     }
 }

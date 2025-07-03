@@ -2,16 +2,19 @@ package com.awesomeshot5051.separatedFiles.dashboards;
 
 import com.awesomeshot5051.*;
 import com.awesomeshot5051.separatedFiles.*;
+import com.awesomeshot5051.separatedFiles.Messages.*;
 import com.awesomeshot5051.separatedFiles.Styler.*;
 import com.awesomeshot5051.separatedFiles.accesskey.*;
 import com.awesomeshot5051.separatedFiles.adminAccess.*;
 import com.awesomeshot5051.separatedFiles.extraStuff.*;
 import com.awesomeshot5051.separatedFiles.logs.*;
 import com.awesomeshot5051.separatedFiles.personalInfo.*;
+import com.awesomeshot5051.separatedFiles.security.PasswordManagement.*;
 import com.awesomeshot5051.separatedFiles.security.*;
 import com.awesomeshot5051.separatedFiles.session.*;
 import com.awesomeshot5051.separatedFiles.systemConfiguration.folderManagement.*;
 import com.awesomeshot5051.separatedFiles.userManagement.*;
+import javafx.application.*;
 import javafx.geometry.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -115,14 +118,7 @@ public class AdminDashboard implements MainScreen.DashboardScreen {
         manageFilesButton.setOnAction(e -> ManageFiles.launchFolderScanner());
         buttons.add(manageFilesButton);
 
-        Button vault = new Button("Vault");
-        vault.setOnAction(e -> {
-            if (SessionManager.isAccessKeyValid()) {
-                new VaultManagementScreen().VaultManagementMainGUI();
-            } else {
-                new AccessKeyVerification().AccessKeyVerificationWindow();
-            }
-        });
+        Button vault = accessVault();
         buttons.add(vault);
 
         Button switchUserButton = getSwitchUserButton();
@@ -136,7 +132,56 @@ public class AdminDashboard implements MainScreen.DashboardScreen {
         numberGameButton.setOnAction(e -> new NumberGame());
         buttons.add(numberGameButton);
 
+        Button passwordManagerButton = getPasswordManagerButton();
+        buttons.add(passwordManagerButton);
         return buttons;
+    }
+
+    private static Button getPasswordManagerButton() {
+        Button passwordManagerButton = new Button("Password Manager");
+        passwordManagerButton.setOnAction(e -> {
+            Platform.runLater(() -> {
+                if (SessionManager.isSwitchedUser()) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    FXAlertStyler.style(alert);
+                    alert.setTitle("Switch User Mode");
+                    alert.setHeaderText(null);
+                    alert.setContentText("You must exit user mode before accessing the password manager! Please logout and try again!");
+                    MessageHandler.sendMessage(SessionManager.getUser(), SessionManager.getOriginalAdminUser().getUsername() + " tried to access your password manager while in switched-user mode! Please report this to the admin. If they are the admin, please disregard this message, as it was a test of User Access Control");
+                    alert.showAndWait();
+                    return;
+                }
+                try {
+                    new PasswordManager().showPasswordManager(Main.getStage());
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+        });
+        return passwordManagerButton;
+    }
+
+    private static Button accessVault() {
+        Button vault = new Button("Vault");
+        vault.setOnAction(e -> {
+            if (SessionManager.isSwitchedUser()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                FXAlertStyler.style(alert);
+                alert.setTitle("Switch User Mode");
+                alert.setHeaderText(null);
+                alert.setContentText("You must exit user mode before accessing the vault! Please logout and try again!");
+                alert.showAndWait();
+                Main.getLogger().severe(SessionManager.getOriginalAdminUser().getUsername() + " tried to access someone else's vault while in switched-user mode! This will be reported!");
+                MessageHandler.sendMessage(SessionManager.getUser(), SessionManager.getOriginalAdminUser().getUsername() + " tried to access your vault while in switched-user mode! Please report this to the admin If they are the admin, please disregard this message, as it was a test of User Access Control");
+                return;
+            }
+            if (SessionManager.isAccessKeyValid()) {
+                new VaultManagementScreen().VaultManagementMainGUI();
+            } else {
+                new AccessKeyVerification().AccessKeyVerificationWindow();
+            }
+        });
+        return vault;
     }
 
     private static Button getSwitchUserButton() {

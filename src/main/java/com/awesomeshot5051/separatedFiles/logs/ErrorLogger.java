@@ -1,18 +1,24 @@
 package com.awesomeshot5051.separatedFiles.logs;
 
-import com.awesomeshot5051.*;
-import javafx.scene.control.*;
+import com.awesomeshot5051.Main;
+import com.awesomeshot5051.separatedFiles.Styler.FXAlertStyler;
+import javafx.scene.control.Alert;
 
 import javax.swing.*;
 import java.io.*;
-import java.nio.file.*;
-import java.text.*;
-import java.time.*;
-import java.time.format.*;
-import java.util.*;
-import java.util.concurrent.atomic.*;
-import java.util.logging.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.logging.FileHandler;
 import java.util.logging.Formatter;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 /**
  * Enhanced error logging facility with humorous messages and system integration.
@@ -171,11 +177,16 @@ public class ErrorLogger {
     public void handleException(String message, Throwable throwable) {
         logError(throwable);
         Alert alert = new Alert(Alert.AlertType.ERROR);
+        FXAlertStyler.style(alert);
         alert.setTitle("Error");
         alert.setHeaderText(message);
         alert.setContentText(throwable.getMessage() +
                 "\n\nError details have been logged to:\n" + ERROR_LOG_PATH);
         alert.showAndWait();
+    }
+
+    public void silentlyHandle(Throwable throwable) {
+        logError(throwable);
     }
 
     /**

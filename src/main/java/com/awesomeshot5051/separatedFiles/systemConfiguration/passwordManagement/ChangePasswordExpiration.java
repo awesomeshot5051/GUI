@@ -8,6 +8,7 @@ import javafx.scene.layout.*;
 import javafx.stage.*;
 
 import java.sql.*;
+import java.util.*;
 
 public class ChangePasswordExpiration {
 
@@ -36,8 +37,9 @@ public class ChangePasswordExpiration {
             new SystemConfigurationGUI().SystemConfigurationMainGUI();
         });
         VBox layout = new VBox(10, expirationDays, set, exit);
-
-        stage.setScene(new Scene(layout, 300, 250));
+        Scene scene = new Scene(layout, 300, 250);
+        stage.setScene(scene);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/styles/Styles.css")).toExternalForm());
         stage.show();
     }
 
