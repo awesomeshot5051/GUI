@@ -107,7 +107,7 @@ Vault and password manager access is gated by secure **subscription-based access
   - **$22/year** (discounted)
 - Each user account is allowed **one access key**
 - Once a valid subscription is active, the key is **automatically renewed and updated**
-- Keys grant access to both the **vault system** and **password manager**
+- Keys grant access to both the **vault system**
 
 ### 🧪 Trial Access
 
